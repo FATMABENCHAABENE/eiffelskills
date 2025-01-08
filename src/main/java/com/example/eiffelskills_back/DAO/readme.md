@@ -1,0 +1,1 @@
+This package contains Data Associated Objects making a link between database and java program.
