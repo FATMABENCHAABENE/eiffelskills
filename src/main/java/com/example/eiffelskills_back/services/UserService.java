@@ -13,7 +13,7 @@ public class UserService {
 
     @Transactional
     public boolean checkUser(User user) {
-        Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), user.getPassword());
+        Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), user.getPassword(), user.getRole());
         if (users.iterator().hasNext()) {
             return true;
         } else {

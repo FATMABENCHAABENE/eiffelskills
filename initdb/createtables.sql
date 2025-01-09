@@ -6,5 +6,13 @@ create table
                     surname character varying null,
                     mail character varying not null,
                     password text not null,
-                    constraint utilisateur_pkey primary key (id)
+                    role text null,
+                    constraint utilisateur_pkey primary key (id),
+                    constraint user_role_check check (
+                        (
+                            role = any (
+                                array['teacher'::text, 'student'::text, 'admin'::text]
+                                )
+                            )
+                        )
 );
