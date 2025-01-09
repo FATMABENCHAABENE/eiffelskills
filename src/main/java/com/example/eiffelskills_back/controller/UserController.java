@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
+    @GetMapping("")
+    public String test() {
+        return "Test user API";
+    }
+
     @PostMapping("")
     public boolean login(@RequestBody User user) {
         return userService.checkUser(user);
