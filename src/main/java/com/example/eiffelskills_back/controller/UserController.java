@@ -17,7 +17,7 @@ public class UserController {
         return "Test user API";
     }
 
-    @PostMapping("")
+    @PostMapping("/login")
     public boolean login(@RequestBody User user) {
         return userService.checkUser(user);
     }
