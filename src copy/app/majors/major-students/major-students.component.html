@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center">
+  <h1>Étudiants de la filière</h1>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Date de naissance</th>
+      <th scope="col">Filière</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (studentsFromMajor$ | async; as studentsFromMajor) { @if (studentsFromMajor.length === 0) {
+    <h2>Aucun étudiant n'est inscrit dans cette filière.</h2>
+    } @for (student of studentsFromMajor; track student) {
+    <tr>
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.birthdate | date : "dd/MM/yyyy" }}</td>
+      <td>{{ student.major!!.name }}</td>
+    </tr>
+    } }
+  </tbody>
+</table>
