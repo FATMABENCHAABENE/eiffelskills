@@ -12,12 +12,12 @@ public class UserService {
     private final UserDao userDao;
 
     @Transactional
-    public boolean checkUser(User user) {
+    public Long checkUser(User user) {
         Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), user.getPassword(), user.getRole());
         if (users.iterator().hasNext()) {
-            return true;
+            return users.iterator().next().getId();
         } else {
-            return false;
+            return null;
         }
     }
 }

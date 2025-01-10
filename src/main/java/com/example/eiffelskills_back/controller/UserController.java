@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestBody User user) {
+    public Long login(@RequestBody User user) {
         return userService.checkUser(user);
     }
 }
