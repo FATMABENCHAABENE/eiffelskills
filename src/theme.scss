@@ -1,0 +1,54 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$dark-purple-palette: (
+  50: #6a0f59,
+  100: #7d1269,
+  200: #74107f,
+  300: #580c61,
+  400: #5d0d82,
+  500: #4a0a67,
+  600: #43095d,
+  700: #35074a,
+  800: #290539,
+  900: #1b0325,
+  contrast: (
+    A50: #eac7f9,
+  ),
+);
+$red-purple-palette: (
+  50: #b71c32,
+  100: #b01c32,
+  200: #c31d47,
+  300: #a5193d,
+  400: #b11b52,
+  500: #961644,
+  600: #a01860,
+  700: #82134e,
+  800: #8d1667,
+  900: #751255,
+  contrast: (
+    A50: #961644,
+  ),
+);
+
+$my-primary: mat.define-palette($dark-purple-palette, 500, 50, 900);
+$my-accent: mat.define-palette($red-purple-palette, 500, 50, 900);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+  )
+);
+
+@include mat.all-component-colors($my-theme);
+
+$common-purple: mat.get-color-from-palette($dark-purple-palette, 500);
+$common-red: mat.get-color-from-palette(mat.$red-palette, A700);
+$warn: mat.get-color-from-palette($my-warn, 400);
+$white: #ffffff;

@@ -1,0 +1,241 @@
+<style>
+    .label-container label {
+      text-align: left;
+      margin-bottom: 20px;
+      margin-left: 10px;  
+    }
+    .title-container {
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3em;
+    color: #333;
+    margin: 0;
+  }
+    
+    .label-container {
+    font-size: 17px; 
+    border: 1px solid #000;
+    padding: 10px; 
+    display: inline-block;
+    width: 700px; 
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+  }
+
+  .submit-button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 10px; 
+  }
+
+  #message {
+    background-color: white;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px; 
+  }
+
+  #message.success {
+    background-color: #4CAF50;
+    color: white; 
+    font-size: 20px; 
+  }
+
+  </style>
+
+ <div class="container">
+  <div class="title-container">
+    <h1 class="title">La page de modification</h1>
+  </div>
+</div>
+<h1> </h1>
+
+<form (submit)="updateFormPersonalinfo()">
+  <div class="label-container">
+    <label class="label">Informations personnelles</label>
+    <ul>
+      <li *ngFor="let info of infos">
+        {{ info.id }} - {{ info.surname }} - {{ info.name }} - {{ info.birth | date:"longDate" }}
+      </li>
+    </ul>
+    
+    <div id="message" [ngClass]="{'success': formSubmitted}">Modification effectuée !</div>
+    
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Nom de famille:</label>
+    <input type="text" id="surname" [(ngModel)]="surname" name="surname" placeholder="Nom de famille"><br>
+
+    <label for="prenom">Prénom:</label>
+    <input type="text" id="name"  [(ngModel)]="name" name="name" placeholder="Prénom"><br>
+
+    <label for="prenom">Date de naissance:</label>
+    <input type="date" id="birth" [(ngModel)]="birth" name="birth" placeholder="Date de naissance"><br>
+    
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>
+
+<form (submit)="updateFormDiploma()">
+  <div class="label-container">
+    <label class="label">Diplômes</label>
+    <ul>
+      <li *ngFor="let diplome of diplomes">
+        {{ diplome.id }} - {{ diplome.name }} - {{ diplome.school }} - {{ diplome.obtentionDate | date:"longDate" }}
+      </li>
+    </ul>
+
+    <div id="message" [ngClass]="{'success': formSubmittedDI}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Nom du diplome:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" placeholder="Entrez le diplome"><br>
+
+    <label for="prenom">Nom de l'établissement:</label>
+    <input type="text" id="prenom" [(ngModel)]="school" name="prenom" placeholder="Entrez l'établissemnt"><br>
+    
+    <label for="nom">Année d'obtention:</label>
+    <input type="date" id="nom" [(ngModel)]="obtentionDate" name="nom" placeholder="Entrez la DD"><br>
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>
+
+
+<form (submit)="updateFormExPro()">
+  <div class="label-container">
+    <label class="label">Expériences professionnelles </label>
+    <ul>
+      <li *ngFor="let experience of expro">
+        {{ experience.id }} - {{ experience.nameC }} - {{ experience.beginD | date:"longDate"}} - {{ experience.endD | date:"longDate"}} - {{ experience.job }}
+      </li>
+    </ul>
+
+    <div id="message" [ngClass]="{'success': formSubmittedEX}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Nom de l'entreprise:</label>
+    <input type="text" id="nameC" [(ngModel)]="nameC" name="nameC" placeholder="Entrez l'entreprise"><br>
+    
+    <label for="prenom">Date début:</label>
+    <input type="date" id="beginD" [(ngModel)]="beginD" name="beginD" placeholder="Entrez la date de début"><br>
+    
+    <label for="nom">Date de fin:</label>
+    <input type="date" id="endD" [(ngModel)]="endD" name="endD" placeholder="Entrez la date de fin"><br>
+    
+    <label for="nom">Nom du poste:</label>
+    <input type="text" id="job" [(ngModel)]="job" name="job" placeholder="Nom du poste"><br>
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form> 
+
+
+<form (submit)="updateFormSkills()">
+  <div class="label-container">
+    <label class="label">Compétences techniques </label>
+    <ul>
+      <li *ngFor="let skill of skills">
+        {{ skill.id }} - {{ skill.domains }} - {{ skill.details }}
+      </li>
+    </ul>
+
+    <div id="message" [ngClass]="{'success': formSubmittedSK}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Domaine d'expertise:</label>
+    <input type="text" id="domains" [(ngModel)]="domains" name="domains" placeholder="Entrez le domaine"><br>
+  
+    <label for="prenom">Détails:</label>
+    <input type="text" id="details" [(ngModel)]="details" name="details" placeholder="Précisez"><br>
+  
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>  
+
+
+
+<form (submit)="updateFormCertif()">
+  <div class="label-container">
+    <label class="label">Certifications</label>
+    <ul>
+      <li *ngFor="let certif of certif">
+        {{ certif.id }} - {{ certif.name }} - {{ certif.domain }}
+      </li>
+    </ul>
+
+    <div id="message" [ngClass]="{'success': formSubmittedCE}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Nom de la certification:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" placeholder="Entrez le nom"><br>
+    
+    <label for="prenom">Domaine:</label>
+    <input type="text" id="domain" [(ngModel)]="domain" name="domain" placeholder="Domaines ? "><br>
+    
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>
+
+
+<form (submit)="updateFormHobbie()">
+  <div class="label-container">
+    <label class="label">Centres d'intérêt</label>
+    <ul>
+      <li *ngFor="let hobbie of hobbie">
+        {{ hobbie.id }} - {{ hobbie.description }}
+      </li>
+    </ul>
+    <div id="message" [ngClass]="{'success': formSubmittedHO}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Centre d'intérêt:</label>
+    <input type="text" id="description" [(ngModel)]="description" name="description" placeholder="Entrez un centre d'intérêt"><br>
+    
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>
+
+<form (submit)="updateFormContact()">
+  <div class="label-container">
+    <label class="label">Contact</label>
+    <ul>
+      <li *ngFor="let contact of contact">
+        {{ contact.id }} - {{ contact.type }} - {{ contact.info }}
+      </li>
+    </ul>
+    
+    <div id="message" [ngClass]="{'success': formSubmittedCO}">Modification effectuée !</div>
+
+    <label for="prenom">ID :</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" placeholder="id"><br>
+
+    <label for="prenom">Type de contact:</label>
+    <input type="text" id="type" [(ngModel)]="type" name="type" placeholder="Num / TEL / adresse mail"><br>
+  
+    <label for="prenom">contact:</label>
+    <input type="text" id="info" [(ngModel)]="info" name="info" placeholder="entrez le contact"><br>
+    <button class="submit-button" type="submit">Modifier</button>
+  </div>
+</form>
+  
+  
+  
