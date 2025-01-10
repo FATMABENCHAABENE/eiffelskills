@@ -3,6 +3,7 @@ package com.example.eiffelskills_back.controller;
 import com.example.eiffelskills_back.models.User;
 import com.example.eiffelskills_back.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
@@ -13,6 +14,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("")
+    @PreAuthorize("hasRole('admin')")
     public String test() {
         return "Test user API";
     }
