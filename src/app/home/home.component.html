@@ -1,100 +1,11 @@
-<style>
-  .label-container label {
-    text-align: left;
-    margin-bottom: 10px; 
-  }
-  .label-container {
-    font-size: 17px; 
-    border: 1px solid #000;
-    padding: 10px; 
-    display: inline-block;
-    width: 700px; 
-    height: 150px;
-    box-sizing: border-box;
-    margin-left: 10px; 
-  }
-</style>
-
-<span class="title">Bonjour sur créerunCV.com !</span>
 <div>
-  <span class="welcome">Créez votre nouveau CV </span>
-  <img src="assets/log.png" height="80">
+  <h1>Connexion</h1>
+
+  <label for="mail">Mail :</label>
+  <input type="text" id="mail" name="mail" required />
+
+  <label for="password">Password :</label>
+  <input type="password" id="password" name="password" required />
+
+  <button (click)="seConnecter()">Se connecter</button>
 </div>
-<span class="title">Voici un modèle de CV</span>
-<h1> </h1>
-<div class="label-container">
-  <label class="label">Informations personnelles</label>
-  <ul>
-    <li *ngFor="let info of infos">
-      {{ info.surname }} - {{ info.name }} - {{ info.birth | date:'longDate' }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Diplômes</label>
-  <ul>
-    <li *ngFor="let diplome of diplomes">
-      {{ diplome.name }} - {{ diplome.school }} - {{ diplome.obtentionDate | date:'longDate' }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Expériences professionnelles </label>
-  <ul>
-    <li *ngFor="let experience of expro">
-      {{ experience.nameC }} - {{ experience.beginD | date:'longDate' }} - {{ experience.endD | date:'longDate' }} - {{ experience.job }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Compétences techniques </label>
-  <ul>
-    <li *ngFor="let skill of skills">
-      {{ skill.domains }} - {{ skill.details }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Certifications</label>
-  <ul>
-    <li *ngFor="let certif of certif">
-      {{ certif.name }} - {{ certif.domain }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Centres d'intérêt</label>
-  <ul>
-    <li *ngFor="let hobbie of hobbie">
-      {{ hobbie.description }}
-    </li>
-  </ul>
-</div>
-
-<h1></h1>
-
-<div class="label-container">
-  <label class="label">Contact</label>
-  <ul>
-    <li *ngFor="let contact of contact">
-      {{ contact.type }} - {{ contact.info }}
-    </li>
-  </ul>
-</div>
-
-
