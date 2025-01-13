@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public class UserService implements UserDetailsService {
     public Long checkUser(User user) {
         Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), user.getPassword(), user.getRole());
         if (users.iterator().hasNext()) {
+            loadUserByUsername(user.getMail());
             return users.iterator().next().getId();
         } else {
             return null;
@@ -33,11 +35,11 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.findByMail(username);
-        GrantedAuthority authoritie = new SimpleGrantedAuthority(user.getRole());
+        SimpleGrantedAuthority authoritie = new SimpleGrantedAuthority(user.getRole());
         return new org.springframework.security.core.userdetails.User(
                 username,
                 user.getPassword(),
-                (Collection<? extends GrantedAuthority>) authoritie
+                Collections.singleton(authoritie)
         );
     }
 }
