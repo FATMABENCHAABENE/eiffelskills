@@ -29,10 +29,14 @@ public class UserController {
 
     @PostMapping("/login")
     public Long login(@RequestBody User user, HttpServletResponse response) {
+        System.out.println("Requête reçue avec utilisateur : " + user.getMail());
+        System.out.println("Role : " + user.getRole());
+        System.out.println("ID : " + user.getId());
+
         Long id = userService.checkUser(user);
         if (id != null) {
             response.addCookie(new Cookie("token", user.getRole()));
-            response.addCookie(new Cookie("id", user.getId().toString()));
+            response.addCookie(new Cookie("id", id.toString()));
             return id;
         }
         return null;
