@@ -23,6 +23,7 @@ public class UserService {
         System.out.println(encoder.encrypt(user.getPassword()));
         Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
         if (users.iterator().hasNext()) {
+            System.out.println(users.iterator().toString());
             return users.iterator().next().getId();
         } else {
             return null;
