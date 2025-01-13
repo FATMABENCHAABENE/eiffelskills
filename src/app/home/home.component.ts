@@ -1,21 +1,126 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { CvService } from '../services/home.service';
+import { Infos } from '../models/home.model';
+import { Diplome } from '../models/home.model';
+import { ExPro } from '../models/home.model';
+import { Skills } from '../models/home.model';
+import { Certif } from '../models/home.model';
+import { Hobbie } from '../models/home.model';
+import { Contact } from '../models/home.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
+
 export class HomeComponent implements OnInit {
-  mail: string = "";
-  password: string = "";
+  nom: string = "";
+  prenom: string = "";
+  infos: Infos[] = [];
+  diplomes: Diplome[] = [];
+  expro: ExPro[] = [];
+  skills: Skills[] = [];
+  certif: Certif[] = [];
+  hobbie: Hobbie[] = [];
+  contact: Contact[] = [];
 
-  constructor() {}
+  constructor(private cvService: CvService) {} 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+     // Appel des méthodes pour charger les données lors de l'initialisation du composant
+     this.loadInfos();
+     this.loadDiplomes();
+     this.loadExPro();
+     this.loadSkills();
+     this.loadCertif();
+     this.loadHobbie();
+     this.loadContact();
+  }
 
-  seConnecter(): void {
-    console.log('Mail :', this.mail);
-    console.log('Password :', this.password);
-    // Logique de connexion ici (par exemple, appel à un service)
+  loadInfos(): void {
+    console.log("Méthode loadInfos() appelée.");
+    this.cvService.getAllInfos().subscribe(
+      (data: any[]) => {
+        this.infos = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadDiplomes(): void {
+    console.log("Méthode loadDiplomes() appelée.");
+    this.cvService.getAllDiplomes().subscribe(
+      (data: Diplome[]) => {
+        this.diplomes = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadExPro(): void {
+    console.log("Méthode loadDiplomes() appelée.");
+    this.cvService.getAllExPro().subscribe(
+      (data: ExPro[]) => {
+        this.expro = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadSkills(): void {
+    console.log("Méthode loadDiplomes() appelée.");
+    this.cvService.getAllSkills().subscribe(
+      (data: Skills[]) => {
+        this.skills = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadCertif(): void {
+    console.log("Méthode loadDiplomes() appelée.");
+    this.cvService.getAllCertif().subscribe(
+      (data: Certif[]) => {
+        this.certif = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadHobbie(): void {
+    console.log("Méthode loadHobbie() appelée.");
+    this.cvService.getAllHobbie().subscribe(
+      (data: Hobbie[]) => {
+        this.hobbie = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
+  }
+
+  loadContact(): void {
+    console.log("Méthode loadHobbie() appelée.");
+    this.cvService.getAllContact().subscribe(
+      (data: Contact[]) => {
+        this.contact = data;
+      },
+      (error: any) => {
+        console.log(error,'Erreur d\affichage');
+      }
+    );
   }
 }
+

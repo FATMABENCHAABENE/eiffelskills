@@ -1,0 +1,151 @@
+<style>
+  .label-container label {
+    text-align: left;
+    margin-bottom: 10px; 
+  }
+  .label-container {
+    font-size: 17px; 
+    border: 1px solid #000;
+    padding: 10px; 
+    display: inline-block;
+    width: 700px; 
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+  }
+
+  .valide {
+    float: right;
+  }
+
+  .round-div {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%; 
+    overflow: hidden; 
+  }
+
+  .round-div img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+  }
+
+  .delete-button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 10px; 
+  }
+
+  .delete-button-all {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 10px; 
+  }
+
+</style>
+
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">La page de suppression</h1>
+  </div>
+</div>
+
+<h1></h1>
+
+<div class="label-container">
+  <label class="label">Informations personnelles</label>
+  <ul>
+    <li *ngFor="let info of infos">
+      <span class="id-span">ID: {{ info.id }}</span> {{ info.surname }} - {{ info.name }} - {{ info.birth | date:"longDate" }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="info.id !== undefined && deleteInfo(info.id)">Supprimer cette ligne</button>
+      </div>
+    </li> 
+  </ul>
+</div>
+
+<div class="label-container">
+  <label class="label">Diplômes</label>
+  <ul>
+    <li *ngFor="let diplome of diplomes">
+      <span class="id-span">ID: {{ diplome.id }}</span> {{ diplome.name }} - {{ diplome.school }} - {{ diplome.obtentionDate | date:"longDate" }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="diplome.id !== undefined && deleteDiplome(diplome.id)">Supprimer une</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallD()">Supprimer tous</button>
+</div>
+
+<div class="label-container">
+  <label class="label">Expériences professionnelles</label>
+  <ul>
+    <li *ngFor="let experience of expro">
+      <span class="id-span">ID: {{ experience.id }}</span> {{ experience.nameC }} - {{ experience.beginD | date:"longDate" }} - {{ experience.endD | date:"longDate" }} - {{ experience.job }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="experience.id !== undefined && deleteExPro(experience.id)">Supprimer cette ligne</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallE()">Supprimer tous</button>
+</div>
+
+<div class="label-container">
+  <label class="label">Compétences techniques</label>
+  <ul>
+    <li *ngFor="let skill of skills">
+      <span class="id-span">ID: {{ skill.id }}</span> {{ skill.domains }} - {{ skill.details }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="skill.id !== undefined && deleteSkill(skill.id)">Supprimer cette ligne</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallS()">Supprimer tous</button>
+</div>
+
+<div class="label-container">
+  <label class="label">Certifications</label>
+  <ul>
+    <li *ngFor="let certif of certif">
+      <span class="id-span">ID: {{ certif.id }}</span> {{ certif.name }} - {{ certif.domain }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="certif.id !== undefined && deleteCertif(certif.id)">Supprimer cette ligne</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallC()">Supprimer tous</button>
+</div>
+
+<div class="label-container">
+  <label class="label">Centres d'intérêt</label>
+  <ul>
+    <li *ngFor="let hobbie of hobbie">
+      <span class="id-span">ID: {{ hobbie.id }}</span> {{ hobbie.description }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="hobbie.id !== undefined && deleteHobbie(hobbie.id)">Supprimer cette ligne</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallH()">Supprimer tous</button>
+</div>
+
+<div class="label-container">
+  <label class="label">Contact</label>
+  <ul>
+    <li *ngFor="let contact of contact">
+      <span class="id-span">ID: {{ contact.id }}</span> {{ contact.type }} - {{ contact.info }}
+      <div class="valide">
+        <button class="btn btn-secondary btn-sm" value="valide" (click)="contact.id !== undefined && deleteContact(contact.id)">Supprimer cette ligne</button>
+      </div>
+    </li>
+  </ul>
+  <button class="delete-button-all" (click)="deleteallCT()">Supprimer tous</button>
+</div>
+
