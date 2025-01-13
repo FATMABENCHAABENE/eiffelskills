@@ -6,6 +6,8 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.message.Message;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.MessageDigest;
@@ -27,7 +29,8 @@ public class UserController {
             return null;
     }*/
 
-    @PostMapping("/login")
+
+   @PostMapping("/login")
     public Long login(@RequestBody User user, HttpServletResponse response) {
         System.out.println("Requête reçue avec utilisateur : " + user.getMail());
         System.out.println("Role : " + user.getRole());
@@ -35,6 +38,7 @@ public class UserController {
 
         Long id = userService.checkUser(user);
         if (id != null) {
+            System.out.println("L'id n'est pas nulle ");
             response.addCookie(new Cookie("token", user.getRole()));
             response.addCookie(new Cookie("id", id.toString()));
             return id;
