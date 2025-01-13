@@ -12,8 +12,8 @@ import {PersonalInfo, Diploma, Expro } from '../models/infos.model';
 
 @Component({
   selector: "update",
-  templateUrl: "./update.component.html",
-  styleUrls: ["./update.component.scss"],
+  templateUrl: "../update/update.component.html",
+  styleUrls: ["../update/update.component.scss"],
 })
 
 export class UpdateComponent implements OnInit {
@@ -52,7 +52,7 @@ export class UpdateComponent implements OnInit {
   hobbie: Hobbie[] = [];
   contact: Contact[] = [];
 
-  constructor(private cvService: CvService) {} 
+  constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
      this.loadInfos();
@@ -165,19 +165,19 @@ export class UpdateComponent implements OnInit {
     console.log("name = " + this.name + "surname = " + this.surname + "birth = " + this.birth + "id = " + this.id);
     if (!this.surname || !this.name || !this.birth || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const personalinfo: PersonalInfo = {
       surname: this.surname,
       name: this.name,
       birth: this.birth
     };
-    
+
     this.cvService.updatePersonalInfo(personalinfo, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
-            this.formSubmitted = true; 
+            this.formSubmitted = true;
         },
         (error: any) => {
             console.log('Erreur lors de l\'enregistrement des infos : ', error);
@@ -191,15 +191,15 @@ export class UpdateComponent implements OnInit {
     console.log("name = " + this.name + "school = " + this.school + "date obtention = " + this.obtentionDate + "id = " + this.id);
     if (!this.name || !this.school  || !this.obtentionDate || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const diplomes: Diploma = {
       obtentionDate: this.obtentionDate,
       name: this.name,
       school: this.school
     };
-    
+
     this.cvService.updateDiplomaById(diplomes, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -215,8 +215,8 @@ export class UpdateComponent implements OnInit {
     this.refresh();
     if (!this.nameC || !this.beginD  || !this.endD || !this.job || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const expro: Expro = {
       nameC: this.nameC,
@@ -224,7 +224,7 @@ export class UpdateComponent implements OnInit {
       endD: this.endD,
       job: this.job
     };
-    
+
     this.cvService.updateExProById(expro, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -240,14 +240,14 @@ export class UpdateComponent implements OnInit {
     this.refresh();
     if (!this.domains || !this.details  || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const skills: Skills = {
       domains: this.domains,
       details: this.details
     };
-    
+
     this.cvService.updateSkillsById(skills, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -263,14 +263,14 @@ export class UpdateComponent implements OnInit {
     this.refresh();
     if (!this.name || !this.domain  || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const certif: Certif = {
       name: this.name,
       domain: this.domain
     };
-    
+
     this.cvService.updateCertifById(certif, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -286,13 +286,13 @@ export class UpdateComponent implements OnInit {
     this.refresh();
     if (!this.description || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const hobbie: Hobbie = {
       description: this.description
     };
-    
+
     this.cvService.updateHobbie(hobbie, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -308,14 +308,14 @@ export class UpdateComponent implements OnInit {
     this.refresh();
     if (!this.info || !this.type || !this.id) {
         console.log('[UPDATE] Veuillez entrer des données valides');
-        return; 
-    }  
+        return;
+    }
 
     const contact: Contact = {
       info: this.info,
       type: this.type
     };
-    
+
     this.cvService.updateContactById(contact, this.id).subscribe(
         (data: any) => {
             console.log('Infos enregistrées avec succès !', data);
@@ -326,7 +326,7 @@ export class UpdateComponent implements OnInit {
         }
     );
   }
-  
+
 }
 
 

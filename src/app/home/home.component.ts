@@ -8,6 +8,22 @@ import { Skills } from '../models/home.model';
 import { Certif } from '../models/home.model';
 import { Hobbie } from '../models/home.model';
 import { Contact } from '../models/home.model';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  // Pour utiliser les directives de base comme ngIf, ngFor
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+@NgModule({
+  declarations: [
+  ],
+  imports: [
+    CommonModule,  // Pour les directives de base Angular
+    ReactiveFormsModule,
+
+  ],
+  exports: []  // Exporte le composant si nécessaire
+})
+export class HomeModule { }
 
 @Component({
   selector: "home",
@@ -26,7 +42,7 @@ export class HomeComponent implements OnInit {
   hobbie: Hobbie[] = [];
   contact: Contact[] = [];
 
-  constructor(private cvService: CvService) {} 
+  constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
      // Appel des méthodes pour charger les données lors de l'initialisation du composant

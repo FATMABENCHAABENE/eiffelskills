@@ -22,16 +22,6 @@ import { UpdateComponent } from "./update/update.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    MajorsComponent,
-    MajorStudentsComponent,
-    CvComponent, 
-    MessageFormComponent, 
-    UpdateComponent,
-    InboxComponent,
-    modificationComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +32,18 @@ import { UpdateComponent } from "./update/update.component";
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    MajorsComponent,
+    MajorStudentsComponent,
+    CvComponent,
+    MessageFormComponent,
+    UpdateComponent,
+    InboxComponent,
+    modificationComponent
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
 })
 export class AppModule {}
