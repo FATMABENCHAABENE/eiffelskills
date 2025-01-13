@@ -48,7 +48,14 @@ public class UserController {
     @PostMapping("/{uid}")
     public void updateById(@CookieValue(value = "token") String token, @CookieValue(value = "id") String id, @RequestBody User user, @PathVariable Long uid) {
         if (token.toString().equals("d033e22ae348aeb5660fc2140aec35850c4da997") || id.toString().equals("1")) {
+            userService.updateUser(user, uid);
+        }
+    }
 
+    @DeleteMapping("/{did}")
+    public void deleteById(@CookieValue(value = "token") String token, @CookieValue(value = "id") String id, @PathVariable Long did) {
+        if (token.toString().equals("d033e22ae348aeb5660fc2140aec35850c4da997") || id.toString().equals("1")) {
+            userService.deleteUser(did);
         }
     }
 

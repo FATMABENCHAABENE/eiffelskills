@@ -38,6 +38,11 @@ public class UserService {
     public void updateUser(User user, Long id) {
         userDao.updateUser(user.getName(), user.getSurname(), user.getMail(), user.getPassword(), id);
     }
+
+    @Transactional
+    public void deleteUser(Long id) {
+        userDao.deleteById(id);
+    }
 /*
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
