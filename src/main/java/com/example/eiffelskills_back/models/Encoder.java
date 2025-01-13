@@ -25,6 +25,6 @@ public class Encoder {
     public String encrypt(String input) {
         crypt.reset();
         crypt.update(input.getBytes());
-        return Arrays.toString(crypt.digest());
+        return crypt.digest().toString();
     }
 }
