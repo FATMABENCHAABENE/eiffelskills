@@ -20,6 +20,7 @@ public class UserService {
 
     @Transactional
     public Long checkUser(User user) {
+        System.out.println(encoder.encrypt(user.getPassword()));
         Iterable<User> users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
         if (users.iterator().hasNext()) {
             return users.iterator().next().getId();
