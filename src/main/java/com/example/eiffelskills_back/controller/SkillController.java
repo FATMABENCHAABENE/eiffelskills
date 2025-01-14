@@ -27,4 +27,12 @@ public class SkillController {
 
     @GetMapping("/module/{id}")
     public List<Skills> getSkillsByModule(@PathVariable Long id) {return skillService.getSkillsByModule(id);}
+
+    @PostMapping("/{id}")
+    public void updateSkillById(@PathVariable Long id, @RequestBody Skills skill) {
+        skillService.updateSkill(id, skill);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteSkill(@PathVariable Long id) {skillService.deleteSkill(id);}
 }
