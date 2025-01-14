@@ -11,6 +11,10 @@ insert into public.modules(description, major) values ('Windows security','SIC')
 
 -- insert a skill
 insert into public.skills(description, id_module) values ('NMAP',1);
+insert into public.skills(description, id_module) values ('injection SQL',1);
+insert into public.skills(description, id_module) values ('XSS',1);
+insert into public.skills(description, id_module) values ('Metasploit',1);
+insert into public.skills(description, id_module) values ('XSRF',1);
 
 -- insert an eval
 insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,1,'acquiring');
