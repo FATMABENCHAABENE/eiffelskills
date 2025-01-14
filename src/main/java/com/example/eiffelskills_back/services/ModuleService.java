@@ -29,8 +29,8 @@ public class ModuleService {
     public List<Modules> getModulesByMajor(String major) {
         Iterator<Modules> all = (Iterator<Modules>) moduleDAO.findAll();
         List<Modules> modules = new ArrayList<>();
-        for (Iterator<Modules> it = all; it.hasNext(); ) {
-            Modules module = it.next();
+        while (all.hasNext()) {
+            Modules module = all.next();
             if (module.getMajor().equals(major)) {
                 modules.add(module);
             }
