@@ -39,4 +39,18 @@ public class SkillService {
         }
         return skills;
     }
+
+    @Transactional
+    public void updateSkill(Long id, Skills skill) {
+        if (skillDAO.findById(id).isEmpty()) {
+            skillDAO.save(skill);
+        } else {
+            skillDAO.updateById(id,skill.getDescription(),skill.getIdModule());
+        }
+    }
+
+    @Transactional
+    public void deleteSkill(Long id) {
+        skillDAO.deleteById(id);
+    }
 }
