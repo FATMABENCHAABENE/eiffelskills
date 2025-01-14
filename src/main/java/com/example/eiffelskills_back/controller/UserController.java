@@ -31,17 +31,17 @@ public class UserController {
 
 
    @PostMapping("/login")
-    public ResponseEntity<Long> login(@RequestBody User user, HttpServletResponse response) {
+    public ResponseEntity<User> login(@RequestBody User user, HttpServletResponse response) {
         //System.out.println("Requête reçue avec utilisateur : " + user.toString());
         //System.out.println("#### All users ####");
         //userService.displayAllUsers();
-        Long id = userService.checkUser(user);
-        System.out.println("Found ID :"+id);
-        if (id != null) {
+        User loggedUser = userService.checkUser(user);
+        System.out.println("Found User :\n"+loggedUser);
+        if (loggedUser != null) {
             System.out.println("L'id n'est pas nulle ");
-            response.addCookie(new Cookie("token", user.getRole()));
-            response.addCookie(new Cookie("id", id.toString()));
-            return new ResponseEntity<Long>(id, HttpStatus.OK);
+            //response.addCookie(new Cookie("token", user.getRole()));
+            //response.addCookie(new Cookie("id", id.toString()));
+            return new ResponseEntity<User>(loggedUser, HttpStatus.OK);
         }
         return null;
     }

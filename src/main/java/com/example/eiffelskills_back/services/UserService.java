@@ -23,12 +23,12 @@ public class UserService {
     }
 
     @Transactional
-    public Long checkUser(User user) {
+    public User checkUser(User user) {
         //System.out.println(encoder.encrypt(user.getPassword()));
         User users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
         //System.out.println("Found User ###"+users.toString());
         if (users!=null) {
-            return users.getId();
+            return users;
         } else {
             return null;
         }
