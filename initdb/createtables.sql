@@ -63,7 +63,8 @@ create table
                                            array[
                                                'acquired'::text,
                                                'acquiring'::text,
-                                               'no acquired'::text
+                                               'no acquired'::text,
+                                               'no evaluated'::text
                                                ]
                                            )
                                        )
