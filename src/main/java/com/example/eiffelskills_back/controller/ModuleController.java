@@ -27,4 +27,10 @@ public class ModuleController {
 
     @GetMapping("/major/{major}")
     public List<Modules> getModuleByMajor(@PathVariable String major) {return moduleService.getModulesByMajor(major);}
+
+    @PostMapping("/{id}")
+    public void updateModuleById(@PathVariable Long id, @RequestBody Modules module) {moduleService.updateModule(module, id);}
+
+    @DeleteMapping("/{id}")
+    public void deleteModuleById(@PathVariable Long id) {moduleService.deleteModuleById(id);}
 }
