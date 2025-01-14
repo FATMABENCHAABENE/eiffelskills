@@ -1,6 +1,7 @@
 package com.example.eiffelskills_back.services;
 
 import com.example.eiffelskills_back.DAO.ModuleDAO;
+import com.example.eiffelskills_back.models.Modules;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,23 +15,23 @@ import java.util.List;
 public class ModuleService {
     private final ModuleDAO moduleDAO;
 
-    public List<Module> getAllModules() {
-        Iterator<Module> all = (Iterator<Module>) moduleDAO.findAll();
-        List<Module> modules = new ArrayList<>();
+    public List<Modules> getAllModules() {
+        Iterator<Modules> all = (Iterator<Modules>) moduleDAO.findAll();
+        List<Modules> modules = new ArrayList<>();
         all.forEachRemaining(modules::add);
         return modules;
     }
 
-    public Module getModuleById(Long id) {
+    public Modules getModuleById(Long id) {
         return moduleDAO.getReferenceById(id);
     }
 
-    public List<Module> getModulesByMajor(String major) {
-        Iterator<Module> all = moduleDAO.findByMajor(major);
-        List<Module> modules = new ArrayList<>();
+    public List<Modules> getModulesByMajor(String major) {
+        Iterator<Modules> all = moduleDAO.findByMajor(major);
+        List<Modules> modules = new ArrayList<>();
         all.forEachRemaining(modules::add);
         return modules;
     }
 
-    public void saveModule(Module module) {moduleDAO.save(module);}
+    public void saveModule(Modules module) {moduleDAO.save(module);}
 }
