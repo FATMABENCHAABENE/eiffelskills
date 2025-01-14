@@ -1,221 +1,137 @@
-html, body {
+/* Style général */
+body, html {
     margin: 0;
     padding: 0;
-    height: 100%; /* Nécessaire pour que l'image occupe toute la page */
+    box-sizing: border-box;
 }
 
-.image-container {
+.container_navbar {
     position: relative;
-    width: 100vw; /* Largeur de la fenêtre visible */
-    height: 100vh; /* Hauteur de la fenêtre visible */
-    overflow: hidden; /* Coupe les parties débordantes */
+    width: 100%; 
+    height: 72.75px; 
+    background-color: #E8E7DE; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
 }
 
-.image {
-    position: absolute;
-    top: 50%; /* Centre verticalement */
-    left: 50%; /* Centre horizontalement */
-    transform: translate(-50%, -50%); /* Centrage parfait */
-    
-    width: 100%; /* Occupe toute la largeur de la fenêtre */
-    height: auto; /* Maintient les proportions */
-    
-    /* Si l'image ne couvre pas toute la hauteur, on ajuste */
-    min-height: 100%; /* Force à couvrir au minimum la hauteur */
-    min-width: 100%; /* Force à couvrir au minimum la largeur */
-    
-    /* Masque pour l'effet */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%, 
-        rgba(0, 0, 0, 0) 45%, 
-        rgba(0, 0, 0, 1) 55%, 
-        rgba(0, 0, 0, 1) 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%, 
-        rgba(0, 0, 0, 0) 45%, 
-        rgba(0, 0, 0, 1) 55%, 
-        rgba(0, 0, 0, 1) 100%
-    );
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-}
-
-
-
-
-
-.content {
-    position: relative; /* Crée un contexte pour le positionnement des enfants */
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Zone de gauche (texte et boutons) */
-.text-and-buttons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%; /* Ajuste selon tes besoins */
+.logo img {
     height: 100%;
-    z-index: 10; /* Plus grand que l'image */
-    padding: 20px;
-    background: rgba(255, 255, 255, 0); /* Optionnel : couleur de fond semi-transparente */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    width: auto; 
+    display: block; 
 }
-
-
-
-.logo {
-    position: absolute; /* Positionnement absolu */
-    top: 20%; /* Place le texte au milieu verticalement */
-    left: 50%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
-}
-
-
 
 
 .rectangle {
-    width: 36%; /* Largeur du rectangle */
-    height: 5%; /* Hauteur du rectangle */
-    border: 2px solid black; /* Bordure */
-    background-color: white; /* Couleur de fond */
-    padding: 2px; /* Espacement interne */
-    box-sizing: border-box; /* Inclut la bordure et le padding dans les dimensions */
-    border-radius: 15px; /* Bords arrondis */
-    display: flex; /* Utilisation de Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-}
-
-/* Style des champs d'entrée */
-.rectangle input {
-    width: 95%; /* Largeur de l'input */
-    height: 50%; /* Hauteur de l'input */
-    border: none; /* Supprime la bordure par défaut */
-    outline: none; /* Supprime le contour actif */
-    background-color: white; /* Fond blanc */
-    font-size: 100%; /* Taille du texte */
-}
-
-/* Positionnement spécifique des rectangles */
-.rectangle1 {
-    position: absolute; /* Positionnement absolu */
-    top: 72%; /* Distance du haut */
-    left: 32%; /* Distance de la gauche */
-}
-
-.rectangle2 {
-    position: absolute; /* Positionnement absolu */
-    top: 82%; /* Distance du haut */
-    left: 32%; /* Distance de la gauche */
-}
-
-
-.rectangle_image {
-    width: 50%; /* Largeur du rectangle */
-    height: 100%; /* Hauteur du rectangle */
-    background-color: black; /* Couleur de fond */
-    display: flex; /* Utilisation de Flexbox */
-    justify-content: center; /* Centrage horizontal du textarea */
-    align-items: center; /* Centrage vertical du textarea */
-    position: absolute; /* Positionnement absolu */
-    top: 0%; /* Distance du haut */
-    left: 50%; /* Distance de la gauche */
-}
-
-
-/* Style pour le texte */
-.text {
-    position: absolute; 
-    font-size: 24px;
-    color: #168b75;
-    font-weight: bold;
-    left: 50%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
-    text-align: center; /* Centre le texte horizontalement */
-}
-
-/* Style pour le texte "Identifiant du candidat" */
-.text_Id {
-    top: 67%; /* Place le texte au milieu verticalement */
-}
-
-/* Style pour le texte "Code unique associé" */
-.text_MDP {
-    top: 77%; /* Place le texte au milieu verticalement */
-}
-
-/* Style pour le texte "Code unique associé" */
-.text_role {
-    top: 54%; /* Place le texte au milieu verticalement */
-}
-
-/* Style pour le texte "Code unique associé" */
-.text_devise {
+    display: flex;
+    gap: 20px; 
+    flex-grow: 1;
     position: relative; 
-    font-family: 'Alice'; /* Choisissez ici la police que vous souhaitez */
-    font-size: 36px;
-    color: black;
-    font-weight: normal;
-    top: 36%; /* Place le texte au milieu verticalement */
-    left: 0%; /* Place le texte au milieu horizontalement */
-    font-style: italic; /* Texte en italique */
-    text-align: center; /* Centre le texte horizontalement */
 }
 
-
+/* Style des boutons */
 .button {
-    background-color: #e6eaee;
-    border: none; /* Supprime la bordure */
-    color: black; /* Texte noir */
-    position: absolute; /* Permet de positionner librement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
-    font-family: 'Montserrat', sans-serif; /* Choisissez ici la police que vous souhaitez */
-    font-size: 16px; /* Taille de police par défaut */
-    text-align: center; /* Centre le texte horizontalement */
-    text-decoration: none; /* Supprime la décoration par défaut */
-    display: inline-block; /* Permet de rendre le bouton un élément en ligne */
-    cursor: pointer; /* Change le curseur au survol */
-    border-radius: 50px; /* Bords arrondis */
-    transition: background-color 0.3s; /* Animation lors du changement de couleur */
-    
-    /* Spécification de la taille du bouton */
-    width: 16%; /* Largeur fixe du bouton */
-    height: 50px; /* Hauteur fixe du bouton */
+    background-color: #E8E7DE;
+    border: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.button_etudiant {
-    position: absolute; /* Positionnement absolu */
-    top: 62%; /* Place le texte au milieu verticalement */
-    left: 30%; /* Place le texte à 10% de la largeur de la page */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
-    text-align: center; /* Centre le texte horizontalement */
+/* Ajoute un espacement pour les boutons de gauche */
+.button_acceuil,
+.button_fonctionnalites,
+.button_ressources,
+.button_contact {
+    position: relative;
 }
 
-.button_professeur {
-    position: absolute; /* Positionnement absolu */
-    top: 62%; /* Distance du haut */
-    left: 50%; /* Distance de la gauche */
+/* Ajoute un espace au premier bouton */
+.rectangle button:first-child {
+    margin-left: 20px; /* Espace à gauche uniquement pour le premier bouton */
 }
 
-.button_recruteur {
-    position: absolute; /* Positionnement absolu */
-    top: 62%; /* Distance du haut */
-    left: 70%; /* Distance de la gauche */
-}
-
-.button_connexion {
-    position: absolute; /* Positionnement absolu */
-    top: 92%; /* Distance du bas */
-    left: 50%; /* Distance de la gauche */
+/* Positionnement du bouton "Fin" */
+.button_deconexion {
+    position: absolute;
+    right: 20px; 
+    top: 50%;
+    transform: translateY(-50%); /* Centre verticalement */
 }
 
 /* Effet au survol */
 .button:hover {
-    background-color: #168b75; /* Change la couleur au survol */
+    background-color: #168b75;
+    color: white;
+}
+
+.container_page {
+    position: relative;
+    left: 0%; /* Positionne le conteneur légèrement à droite */
+    width: 100%; 
+    height: calc(100vh - 72.75px);
+    background-color: black;
+}
+
+
+/* Zone défilante */
+.container-scrollable {
+    position: relative;
+    left: 80px;
+    top: 80px;
+    width: 30%; /* Largeur de la zone */
+    height: calc(100vh - 254.75px);
+    overflow-y: scroll; /* Active le défilement vertical */
+    overflow-x: hidden; /* Désactive le défilement horizontal */
+    padding: 10px; /* Ajoute un peu de marge interne */
+    background-color: #f5f5f5; /* Couleur de fond */
+    border: 1px solid #ddd; /* Bordure grise */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Style des modules individuels */
+.module {
+    width: 90%; /* Largeur de chaque module (relative à la zone défilante) */
+    height: 200px;
+    margin: 10px auto; /* Centre chaque module avec un espace entre eux */
+    padding: 15px; /* Marge interne pour le contenu */
+    background-color: #168b75; /* Couleur de fond du module */
+    color: white; /* Texte blanc */
+    font-family: 'Arial', sans-serif; /* Police simple */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: center; /* Centre le texte à l'intérieur */
+    cursor: pointer; /* Ajoute un curseur interactif */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animation au survol */
+}
+
+/* Zone défilante */
+.container-text {
+    position: absolute;
+    left: calc(30vh + 254.75px);;
+    top: 80px;
+    width: 30%; /* Largeur de la zone */
+    height: calc(100vh - 354.75px);
+    overflow-y: scroll; /* Active le défilement vertical */
+    overflow-x: hidden; /* Désactive le défilement horizontal */
+    padding: 10px; /* Ajoute un peu de marge interne */
+    background-color: #f5f5f5; /* Couleur de fond */
+    border: 1px solid #ddd; /* Bordure grise */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Effet au survol des modules */
+.module:hover {
+    transform: scale(1.05); /* Agrandit légèrement le module */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Accentue l'ombre */
 }

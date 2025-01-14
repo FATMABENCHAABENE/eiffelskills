@@ -5,30 +5,28 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Style de la navbar */
 .container_navbar {
     position: relative;
-    width: 100%; /* Navbar sur toute la largeur */
-    height: 72.75px; /* Hauteur de la navbar */
-    background-color: #E8E7DE; /* Couleur de fond */
+    width: 100%; 
+    height: 72.75px; 
+    background-color: #E8E7DE; 
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Écarte les éléments */
+    justify-content: space-between; 
 }
 
 .logo img {
-    height: 100%; /* Adapte la hauteur de l'image à la hauteur du conteneur */
-    width: auto; /* Garde les proportions de l'image */
-    display: block; /* Supprime les espaces blancs en bas de l'image */
+    height: 100%;
+    width: auto; 
+    display: block; 
 }
 
 
-/* Conteneur pour les boutons */
-.rectangle1 {
+.rectangle {
     display: flex;
-    gap: 20px; /* Espace entre les boutons */
-    flex-grow: 1; /* Permet à ce conteneur de s'étendre */
-    position: relative; /* Nécessaire pour le bouton "Fin" */
+    gap: 20px; 
+    flex-grow: 1;
+    position: relative; 
 }
 
 /* Style des boutons */
@@ -41,8 +39,8 @@ body, html {
     font-size: 20px;
     text-align: center;
     text-decoration: none;
-    padding: 10px 20px; /* Espacement interne */
-    border-radius: 25px; /* Coins arrondis */
+    padding: 10px 20px;
+    border-radius: 25px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -56,14 +54,14 @@ body, html {
 }
 
 /* Ajoute un espace au premier bouton */
-.rectangle1 button:first-child {
+.rectangle button:first-child {
     margin-left: 20px; /* Espace à gauche uniquement pour le premier bouton */
 }
 
 /* Positionnement du bouton "Fin" */
 .button_deconexion {
     position: absolute;
-    right: 20px; /* 100px avant la fin */
+    right: 20px; 
     top: 50%;
     transform: translateY(-50%); /* Centre verticalement */
 }
@@ -72,4 +70,12 @@ body, html {
 .button:hover {
     background-color: #168b75;
     color: white;
+}
+
+.container_module {
+    position: relative;
+    left: 0%; /* Positionne le conteneur légèrement à droite */
+    width: 100%; 
+    height: calc(100vh - 72.75px);
+    background-color: black;
 }

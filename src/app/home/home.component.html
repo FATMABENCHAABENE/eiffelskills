@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prévisualisation</title>
-    <link rel="stylesheet" href="home.component.css"> <!-- Lien vers le fichier CSS -->
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texte de fonctionnalité</title>
+  <link rel="stylesheet" href="home.component.css"> <!-- Lien vers le fichier CSS -->
+  <style>
+    .zone-texte {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      font-size: 16px;
+      color: #333;
+      overflow-y: auto;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="content">
-    <!-- Zone de gauche avec le texte et les boutons -->
+  <div class="container_navbar">
+    <div class="logo">
+        <img src="../../assets/logo.png" style="width: 86.5px; height: 72.75px">
+    </div>
+    <div class="rectangle">
+        <button class="button button_acceuil">Accueil</button>
+        <button class="button button_fonctionnalites">Fonctionnalités</button>
+        <button class="button button_ressources">Ressources</button>
+        <button class="button button_contact">Nous Contacter</button>
+        <button class="button button_deconexion">Se déconnecter</button>
+    </div>
+</div>
 
-
-
-
-    <div class="text-and-buttons">
-      <p class="text text_Id">Identifiant du candidat</p>
-      <p class="text text_MDP">Code unique associé</p>
-      <p class="text text_role">Rôle</p>
-      <p class="text_devise">Les compétences d’aujourd’hui,<br>les opportunités de demain.</p>
-  
-  
-      <div class="rectangle rectangle1">
-          <input type="text" id="mail" name="mail" required />
-      </div>
-      <div class="rectangle rectangle2">
-        <input type="password" id="password" name="password" required />
-      </div>
-      
-      <button class="button button_etudiant" (click)="seConnecter()">Etudiant</button>
-      <button class="button button_professeur" (click)="seConnecter()">Professeur</button>
-      <button class="button button_recruteur" (click)="seConnecter()">Recruteur</button>
-      <button class="button button_connexion" (click)="seConnecter()">Se connecter</button>
-  
-      <div class="logo">
-        <img src="../../assets/logo.png" style="width: 346px; height: 291px";>
-      </div>
+<section>
+  <div class="container_page">
+    <div class="container-scrollable">
+      <div class="module">Module A</div>
+      <div class="module">Module B</div>
+      <div class="module">Module C</div>
+      <div class="module">Module D</div>
+      <div class="module">Module E</div>
+    </div>  
+    <div class="container-text"></div>  
   </div>
-    
-    <!-- Conteneur de l'image de fond -->
-    <div class="image-container">
-      <img src="../../assets/Img1.png" alt="Image avec fondu" class="image">
-    <div class="gradient"></div>
-  </div>
-
+</section>
 
   
   
-    
-
 
 </body>
 </html>
