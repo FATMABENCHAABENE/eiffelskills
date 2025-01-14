@@ -38,7 +38,7 @@ public class UserController {
         User loggedUser = userService.checkUser(user);
         System.out.println("Found User :\n"+loggedUser);
         if (loggedUser != null) {
-            System.out.println("L'id n'est pas nulle ");
+            System.out.println("Le user n'est pas nulle ");
             //response.addCookie(new Cookie("token", user.getRole()));
             //response.addCookie(new Cookie("id", id.toString()));
             return new ResponseEntity<User>(loggedUser, HttpStatus.OK);
