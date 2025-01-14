@@ -1,6 +1,86 @@
-/* Style de base pour les rectangles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Nécessaire pour que l'image occupe toute la page */
+}
+
+.image-container {
+    position: relative;
+    width: 100vw; /* Largeur de la fenêtre visible */
+    height: 100vh; /* Hauteur de la fenêtre visible */
+    overflow: hidden; /* Coupe les parties débordantes */
+}
+
+.image {
+    position: absolute;
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+    height: auto; /* Maintient les proportions */
+    
+    /* Si l'image ne couvre pas toute la hauteur, on ajuste */
+    min-height: 100%; /* Force à couvrir au minimum la hauteur */
+    min-width: 100%; /* Force à couvrir au minimum la largeur */
+    
+    /* Masque pour l'effet */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0) 45%, 
+        rgba(0, 0, 0, 1) 55%, 
+        rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0) 45%, 
+        rgba(0, 0, 0, 1) 55%, 
+        rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+
+
+
+
+.content {
+    position: relative; /* Crée un contexte pour le positionnement des enfants */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Zone de gauche (texte et boutons) */
+.text-and-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Ajuste selon tes besoins */
+    height: 100%;
+    z-index: 10; /* Plus grand que l'image */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0); /* Optionnel : couleur de fond semi-transparente */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+
+
+.logo {
+    position: absolute; /* Positionnement absolu */
+    top: 20%; /* Place le texte au milieu verticalement */
+    left: 50%; /* Place le texte au milieu horizontalement */
+    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
+}
+
+
+
+
 .rectangle {
-    width: 18%; /* Largeur du rectangle */
+    width: 36%; /* Largeur du rectangle */
     height: 5%; /* Hauteur du rectangle */
     border: 2px solid black; /* Bordure */
     background-color: white; /* Couleur de fond */
@@ -26,13 +106,13 @@
 .rectangle1 {
     position: absolute; /* Positionnement absolu */
     top: 72%; /* Distance du haut */
-    left: 16%; /* Distance de la gauche */
+    left: 32%; /* Distance de la gauche */
 }
 
 .rectangle2 {
     position: absolute; /* Positionnement absolu */
     top: 82%; /* Distance du haut */
-    left: 16%; /* Distance de la gauche */
+    left: 32%; /* Distance de la gauche */
 }
 
 
@@ -49,26 +129,12 @@
 }
 
 
-/* Style global pour la page */
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* Optionnel : centre horizontalement */
-    align-items: center;    /* Optionnel : centre verticalement */
-    font-family: 'Montserrat', sans-serif; /* Choisissez ici la police que vous souhaitez */
-    font-size: 16px; /* Taille de police par défaut */
-    color: #333; /* Couleur de texte par défaut */
-    line-height: 1.5; /* Hauteur de ligne pour une meilleure lisibilité */
-}
-
 /* Style pour le texte */
 .text {
+    position: absolute; 
     font-size: 24px;
-    color: #333;
-    position: absolute; /* Permet de positionner librement */
-    top: 50%; /* Place le texte au milieu verticalement */
+    color: #168b75;
+    font-weight: bold;
     left: 50%; /* Place le texte au milieu horizontalement */
     transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
     text-align: center; /* Centre le texte horizontalement */
@@ -76,61 +142,38 @@ body {
 
 /* Style pour le texte "Identifiant du candidat" */
 .text_Id {
-    font-size: 24px;
-    color: #168b75;
-    font-weight: bold; /* Met le texte en gras */
-    position: absolute; /* Permet de positionner librement */
     top: 67%; /* Place le texte au milieu verticalement */
-    left: 25%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% */
-    text-align: center; /* Centre le texte horizontalement */
 }
 
 /* Style pour le texte "Code unique associé" */
 .text_MDP {
-    font-size: 24px;
-    color: #168b75;
-    font-weight: bold; /* Met le texte en gras */
-    position: absolute; /* Permet de positionner librement */
     top: 77%; /* Place le texte au milieu verticalement */
-    left: 25%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% */
-    text-align: center; /* Centre le texte horizontalement */
 }
 
 /* Style pour le texte "Code unique associé" */
 .text_role {
-    font-size: 24px;
-    color: #168b75;
-    font-weight: bold; /* Met le texte en gras */
-    position: absolute; /* Permet de positionner librement */
     top: 54%; /* Place le texte au milieu verticalement */
-    left: 25%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% */
-    text-align: center; /* Centre le texte horizontalement */
 }
 
 /* Style pour le texte "Code unique associé" */
 .text_devise {
+    position: relative; 
     font-family: 'Alice'; /* Choisissez ici la police que vous souhaitez */
     font-size: 36px;
     color: black;
-    position: absolute; /* Permet de positionner librement */
-    top: 40%; /* Place le texte au milieu verticalement */
-    left: 25%; /* Place le texte au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% */
-    text-align: center; /* Centre le texte horizontalement */
+    font-weight: normal;
+    top: 36%; /* Place le texte au milieu verticalement */
+    left: 0%; /* Place le texte au milieu horizontalement */
     font-style: italic; /* Texte en italique */
+    text-align: center; /* Centre le texte horizontalement */
 }
 
 
 .button {
-    background-color: #e6eaee; /* Couleur de fond verte */
+    background-color: #e6eaee;
     border: none; /* Supprime la bordure */
     color: black; /* Texte noir */
     position: absolute; /* Permet de positionner librement */
-    top: 50%; /* Place le texte au milieu verticalement */
-    left: 50%; /* Place le texte au milieu horizontalement */
     transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
     font-family: 'Montserrat', sans-serif; /* Choisissez ici la police que vous souhaitez */
     font-size: 16px; /* Taille de police par défaut */
@@ -142,14 +185,14 @@ body {
     transition: background-color 0.3s; /* Animation lors du changement de couleur */
     
     /* Spécification de la taille du bouton */
-    width: 8%; /* Largeur fixe du bouton */
+    width: 16%; /* Largeur fixe du bouton */
     height: 50px; /* Hauteur fixe du bouton */
 }
 
 .button_etudiant {
     position: absolute; /* Positionnement absolu */
     top: 62%; /* Place le texte au milieu verticalement */
-    left: 15%; /* Place le texte à 10% de la largeur de la page */
+    left: 30%; /* Place le texte à 10% de la largeur de la page */
     transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
     text-align: center; /* Centre le texte horizontalement */
 }
@@ -157,19 +200,19 @@ body {
 .button_professeur {
     position: absolute; /* Positionnement absolu */
     top: 62%; /* Distance du haut */
-    left: 25%; /* Distance de la gauche */
+    left: 50%; /* Distance de la gauche */
 }
 
 .button_recruteur {
     position: absolute; /* Positionnement absolu */
     top: 62%; /* Distance du haut */
-    left: 35%; /* Distance de la gauche */
+    left: 70%; /* Distance de la gauche */
 }
 
 .button_connexion {
     position: absolute; /* Positionnement absolu */
     top: 92%; /* Distance du bas */
-    left: 25%; /* Distance de la gauche */
+    left: 50%; /* Distance de la gauche */
 }
 
 /* Effet au survol */
