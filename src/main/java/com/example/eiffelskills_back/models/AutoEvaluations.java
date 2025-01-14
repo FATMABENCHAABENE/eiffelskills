@@ -12,7 +12,7 @@ public class AutoEvaluations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "id_skills", nullable = false)
+    @Column(name = "id_skill", nullable = false)
     private Long id_skill;
     @Column(name = "id_student", nullable = false)
     private Long id_student;
