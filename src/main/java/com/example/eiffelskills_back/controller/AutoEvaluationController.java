@@ -30,9 +30,9 @@ public class AutoEvaluationController {
         autoEvaluationService.update(id, autoEvaluation);
     }
 
-    @PostMapping("/skill/{idSkill}/{idStudent}")
-    public void updateBySkillAndStudent(@PathVariable Long idSkill, @PathVariable Long idStudent, @RequestBody AutoEvaluations autoEvaluation) {
-        autoEvaluationService.updateBySkillAndStudent(idSkill, idStudent, autoEvaluation);
+    @PostMapping("/skill")
+    public void updateBySkillAndStudent(@RequestBody AutoEvaluations autoEvaluation) {
+        autoEvaluationService.updateBySkillAndStudent(autoEvaluation.getId_skill(), autoEvaluation.getId_student(), autoEvaluation);
     }
 
     @DeleteMapping("/{id}")
