@@ -25,6 +25,6 @@ public class ModuleController {
         return moduleService.getModuleById(id);
     }
 
-    @GetMapping("/{major}")
+    @GetMapping("/major/{major}")
     public List<Modules> getModuleByMajor(@PathVariable String major) {return moduleService.getModulesByMajor(major);}
 }
