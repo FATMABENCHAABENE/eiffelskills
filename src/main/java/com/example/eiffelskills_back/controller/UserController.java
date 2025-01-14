@@ -31,17 +31,17 @@ public class UserController {
 
 
    @PostMapping("/login")
-    public Long login(@RequestBody User user, HttpServletResponse response) {
-        System.out.println("Requête reçue avec utilisateur : " + user.getMail());
-        System.out.println("Role : " + user.getRole());
-        System.out.println("ID : " + user.getId());
-
+    public ResponseEntity<Long> login(@RequestBody User user, HttpServletResponse response) {
+        //System.out.println("Requête reçue avec utilisateur : " + user.toString());
+        //System.out.println("#### All users ####");
+        //userService.displayAllUsers();
         Long id = userService.checkUser(user);
+        System.out.println("Found ID :"+id);
         if (id != null) {
             System.out.println("L'id n'est pas nulle ");
             response.addCookie(new Cookie("token", user.getRole()));
             response.addCookie(new Cookie("id", id.toString()));
-            return id;
+            return new ResponseEntity<Long>(id, HttpStatus.OK);
         }
         return null;
     }
@@ -67,15 +67,16 @@ public class UserController {
         }
     }
 
-    /*@GetMapping("/setcookies")
-    public String setCookies(HttpServletResponse response) {
+    /*@GetMapping("/setcookie")
+    public ResponseEntity<String> setCookies(HttpServletResponse response) {
         try {
-            response.addCookie(new Cookie("token", "$2a$12$jjgvt8LvAg2P0aC9b.wPlevqNh6KPoT2EBfPoQI5XuKzTX38ufz7i"));
-            response.addCookie(new Cookie("id", "1"));
-            return "Set cookies";
+            //response.addCookie(new Cookie("token", "$2a$12$jjgvt8LvAg2P0aC9b.wPlevqNh6KPoT2EBfPoQI5XuKzTX38ufz7i"));
+            //response.addCookie(new Cookie("id", "1"));
+            response.addHeader("token", "$2a$12$jjgvt8LvAg2P0aC9b.wPlevqNh6KPoT2EBfPoQI5XuKzTX38ufz7i");
+            return new ResponseEntity<>("Set Cookies", HttpStatus.OK);
         } catch (Exception e) {
             System.err.println(e.getMessage());
-            return e.getMessage();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }*/
 }

@@ -11,6 +11,7 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
@@ -30,5 +31,15 @@ public class User {
         this.surname = surname;
         this.mail = mail;
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "\nID : "+this.id+
+                "\nName : "+this.name+
+                "\nSurname : "+this.surname+
+                "\nMail : "+this.mail+
+                "\nPassword : "+this.password+
+                "\nRole : "+this.role;
     }
 }

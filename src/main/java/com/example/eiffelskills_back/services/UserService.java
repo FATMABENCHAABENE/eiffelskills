@@ -18,13 +18,17 @@ public class UserService {
     private final UserDao userDao;
     private Encoder encoder = new Encoder();
 
+    public void displayAllUsers() {
+        userDao.findAll().forEach(user -> System.out.println(user));
+    }
+
     @Transactional
     public Long checkUser(User user) {
-        System.out.println(encoder.encrypt(user.getPassword()));
-        Long users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
+        //System.out.println(encoder.encrypt(user.getPassword()));
+        User users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
+        //System.out.println("Found User ###"+users.toString());
         if (users!=null) {
-            System.out.println(users.toString());
-            return users;
+            return users.getId();
         } else {
             return null;
         }
