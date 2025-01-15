@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,10 +25,26 @@ public class AutoEvaluationService {
     }
 
     @Transactional
-    public void save(AutoEvaluations autoEvaluations) {autoEvaluationDAO.save(autoEvaluations);}
+    public List<AutoEvaluations> getAutoEvaluationsByIdStudent(Long studentId) {
+        List<AutoEvaluations> all = autoEvaluationDAO.findAll();
+        List<AutoEvaluations> autoEvaluations = new ArrayList<>();
+        for (AutoEvaluations autoEvaluation : all) {
+            if (autoEvaluation.getIdStudent().equals(studentId)) {
+                autoEvaluations.add(autoEvaluation);
+            }
+        }
+        return autoEvaluations;
+    }
 
     @Transactional
-    public void deleteById(Long id) {autoEvaluationDAO.deleteById(id);}
+    public void save(AutoEvaluations autoEvaluations) {
+        autoEvaluationDAO.save(autoEvaluations);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        autoEvaluationDAO.deleteById(id);
+    }
 
     public void update(Long id, AutoEvaluations autoEvaluations) {
         if (autoEvaluationDAO.findById(id).isEmpty()) {

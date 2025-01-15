@@ -15,10 +15,19 @@ public class AutoEvaluationController {
     private final AutoEvaluationService autoEvaluationService;
 
     @GetMapping("")
-    public List<AutoEvaluations> getAllAutoEvaluations() {return autoEvaluationService.getAllAutoEvaluations();}
+    public List<AutoEvaluations> getAllAutoEvaluations() {
+        return autoEvaluationService.getAllAutoEvaluations();
+    }
 
     @GetMapping("/{id}")
-    public AutoEvaluations getAutoEvalById(@PathVariable Long id) {return autoEvaluationService.getAutoEvaluationById(id);}
+    public AutoEvaluations getAutoEvalById(@PathVariable Long id) {
+        return autoEvaluationService.getAutoEvaluationById(id);
+    }
+
+    @GetMapping("/student/{id}")
+    public List<AutoEvaluations> getAutoEvalByStudentId(@PathVariable Long id) {
+        return autoEvaluationService.getAutoEvaluationsByIdStudent(id);
+    }
 
     @PostMapping("")
     public void addAutoEvaluation(@RequestBody AutoEvaluations autoEvaluation) {
