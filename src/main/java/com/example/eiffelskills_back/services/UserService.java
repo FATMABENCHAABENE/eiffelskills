@@ -40,6 +40,7 @@ public class UserService {
                 students.add(user);
             }
         }
+        students.sort(Comparator.comparing(User::getName));
         return students;
     }
 
