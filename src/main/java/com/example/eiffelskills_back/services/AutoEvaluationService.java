@@ -2,8 +2,11 @@ package com.example.eiffelskills_back.services;
 
 import com.example.eiffelskills_back.DAO.AutoEvaluationDAO;
 import com.example.eiffelskills_back.models.AutoEvaluations;
+import com.example.eiffelskills_back.models.Skills;
+import jakarta.persistence.criteria.Join;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,6 +25,14 @@ public class AutoEvaluationService {
     @Transactional
     public AutoEvaluations getAutoEvaluationById(Long id) {
         return autoEvaluationDAO.getReferenceById(id);
+    }
+
+    @Transactional
+    public Specification<Skills> getFullAutoEvaluationsByIdStudent(Long studentId) {
+        return (root, query, criteriaBuilder) -> {
+            Join<Skills,AutoEvaluations> fullAutoEvaluation = root.join("autoEvaluations");
+            return criteriaBuilder.equal(fullAutoEvaluation.get("id_student"), studentId);
+        };
     }
 
     @Transactional
