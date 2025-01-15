@@ -40,9 +40,13 @@ public class ModuleService {
 
     @Transactional
     public List<Modules> getModuleByIdTeacher(Long teacherId) {
-        Iterator<Modules> all = (Iterator<Modules>) moduleDAO.findByIdTeacher(teacherId);
+        List<Modules> all = moduleDAO.findAll();
         List<Modules> modules = new ArrayList<>();
-        all.forEachRemaining(modules::add);
+        for (Modules module : all) {
+            if (module.getIdTeacher().equals(teacherId)) {
+                modules.add(module);
+            }
+        }
         return modules;
     }
 

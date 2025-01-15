@@ -11,7 +11,4 @@ import java.util.Optional;
 public interface ModuleDAO extends JpaRepository<Modules, Long> {
     @Query(nativeQuery = true, value = "UPDATE modules SET description=:description, major=:major WHERE id=:id")
     public void updateModuleById(Long id, String description, String major);
-
-    @Query(nativeQuery = true, value = "SELECT * FROM modules WHERE id_teacher=:id")
-    public List<Modules> findByIdTeacher(long id);
 }
