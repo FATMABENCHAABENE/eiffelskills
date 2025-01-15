@@ -18,4 +18,5 @@ insert into public.skills(description, id_module) values ('Metasploit',1);
 insert into public.skills(description, id_module) values ('XSRF',1);
 
 -- insert an eval
---insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,1,'acquiring');
+insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,2,'acquiring');
+insert into public.autoevaluations(id_skill, id_student, eval) VALUES (2,2,'acquired');
