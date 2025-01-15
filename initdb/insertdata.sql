@@ -1,5 +1,5 @@
 -- insert admin user
-insert into public.users(name,mail,password,role) values('admin','admin@es.fr','testadmin','student_SIC');
+insert into public.users(name,mail,password,role) values('admin','admin@es.fr','testadmin','admin');
 insert into public.users(name,mail,password,role) values('student','student@es.fr','teststudent','student_SIC');
 insert into public.users(name,mail,password,role) values('teacher','teacher@es.fr','testteacher','teacher');
 
