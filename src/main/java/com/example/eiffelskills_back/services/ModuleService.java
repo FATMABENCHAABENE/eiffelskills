@@ -6,10 +6,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +35,14 @@ public class ModuleService {
                 modules.add(module);
             }
         }
+        return modules;
+    }
+
+    @Transactional
+    public List<Modules> getModuleByIdTeacher(Long teacherId) {
+        Iterator<Modules> all = (Iterator<Modules>) moduleDAO.findByIdTeacher(teacherId);
+        List<Modules> modules = new ArrayList<>();
+        all.forEachRemaining(modules::add);
         return modules;
     }
 

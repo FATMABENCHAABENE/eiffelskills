@@ -16,11 +16,14 @@ public class Modules {
     private String description;
     @Column(name = "major", nullable = false)
     private String major;
+    @Column(name = "id_teacher", nullable = false)
+    private Long idTeacher;
 
     public Modules() {}
 
-    public Modules(String description, String major) {
+    public Modules(String description, String major, Long idTeacher) {
         this.description = description;
         this.major = major;
+        this.idTeacher = idTeacher;
     }
 }

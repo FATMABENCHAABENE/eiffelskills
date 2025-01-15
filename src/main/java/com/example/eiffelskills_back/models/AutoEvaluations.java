@@ -13,17 +13,17 @@ public class AutoEvaluations {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "id_skill", nullable = false)
-    private Long id_skill;
+    private Long idSkill;
     @Column(name = "id_student", nullable = false)
-    private Long id_student;
+    private Long idStudent;
     @Column(name = "eval", nullable = false)
     private String eval;
 
     public AutoEvaluations() {}
 
-    public AutoEvaluations(Long id_skill, Long id_student, String eval) {
-        this.id_skill = id_skill;
-        this.id_student = id_student;
+    public AutoEvaluations(Long idSkill, Long idStudent, String eval) {
+        this.idSkill = idSkill;
+        this.idStudent = idStudent;
         this.eval = eval;
     }
 }

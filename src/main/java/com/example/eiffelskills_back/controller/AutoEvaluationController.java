@@ -32,7 +32,7 @@ public class AutoEvaluationController {
 
     @PostMapping("/skill")
     public void updateBySkillAndStudent(@RequestBody AutoEvaluations autoEvaluation) {
-        autoEvaluationService.updateBySkillAndStudent(autoEvaluation.getId_skill(), autoEvaluation.getId_student(), autoEvaluation);
+        autoEvaluationService.updateBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
     }
 
     @DeleteMapping("/{id}")

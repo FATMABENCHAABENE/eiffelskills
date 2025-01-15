@@ -33,7 +33,7 @@ public class AutoEvaluationService {
         if (autoEvaluationDAO.findById(id).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            autoEvaluationDAO.updateAutoEvaluationById(id, autoEvaluations.getId_skill(), autoEvaluations.getId_student(), autoEvaluations.getEval());
+            autoEvaluationDAO.updateAutoEvaluationById(id, autoEvaluations.getIdSkill(), autoEvaluations.getIdStudent(), autoEvaluations.getEval());
         }
     }
 
