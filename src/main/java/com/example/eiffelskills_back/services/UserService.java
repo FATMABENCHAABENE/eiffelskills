@@ -7,10 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +32,18 @@ public class UserService {
     }
 
     @Transactional
+    public List<User> getStudentByMajor(String major) {
+        List<User> all = userDao.findAll();
+        List<User> students = new ArrayList<>();
+        for (User user : all) {
+            if (user.getRole().contains(major) && user.getRole().contains("student")) {
+                students.add(user);
+            }
+        }
+        return students;
+    }
+
+    @Transactional
     public void addUser(User user) {
         user.setPassword(encoder.encrypt(user.getPassword()));
         userDao.save(user);
@@ -49,15 +58,4 @@ public class UserService {
     public void deleteUser(Long id) {
         userDao.deleteById(id);
     }
-/*
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDao.findByMail(username);
-        SimpleGrantedAuthority authoritie = new SimpleGrantedAuthority(user.getRole());
-        return new org.springframework.security.core.userdetails.User(
-                username,
-                user.getPassword(),
-                Collections.singleton(authoritie)
-        );
-    }*/
 }

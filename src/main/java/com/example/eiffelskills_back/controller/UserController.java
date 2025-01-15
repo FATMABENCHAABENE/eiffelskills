@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.MessageDigest;
+import java.util.List;
 
 @CrossOrigin
 @RequiredArgsConstructor
@@ -44,6 +45,11 @@ public class UserController {
             return new ResponseEntity<User>(loggedUser, HttpStatus.OK);
         }
         return null;
+    }
+
+    @GetMapping("/student/{major}")
+    public List<User> getStudentByMajor(@PathVariable String major) {
+       return userService.getStudentByMajor(major);
     }
 
     @PostMapping("/add")
