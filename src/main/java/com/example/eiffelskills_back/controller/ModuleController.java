@@ -15,10 +15,14 @@ public class ModuleController {
     private final ModuleService moduleService;
 
     @GetMapping("")
-    public List<Modules> getAllModules() {return moduleService.getAllModules();}
+    public List<Modules> getAllModules() {
+        return moduleService.getAllModules();
+    }
 
     @PostMapping("")
-    public void addModule(@RequestBody Modules module) {moduleService.saveModule(module);}
+    public void addModule(@RequestBody Modules module) {
+        moduleService.saveModule(module);
+    }
 
     @GetMapping("/{id}")
     public Modules getModuleById(@PathVariable Long id) {
@@ -26,14 +30,22 @@ public class ModuleController {
     }
 
     @GetMapping("/major/{major}")
-    public List<Modules> getModuleByMajor(@PathVariable String major) {return moduleService.getModulesByMajor(major);}
+    public List<Modules> getModuleByMajor(@PathVariable String major) {
+        return moduleService.getModulesByMajor(major);
+    }
 
     @GetMapping("/teacher/{id}")
-    public List<Modules> getModulesByIdTeacher(@PathVariable Long idTeacher) {return moduleService.getModuleByIdTeacher(idTeacher);}
+    public List<Modules> getModulesByIdTeacher(@PathVariable Long idTeacher) {
+        return moduleService.getModuleByIdTeacher(idTeacher);
+    }
 
     @PostMapping("/{id}")
-    public void updateModuleById(@PathVariable Long id, @RequestBody Modules module) {moduleService.updateModule(module, id);}
+    public void updateModuleById(@PathVariable Long id, @RequestBody Modules module) {
+        moduleService.updateModule(module, id);
+    }
 
     @DeleteMapping("/{id}")
-    public void deleteModuleById(@PathVariable Long id) {moduleService.deleteModuleById(id);}
+    public void deleteModuleById(@PathVariable Long id) {
+        moduleService.deleteModuleById(id);
+    }
 }

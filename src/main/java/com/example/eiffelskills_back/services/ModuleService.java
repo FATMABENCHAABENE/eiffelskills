@@ -59,5 +59,7 @@ public class ModuleService {
     }
 
     @Transactional
-    public void deleteModuleById(Long id) {moduleDAO.deleteById(id);}
+    public void deleteModuleById(Long id) {
+        moduleDAO.deleteById(id);
+    }
 }
