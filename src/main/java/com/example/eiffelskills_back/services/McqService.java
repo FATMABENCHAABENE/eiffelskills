@@ -47,7 +47,7 @@ public class McqService {
                 mcqs.add(mcq);
             }
         }
-        return allMcqs;
+        return mcqs;
     }
 
     @Transactional
