@@ -1,0 +1,47 @@
+package com.example.eiffelskills_back.services;
+
+import com.example.eiffelskills_back.DAO.McqDAO;
+import com.example.eiffelskills_back.models.Mcq;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class McqService {
+    private McqDAO mcqDAO;
+
+    @Transactional
+    public Mcq saveMcq(Mcq mcq) {
+        return mcqDAO.save(mcq);
+    }
+
+    @Transactional
+    public List<Mcq> getAllMcqs() {
+        return mcqDAO.findAll();
+    }
+
+    @Transactional
+    public Optional<Mcq> getMcqById(Long id) {
+        return mcqDAO.findById(id);
+    }
+
+    @Transactional
+    public List<Mcq> getMcqByIdModule(Long idModule) {
+        List<Mcq> allMcqs = mcqDAO.findAll();
+        for (Mcq mcq : allMcqs) {
+            if (!mcq.getIdModule().equals(idModule)) {
+                allMcqs.remove(mcq);
+            }
+        }
+        return allMcqs;
+    }
+
+    @Transactional
+    public void deleteMcqById(Long id) {
+        mcqDAO.deleteById(id);
+    }
+}
