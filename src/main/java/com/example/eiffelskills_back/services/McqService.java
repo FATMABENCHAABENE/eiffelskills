@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class McqService {
-    private McqDAO mcqDAO;
+    private final McqDAO mcqDAO;
 
     @Transactional
     public Mcq saveMcq(Mcq mcq) {
