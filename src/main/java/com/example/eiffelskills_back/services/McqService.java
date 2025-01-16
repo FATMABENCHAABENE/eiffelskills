@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,9 +41,10 @@ public class McqService {
     @Transactional
     public List<Mcq> getMcqByIdModule(Long idModule) {
         List<Mcq> allMcqs = mcqDAO.findAll();
+        List<Mcq> mcqs = new ArrayList<>();
         for (Mcq mcq : allMcqs) {
-            if (!mcq.getIdModule().equals(idModule)) {
-                allMcqs.remove(mcq);
+            if (mcq.getIdModule().equals(idModule)) {
+                mcqs.add(mcq);
             }
         }
         return allMcqs;
