@@ -29,7 +29,7 @@ public class McqController {
         return mcqService.getMcqById(id);
     }
 
-    @GetMapping("/module/{id}")
+    @GetMapping("/module/{idModule}")
     public List<Mcq> getMcqByIdModule(@PathVariable Long idModule) {
         return mcqService.getMcqByIdModule(idModule);
     }
@@ -37,5 +37,10 @@ public class McqController {
     @DeleteMapping("/{id}")
     public void deleteMcqById(@PathVariable Long id) {
         mcqService.deleteMcqById(id);
+    }
+
+    @DeleteMapping("/module/{idModule}")
+    public void deleteMcqByIdModule(@PathVariable Long idModule) {
+        mcqService.deleteMcqByIdModule(idModule);
     }
 }

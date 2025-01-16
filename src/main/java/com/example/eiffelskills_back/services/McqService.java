@@ -41,7 +41,21 @@ public class McqService {
     }
 
     @Transactional
+    public Mcq updateMcqByIdModule(Mcq mcq) {
+        if (this.getMcqByIdModule(mcq.getIdModule()).isEmpty()) {
+            return saveMcq(mcq);
+        } else {
+            return mcqDAO.updateByIdModule(mcq.getDescription(),mcq.getIdModule());
+        }
+    }
+
+    @Transactional
     public void deleteMcqById(Long id) {
         mcqDAO.deleteById(id);
+    }
+
+    @Transactional
+    public void deleteMcqByIdModule(Long idModule) {
+        mcqDAO.deleteByIdModule(idModule);
     }
 }
