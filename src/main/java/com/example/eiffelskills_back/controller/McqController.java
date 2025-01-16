@@ -11,11 +11,13 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("MCQ")
 public class McqController {
     private final McqService mcqService;
 
     @PostMapping("")
     public Mcq saveMcq(@RequestBody Mcq mcq) {
+        System.out.println(mcq);
         return mcqService.saveMcq(mcq);
     }
 
