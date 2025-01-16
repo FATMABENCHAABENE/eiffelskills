@@ -19,8 +19,14 @@ public class Mcq {
     private Long idModule;
 
     public Mcq() {}
+
     public Mcq(String description, Long id_module) {
         this.description = description;
         this.idModule = id_module;
+    }
+
+    @Override
+    public String toString() {
+        return "MCQ :\n\t" + description + "\n\t" + idModule;
     }
 }
