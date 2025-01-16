@@ -13,8 +13,9 @@ public class Mcq {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "decription", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
+    @Getter
     @Column(name = "id_module")
     private Long idModule;
 
