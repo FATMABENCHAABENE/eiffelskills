@@ -16,7 +16,9 @@ public class McqService {
 
     @Transactional
     public Mcq saveMcq(Mcq mcq) {
-        mcqDAO.deleteByIdModule(mcq.getIdModule());
+        if (!this.getMcqByIdModule(mcq.getIdModule()).isEmpty()) {
+            mcqDAO.deleteByIdModule(mcq.getIdModule());
+        }
         return mcqDAO.save(mcq);
     }
 
