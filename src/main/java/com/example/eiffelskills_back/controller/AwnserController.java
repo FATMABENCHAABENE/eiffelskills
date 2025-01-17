@@ -33,4 +33,9 @@ public class AwnserController {
     public List<Awnsers> getAwnserByIdQuestion(@PathVariable Long idQuestion) {
         return awnserService.getAwnsersByIdQuestion(idQuestion);
     }
+
+    @GetMapping("/check/{id}")
+    public Boolean checkAwnserById(@PathVariable Long id) {
+        return awnserService.checkAwnser(id);
+    }
 }

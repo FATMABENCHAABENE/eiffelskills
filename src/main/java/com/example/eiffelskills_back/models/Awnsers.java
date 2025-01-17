@@ -26,4 +26,8 @@ public class Awnsers {
         this.isGood = isGood;
         this.idQuestion = idQuestion;
     }
+
+    public boolean isGood() {
+        return isGood;
+    }
 }
