@@ -6,6 +6,9 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class QuestionService {
@@ -14,5 +17,32 @@ public class QuestionService {
     @Transactional
     public Questions saveQuestions(Questions questions) {
         return questionDAO.save(questions);
+    }
+
+    @Transactional
+    public List<Questions> getAllQuestions() {
+        return questionDAO.findAll();
+    }
+
+    @Transactional
+    public Questions getQuestionById(Long id) {
+        return questionDAO.getReferenceById(id);
+    }
+
+    @Transactional
+    public List<Questions> getQuestionsByIdMcq(Long id) {
+        List<Questions> all = questionDAO.findAll();
+        List<Questions> questions = new ArrayList<>();
+        for (Questions question : all) {
+            if (question.getIdMcq().equals(id)) {
+                questions.add(question);
+            }
+        }
+        return questions;
+    }
+
+    @Transactional
+    public void deleteQuestionById(Long id) {
+        questionDAO.deleteById(id);
     }
 }
