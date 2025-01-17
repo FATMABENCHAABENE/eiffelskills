@@ -48,6 +48,55 @@ public class AutoEvaluationService {
     }
 
     @Transactional
+    public List<AutoEvaluations> getAutoEvalByStudentAndSkills(Long studentId, Long idSkill) {
+        List<AutoEvaluations> all = autoEvaluationDAO.findAll();
+        List<AutoEvaluations> autoEvaluations = new ArrayList<>();
+        for (AutoEvaluations autoEvaluation : all) {
+            if (autoEvaluation.getIdStudent().equals(studentId) && autoEvaluation.getIdSkill().equals(idSkill)) {
+                autoEvaluations.add(autoEvaluation);
+            }
+        }
+        return autoEvaluations;
+    }
+
+    @Transactional
+    public void downGradeAutoEval(Long studentId, Long skillId) {
+        List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
+        if (all.isEmpty()) {
+            this.save(new AutoEvaluations(skillId,studentId,"no acquired"));
+        } else {
+            for (AutoEvaluations autoEvaluation : all) {
+                String newEval = "";
+                switch (autoEvaluation.getEval()) {
+                    case("acquired"): newEval = "acquiring"; break;
+                    case("acquiring"): newEval = "no acquired"; break;
+                    case("no acquired"): newEval = "no acquired"; break;
+                }
+                autoEvaluation.setEval(newEval);
+                this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
+            }
+        }
+    }
+
+    public void upgradeAutoEval(Long studentId, Long skillId) {
+        List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
+        if (all.isEmpty()) {
+            this.save(new AutoEvaluations(skillId,studentId,"acquired"));
+        } else {
+            for (AutoEvaluations autoEvaluation : all) {
+                String newEval = "";
+                switch (autoEvaluation.getEval()) {
+                    case("acquired"): newEval = "acquired"; break;
+                    case("acquiring"): newEval = "acquired"; break;
+                    case("no acquired"): newEval = "acquiring"; break;
+                }
+                autoEvaluation.setEval(newEval);
+                this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
+            }
+        }
+    }
+
+    @Transactional
     public void save(AutoEvaluations autoEvaluations) {
         autoEvaluationDAO.save(autoEvaluations);
     }

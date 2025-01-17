@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class QuestionService {
     private final QuestionDAO questionDAO;
+    private final AutoEvaluationService autoEvaluationService;
 
     @Transactional
     public Questions saveQuestions(Questions questions) {
@@ -39,6 +40,16 @@ public class QuestionService {
             }
         }
         return questions;
+    }
+
+    @Transactional
+    public void updateResult(Long idQuestion, Long idStudent, boolean isCorrect) {
+        Questions question = this.getQuestionById(idQuestion);
+        if (isCorrect) {
+            autoEvaluationService.upgradeAutoEval(idStudent, question.getIdSkill());
+        } else {
+            autoEvaluationService.downGradeAutoEval(idStudent, question.getIdSkill());
+        }
     }
 
     @Transactional

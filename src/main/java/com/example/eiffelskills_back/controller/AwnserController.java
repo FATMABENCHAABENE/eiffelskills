@@ -38,4 +38,9 @@ public class AwnserController {
     public Boolean checkAwnserById(@PathVariable Long id) {
         return awnserService.checkAwnser(id);
     }
+
+    @PostMapping("/globalcheck/{idStudent}")
+    public void checkGlobalAwnser(@PathVariable Long idStudent, @RequestBody List<Long> idList) {
+        awnserService.checkListAwnser(idList, idStudent);
+    }
 }

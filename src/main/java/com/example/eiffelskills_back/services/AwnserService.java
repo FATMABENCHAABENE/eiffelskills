@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AwnserService {
     private final AwnserDAO awnserDAO;
+    private final QuestionService questionService;
 
     @Transactional
     public List<Awnsers> addByList(List<String> stringAwnsers, Long idQuestion) {
@@ -50,5 +51,13 @@ public class AwnserService {
     public Boolean checkAwnser(Long idAwnser) {
         Optional<Awnsers> awnsers = awnserDAO.findById(idAwnser);
         return awnsers.get().isGood();
+    }
+
+    @Transactional
+    public void checkListAwnser(List<Long> allIdAwnsers, Long idStudent) {
+        for (Long id : allIdAwnsers) {
+            Awnsers awnser = awnserDAO.findById(id).get();
+            questionService.updateResult(awnser.getId(),idStudent,awnser.isGood());
+        }
     }
 }
