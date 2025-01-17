@@ -19,8 +19,8 @@ public class AwnserController {
         return awnserService.addByList(list, idQuestion);
     }
 
-    @PostMapping("/updateGood/{id}")
-    public void updateGoodAwnser(@PathVariable Long id) {
+    @PostMapping("/updateGood")
+    public void updateGoodAwnser(@RequestBody Long id) {
         awnserService.updateGoodAwnser(id);
     }
 
