@@ -41,6 +41,9 @@ public class AutoEvaluationController {
 
     @PostMapping("/skill")
     public void updateBySkillAndStudent(@RequestBody AutoEvaluations autoEvaluation) {
+        System.out.println("ID Reçu du client : " + autoEvaluation.getIdSkill());
+        System.out.println("ID student Reçu du client : " + autoEvaluation.getIdStudent());
+        System.out.println("Eval Reçu du client : " + autoEvaluation.getEval());
         autoEvaluationService.updateBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
     }
 

@@ -119,7 +119,8 @@ public class AutoEvaluationService {
         if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            autoEvaluationDAO.updateAutoEvaluationBySkillAndStudent(idSkill,idStudent, autoEvaluations.getEval());
+            System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
+            autoEvaluationDAO.updateAutoEvaluationBySkillAndStudent(autoEvaluations.getEval(), idSkill,idStudent);
         }
     }
 }
