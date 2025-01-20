@@ -9,12 +9,12 @@ import java.util.Optional;
 
 public interface AutoEvaluationDAO extends JpaRepository<AutoEvaluations, Long> {
     @Modifying
-    @Query(nativeQuery = true, value = "UPDATE autoevaluations SET id_skill=:idSkill, id_student=:idStudent, eval=:eval WHERE id=:id")
-    public void updateAutoEvaluationById(Long id, Long idSkill, Long idStudent, String eval);
+    @Query(nativeQuery = true, value = "UPDATE autoevaluations SET id_skill=:idSkill, id_student=:idStudent, eval=:eval, quizz_eval=:quizzEval WHERE id=:id")
+    public void updateAutoEvaluationById(Long id, Long idSkill, Long idStudent, String eval, String quizzEval);
 
     @Modifying
-    @Query(nativeQuery = true, value = "UPDATE autoevaluations SET eval=:eval WHERE id_skill=:idSkill and id_student=:idStudent")
-    public void updateAutoEvaluationBySkillAndStudent(String eval, Long idSkill, Long idStudent);
+    @Query(nativeQuery = true, value = "UPDATE autoevaluations SET eval=:eval, quizz_eval=:quizzEval WHERE id_skill=:idSkill and id_student=:idStudent")
+    public void updateAutoEvaluationBySkillAndStudent(String eval, String quizzEval, Long idSkill, Long idStudent);
 
     @Query(nativeQuery = true, value = "SELECT * FROM autoevaluations WHERE id_skill=:idSkill and id_student=:idStudent")
     public Optional<AutoEvaluations> findBySkillAndStudent(Long idSkill, Long idStudent);

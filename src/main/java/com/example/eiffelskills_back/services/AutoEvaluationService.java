@@ -63,7 +63,7 @@ public class AutoEvaluationService {
     public void downGradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
         if (all.isEmpty()) {
-            this.save(new AutoEvaluations(skillId,studentId,"no acquired"));
+            this.save(new AutoEvaluations(skillId,studentId,"no evaluated","no acquired"));
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
@@ -72,7 +72,7 @@ public class AutoEvaluationService {
                     case("acquiring"): newEval = "no acquired"; break;
                     case("no acquired"): newEval = "no acquired"; break;
                 }
-                autoEvaluation.setEval(newEval);
+                autoEvaluation.setQuizzEval(newEval);
                 this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
             }
         }
@@ -81,7 +81,7 @@ public class AutoEvaluationService {
     public void upgradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
         if (all.isEmpty()) {
-            this.save(new AutoEvaluations(skillId,studentId,"acquired"));
+            this.save(new AutoEvaluations(skillId,studentId,"no evaluated","acquired"));
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
@@ -90,7 +90,7 @@ public class AutoEvaluationService {
                     case("acquiring"): newEval = "acquired"; break;
                     case("no acquired"): newEval = "acquiring"; break;
                 }
-                autoEvaluation.setEval(newEval);
+                autoEvaluation.setQuizzEval(newEval);
                 this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
             }
         }
@@ -110,7 +110,7 @@ public class AutoEvaluationService {
         if (autoEvaluationDAO.findById(id).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            autoEvaluationDAO.updateAutoEvaluationById(id, autoEvaluations.getIdSkill(), autoEvaluations.getIdStudent(), autoEvaluations.getEval());
+            autoEvaluationDAO.updateAutoEvaluationById(id, autoEvaluations.getIdSkill(), autoEvaluations.getIdStudent(), autoEvaluations.getEval(), autoEvaluations.getQuizzEval());
         }
     }
 
@@ -119,8 +119,8 @@ public class AutoEvaluationService {
         if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
-            autoEvaluationDAO.updateAutoEvaluationBySkillAndStudent(autoEvaluations.getEval(), idSkill,idStudent);
+            //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
+            autoEvaluationDAO.updateAutoEvaluationBySkillAndStudent(autoEvaluations.getEval(), autoEvaluations.getQuizzEval(), idSkill,idStudent);
         }
     }
 }
