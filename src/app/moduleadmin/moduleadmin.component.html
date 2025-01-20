@@ -1,0 +1,39 @@
+<p>Cette page est réservée à l'administrateur !</p>
+
+<!-- Ajout d'un utilisateur -->
+<div>
+  <h2>Ajouter un Utilisateur</h2>
+  <form (ngSubmit)="addUser()">
+    <label for="name">Nom :</label>
+    <input id="name" [(ngModel)]="newUser.name" name="name" required />
+    <br />
+    <label for="email">Mail :</label>
+    <input id="mail" [(ngModel)]="newUser.mail" name="mail" type="mail" required />
+    <br />
+    <label for="role">Rôle :</label>
+    <select id="role" [(ngModel)]="newUser.role" name="role" required>
+      <option value="student">Étudiant</option>
+      <option value="teacher">Enseignant</option>
+    </select>
+    <br />
+    <button type="submit">Ajouter l'utilisateur</button>
+  </form>
+</div>
+
+<div>
+    <h2>Ajouter un Module</h2>
+   <form (ngSubmit)="addModule()">
+      <label for="major">Matière :</label>
+      <input id="major" [(ngModel)]="newModule.major" name="major" required />
+      <br />
+      <label for="description">Description :</label>
+      <textarea id="description" [(ngModel)]="newModule.description" name="description" required></textarea>
+      <br />
+      <label for="id_teacher">ID Enseignant :</label>
+      <input id="id_teacher" [(ngModel)]="newModule.id_teacher" name="id_teacher" type="number" required />
+      <br />
+    </form>
+    <button (click)="addModule()">Ajouter le module</button>
+  </div>
+
+
