@@ -44,7 +44,7 @@ public class AutoEvaluationController {
         System.out.println("ID Reçu du client : " + autoEvaluation.getIdSkill());
         System.out.println("ID student Reçu du client : " + autoEvaluation.getIdStudent());
         System.out.println("Eval Reçu du client : " + autoEvaluation.getEval());
-        autoEvaluationService.updateBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
+        autoEvaluationService.updateEvalBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
     }
 
     @DeleteMapping("/{id}")

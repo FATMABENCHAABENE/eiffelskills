@@ -73,11 +73,12 @@ public class AutoEvaluationService {
                     case("no acquired"): newEval = "no acquired"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
-                this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
+                this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
             }
         }
     }
 
+    @Transactional
     public void upgradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
         if (all.isEmpty()) {
@@ -91,7 +92,7 @@ public class AutoEvaluationService {
                     case("no acquired"): newEval = "acquiring"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
-                this.updateBySkillAndStudent(studentId, skillId, autoEvaluation);
+                this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
             }
         }
     }
@@ -115,12 +116,22 @@ public class AutoEvaluationService {
     }
 
     @Transactional
-    public void updateBySkillAndStudent(Long idSkill, Long idStudent, AutoEvaluations autoEvaluations) {
+    public void updateEvalBySkillAndStudent(Long idSkill, Long idStudent, AutoEvaluations autoEvaluations) {
         if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
             //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
-            autoEvaluationDAO.updateAutoEvaluationBySkillAndStudent(autoEvaluations.getEval(), autoEvaluations.getQuizzEval(), idSkill,idStudent);
+            autoEvaluationDAO.updateAutoEvalBySkillAndStudent(autoEvaluations.getEval(), idSkill,idStudent);
+        }
+    }
+
+    @Transactional
+    public void updateQuizzBySkillAndStudent(Long idSkill, Long idStudent, AutoEvaluations autoEvaluations) {
+        if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
+            autoEvaluationDAO.save(autoEvaluations);
+        } else {
+            //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
+            autoEvaluationDAO.updateQuizzEvalBySkillAndStudent(autoEvaluations.getQuizzEval(), idSkill,idStudent);
         }
     }
 }
