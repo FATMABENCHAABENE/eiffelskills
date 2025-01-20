@@ -16,6 +16,16 @@
       <option value="teacher">Enseignant</option>
     </select>
     <br />
+    <!-- Champ "major" si le rôle est "étudiant" -->
+       <div *ngIf="newUser.role === 'student'">
+    <label for="major">Majeure :</label>
+    <select id="major" [(ngModel)]="newUser.major" name="major" required>
+      <option value="student_SIC">SIC</option>
+      <option value="student_BDA">BDA</option>
+      <option value="student_SE">SE</option>
+    </select>
+  </div>
+    <br />
     <button type="submit">Ajouter l'utilisateur</button>
   </form>
 </div>

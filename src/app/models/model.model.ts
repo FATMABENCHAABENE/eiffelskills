@@ -5,6 +5,7 @@ export interface users {
     mail: string; 
     password : string; 
     role: string; 
+    major?: string;
 }
 
 export interface mat {

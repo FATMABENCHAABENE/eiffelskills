@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from '../services/service.service';
-import { users, Modules } from 'models/model.model'; // Vérifiez que l'importation est correcte.
+import { users, Modules } from 'models/model.model';
 
 @Component({
   selector: 'moduleadmin',
@@ -16,26 +16,33 @@ export class ModuleadminComponent implements OnInit {
     surname: '',
     mail: '',
     password: '',
-    role: 'student'
+    role: 'student',
+    major: '' 
   };
 
   constructor(private service: Service, private router: Router) {}
 
   ngOnInit(): void {
-    // Initialisation si nécessaire
+   
   }
 
   // Ajout d'un utilisateur
   addUser(): void {
+    if (this.newUser.role === 'student' && !this.newUser.major) {
+      console.error('La majeure doit être spécifiée pour un étudiant');
+      return; // Empêche l'ajout de l'utilisateur si major est vide
+    }
+
     this.service.addUser(this.newUser).subscribe(
       (response) => {
         console.log('Utilisateur ajouté avec succès:', response);
         this.newUser = {
           name: '',
-          surname: '', // Réinitialisation
+          surname: '',
           mail: '',
-          password: '', // Réinitialisation
-          role: 'student'
+          password: '',
+          role: 'student',
+          major: '' 
         };
       },
       (error) => {
@@ -49,7 +56,7 @@ export class ModuleadminComponent implements OnInit {
     this.service.addModule(this.newModule).subscribe(
       (response) => {
         console.log('Module ajouté avec succès:', response);
-        // Réinitialisation des champs du formulaire
+        // Réinitialisation des champs
         this.newModule = { id: 0, major: '', description: '', id_teacher: 0 };
       },
       (error) => {
