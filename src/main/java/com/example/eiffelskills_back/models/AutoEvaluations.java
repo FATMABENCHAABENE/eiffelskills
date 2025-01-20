@@ -29,4 +29,9 @@ public class AutoEvaluations {
         this.eval = eval;
         this.quizzEval = quizzEval;
     }
+
+    @Override
+    public String toString() {
+        return "["+idSkill+", "+idStudent+", "+eval+", "+quizzEval+"]";
+    }
 }
