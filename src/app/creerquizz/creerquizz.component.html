@@ -1,0 +1,81 @@
+<p>creerquizz works!</p>
+
+<div class="container">
+  <h2>Créer une Question</h2>
+  
+  <!-- Zone de saisie pour la description de la question -->
+  <label for="question">Entrer la question :</label>
+  <textarea 
+    id="question" 
+    [(ngModel)]="description" 
+    placeholder="Écrivez votre question ici..."
+    rows="4" 
+    cols="50">
+  </textarea>
+  
+  <!-- Bouton pour envoyer la question -->
+  <button (click)="sendquestion(description)">Envoyer</button>
+</div>
+
+<div class="container">
+  <h2>Question Stockée</h2>
+  
+  <!-- Zone de texte pour afficher la question stockée -->
+  <textarea 
+    id="questionstockée" 
+    [(ngModel)]="questionstockee" 
+    rows="3" 
+    cols="50" 
+    readonly>
+  </textarea>
+</div>
+
+<div class="container">
+  <h2>Ajouter des Réponses</h2>
+  
+  <!-- Zone de texte pour la première réponse -->
+  <label for="reponse1">Réponse 1 :</label>
+  <input type="text" id="reponse1" [(ngModel)]="reponseUn" placeholder="Écrire la première réponse" />
+
+  <!-- Zone de texte pour la deuxième réponse -->
+  <label for="reponse2">Réponse 2 :</label>
+  <input type="text" id="reponse2" [(ngModel)]="reponseDeux" placeholder="Écrire la deuxième réponse" />
+
+  <!-- Zone de texte pour la troisième réponse -->
+  <label for="reponse3">Réponse 3 :</label>
+  <input type="text" id="reponse3" [(ngModel)]="reponseTrois" placeholder="Écrire la troisième réponse" />
+
+  <!-- Zone de texte pour la quatrième réponse -->
+  <label for="reponse4">Réponse 4 :</label>
+  <input type="text" id="reponse4" [(ngModel)]="reponseQuatre" placeholder="Écrire la quatrième réponse" />
+
+  <!-- Bouton pour envoyer les réponses -->
+  <button (click)="envoyereponse()">Envoyer</button>
+</div>
+
+ <!-- Affichage des réponses retournées -->
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Questions entrées précédemment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reponse of reponsesRetournees">
+      <td>{{ reponse.id }}</td>
+      <td>{{ reponse.description }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Zone de texte pour saisir l'ID de la réponse sélectionnée -->
+<div>
+  <label for="userReponse">Entrez l'ID de la réponse :</label>
+  <input type="number" id="userReponse" [(ngModel)]="idUserReponse" class="form-control">
+
+
+<!-- Bouton pour soumettre la réponse -->
+<button (click)="envoyeBreponse(idUserReponse)">Envoyer</button>
+</div>
+

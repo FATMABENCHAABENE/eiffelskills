@@ -1,0 +1,43 @@
+@use "theme";
+
+nav {
+  height: 80px;
+  background: linear-gradient(to right, #ff3c0093, #ff2a0093);
+
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-left: 20px;
+      height: 60px;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+mat-nav-list {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  width: 400px;
+
+  span,
+  a {
+    font-size: large;
+    color: theme.$white;
+    transition: 0.3s;
+    white-space: nowrap; 
+    overflow: visible;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

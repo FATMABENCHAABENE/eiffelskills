@@ -1,0 +1,14 @@
+<p>La liste des modules du professeur !</p>
+
+<div>
+    <h2>Liste des Modules</h2>
+    <ul>
+        <li *ngFor="let module of modules">
+            {{ module.major }} - {{ module.description }}
+            <button (click)="showstudenteval(module.id, module.major)">Visualiser les évaluations des étudiants</button>
+            <button (click)="showquizz(module.description, module.id)">Voir le quizz existant</button>
+            <button (click)="creerunquizz(module.description, module.id)">Créer un quizz pour cette matière</button>
+        </li>
+    </ul>
+</div>
+

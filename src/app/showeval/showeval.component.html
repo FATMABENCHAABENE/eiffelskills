@@ -1,0 +1,24 @@
+<p>showeval works!</p>
+
+<div class="container">
+    <h2>Liste des Évaluations</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID Skill</th>
+          <th>Description</th>
+          <th>Évaluation</th>
+          <th>Quizz Évaluation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let response of responseMessage">
+          <td>{{ response.idSkill }}</td>
+          <td>{{ response.description || 'Chargement...' }}</td>  <!-- Affiche la description -->
+          <td>{{ response.eval }}</td>
+          <td>{{ response.quizzeval }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

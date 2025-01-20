@@ -1,0 +1,26 @@
+<p>autoeval works!</p>
+
+<div class="label-container">
+    <label class="label">Compétences</label>
+    <ul>
+      <li *ngFor="let info of comp">
+        <span class="id-span">Compétence: {{ info.description }}</span>
+  
+        <!-- Liste déroulante pour l'évaluation -->
+        <select #evalInput>
+          <option value='acquired'>Acquired</option>
+          <option value='acquiring'>Acquiring</option>
+          <option value='no acquired'>No Acquired</option>
+        </select>
+  
+        <!-- Bouton d'enregistrement -->
+        <button 
+          class="save-button" 
+          type="button" 
+          (click)="updateeval(info.id, evalInput.value)">
+          Enregistrer
+        </button>
+      </li>
+    </ul>
+  </div>
+  

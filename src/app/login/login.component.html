@@ -1,0 +1,48 @@
+<p>Page de login!</p>
+
+<div class="login-container">
+    <h2>Connexion</h2>
+    
+    <form (ngSubmit)="tentativelogin()">
+      <div *ngIf="loginIn === 1">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="mail" name="email" required />
+        </div>
+  
+        <div>
+          <label for="password">Mot de Passe:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" required />
+        </div>
+  
+        <div>
+          <label for="major">Majeure:</label>
+          <select id="major" [(ngModel)]="major" name="major" required>
+            <option *ngFor="let major of majors" [value]="major">{{ major }}</option>
+          </select>
+        </div>
+        
+      </div>
+  
+      <div *ngIf="loginIn === 2 || loginIn === 3">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="mail" name="email" required />
+        </div>
+      
+        <div>
+          <label for="password">Mot de Passe:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" required />
+        </div>
+      
+        <div>
+          <label for="role">Rôle:</label>
+          <span>{{ loginIn === 2 ? 'Professeur' : 'Administrateur' }}</span>
+        </div>
+      </div>
+      
+  
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+  
