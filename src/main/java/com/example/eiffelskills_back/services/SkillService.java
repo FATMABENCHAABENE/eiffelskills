@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +21,8 @@ public class SkillService {
     }
 
     @Transactional
-    public Skills getSkillById(Long id) {
-        return skillDAO.getReferenceById(id);
+    public Optional<Skills> getSkillById(Long id) {
+        return skillDAO.findById(id);
     }
 
     @Transactional

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RequiredArgsConstructor
@@ -23,7 +24,10 @@ public class SkillController {
     public void addSkill(@RequestBody Skills skill) {skillService.addSkill(skill);}
 
     @GetMapping("/{id}")
-    public Skills getSkillById(@PathVariable Long id) {return skillService.getSkillById(id);}
+    public Optional<Skills> getSkillById(@PathVariable Long id) {
+        System.out.println("ID reçu du FRONT :" + id);
+        return skillService.getSkillById(id);
+    }
 
     @GetMapping("/module/{id}")
     public List<Skills> getSkillsByModule(@PathVariable Long id) {return skillService.getSkillsByModule(id);}

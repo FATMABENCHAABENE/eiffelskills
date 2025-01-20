@@ -22,8 +22,8 @@ public class ModuleService {
     }
 
     @Transactional
-    public Modules getModuleById(Long id) {
-        return moduleDAO.getReferenceById(id);
+    public Optional<Modules> getModuleById(Long id) {
+        return moduleDAO.findById(id);
     }
 
     @Transactional

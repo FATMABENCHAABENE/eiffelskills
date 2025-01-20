@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -25,7 +26,7 @@ public class ModuleController {
     }
 
     @GetMapping("/{id}")
-    public Modules getModuleById(@PathVariable Long id) {
+    public Optional<Modules> getModuleById(@PathVariable Long id) {
         return moduleService.getModuleById(id);
     }
 
@@ -35,8 +36,9 @@ public class ModuleController {
     }
 
     @GetMapping("/teacher/{id}")
-    public List<Modules> getModulesByIdTeacher(@PathVariable Long idTeacher) {
-        return moduleService.getModuleByIdTeacher(idTeacher);
+    public List<Modules> getModulesByIdTeacher(@PathVariable Long id) {
+        System.out.println("\nIn ModuleController");
+        return moduleService.getModuleByIdTeacher(id);
     }
 
     @PostMapping("/{id}")

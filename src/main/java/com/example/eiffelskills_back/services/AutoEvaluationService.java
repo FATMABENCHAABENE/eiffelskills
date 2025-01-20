@@ -118,6 +118,7 @@ public class AutoEvaluationService {
     @Transactional
     public void updateEvalBySkillAndStudent(Long idSkill, Long idStudent, AutoEvaluations autoEvaluations) {
         if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
+            System.out.println("add : "+autoEvaluations.toString());
             autoEvaluationDAO.save(autoEvaluations);
         } else {
             //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
