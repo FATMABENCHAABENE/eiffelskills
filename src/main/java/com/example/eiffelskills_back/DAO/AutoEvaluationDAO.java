@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface AutoEvaluationDAO extends JpaRepository<AutoEvaluations, Long> {
+    @Modifying
     @Query(nativeQuery = true, value = "UPDATE autoevaluations SET id_skill=:idSkill, id_student=:idStudent, eval=:eval WHERE id=:id")
     public void updateAutoEvaluationById(Long id, Long idSkill, Long idStudent, String eval);
 

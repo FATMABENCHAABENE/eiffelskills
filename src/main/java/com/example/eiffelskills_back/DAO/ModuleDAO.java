@@ -2,6 +2,7 @@ package com.example.eiffelskills_back.DAO;
 
 import com.example.eiffelskills_back.models.Modules;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ModuleDAO extends JpaRepository<Modules, Long> {
+    @Modifying
     @Query(nativeQuery = true, value = "UPDATE modules SET description=:description, major=:major WHERE id=:id")
     public void updateModuleById(Long id, String description, String major);
 }
