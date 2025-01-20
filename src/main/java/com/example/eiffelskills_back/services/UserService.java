@@ -21,11 +21,16 @@ public class UserService {
 
     @Transactional
     public User checkUser(User user) {
-        //System.out.println(encoder.encrypt(user.getPassword()));
-        User users = userDao.findByEmailAndPassword(user.getMail(), encoder.encrypt(user.getPassword()), user.getRole());
-        //System.out.println("Found User ###"+users.toString());
-        if (users!=null) {
-            return users;
+        List<User> users = userDao.findAll();
+        User foundUser = null;
+        for (User u : users) {
+            if (u.getMail().equals(user.getMail()) && u.getPassword().equals(user.getPassword()) && u.getRole().equals(user.getRole())) {
+                foundUser = u;
+                break;
+            }
+        }
+        if (foundUser!=null) {
+            return foundUser;
         } else {
             return null;
         }

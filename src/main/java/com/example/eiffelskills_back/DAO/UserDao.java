@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserDao extends JpaRepository<User, Long> {
-    @Query(nativeQuery = true, value = "SELECT * FROM users WHERE mail=?1 and password=?2")
+    @Query(nativeQuery = true, value = "SELECT * FROM users WHERE mail=?1 and password=?2 and role=:role")
     User findByEmailAndPassword(String mail, String password, String role);
 
     @Query(nativeQuery = true, value = "SELECT * FROM users WHERE mail=?1")
