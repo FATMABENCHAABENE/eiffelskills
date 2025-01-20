@@ -26,7 +26,9 @@ public class SkillService {
     }
 
     @Transactional
-    public void addSkill(Skills skill) {skillDAO.save(skill);}
+    public void addSkill(Skills skill) {
+        skillDAO.save(skill);
+    }
 
     @Transactional
     public List<Skills> getSkillsByModule(Long moduleId) {

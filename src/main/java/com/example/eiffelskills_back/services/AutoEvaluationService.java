@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class AutoEvaluationService {
     }
 
     @Transactional
-    public AutoEvaluations getAutoEvaluationById(Long id) {
-        return autoEvaluationDAO.getReferenceById(id);
+    public Optional<AutoEvaluations> getAutoEvaluationById(Long id) {
+        return autoEvaluationDAO.findById(id);
     }
 
     @Transactional

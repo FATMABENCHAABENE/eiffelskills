@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class QuestionController {
     }
 
     @GetMapping("/{id}")
-    public Questions getQuestionById(@PathVariable Long id) {
+    public Optional<Questions> getQuestionById(@PathVariable Long id) {
         return questionService.getQuestionById(id);
     }
 

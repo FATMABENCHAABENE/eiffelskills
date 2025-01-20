@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -20,7 +21,7 @@ public class AutoEvaluationController {
     }
 
     @GetMapping("/{id}")
-    public AutoEvaluations getAutoEvalById(@PathVariable Long id) {
+    public Optional<AutoEvaluations> getAutoEvalById(@PathVariable Long id) {
         return autoEvaluationService.getAutoEvaluationById(id);
     }
 

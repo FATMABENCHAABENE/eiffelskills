@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,8 +27,8 @@ public class QuestionService {
     }
 
     @Transactional
-    public Questions getQuestionById(Long id) {
-        return questionDAO.getReferenceById(id);
+    public Optional<Questions> getQuestionById(Long id) {
+        return questionDAO.findById(id);
     }
 
     @Transactional
@@ -44,11 +45,11 @@ public class QuestionService {
 
     @Transactional
     public void updateResult(Long idQuestion, Long idStudent, boolean isCorrect) {
-        Questions question = this.getQuestionById(idQuestion);
+        Optional<Questions> question = this.getQuestionById(idQuestion);
         if (isCorrect) {
-            autoEvaluationService.upgradeAutoEval(idStudent, question.getIdSkill());
+            autoEvaluationService.upgradeAutoEval(idStudent, question.get().getIdSkill());
         } else {
-            autoEvaluationService.downGradeAutoEval(idStudent, question.getIdSkill());
+            autoEvaluationService.downGradeAutoEval(idStudent, question.get().getIdSkill());
         }
     }
 
