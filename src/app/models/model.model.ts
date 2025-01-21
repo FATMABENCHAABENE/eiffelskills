@@ -5,7 +5,7 @@ export interface users {
     mail: string; 
     password : string; 
     role: string;
-    //major : string;
+    major : string;
 }
 
 export interface mat {
@@ -18,7 +18,7 @@ export interface Modules {
     id?: number; 
     description: string; 
     major: string; 
-    id_teacher: number; 
+    idTeacher: number; 
 }
 
 export interface Comp {

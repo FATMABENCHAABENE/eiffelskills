@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       surname: this.surname,
       mail: this.mail,
       password: this.password,
-      role: this.role
+      role: this.role,
+      major: ''
     };
     
     //console.log('Utilisateur connecté:', user);
@@ -70,6 +71,10 @@ export class LoginComponent implements OnInit {
           console.log("je suis un professeur");
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/moduleteacher']);
+        }else if(this.responseMessage.role == "admin") {
+          console.log("je suis admin");
+          this.service.setId(this.responseMessage.id)
+          this.router.navigate(['/moduleadmin'])
         }
       }, 
       (error: any) => {

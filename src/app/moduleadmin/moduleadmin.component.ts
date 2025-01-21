@@ -10,14 +10,14 @@ import { users, Modules } from 'models/model.model';
 })
 export class ModuleadminComponent implements OnInit {
   modules: Modules[] = [];
-  newModule: Modules = { id: 0, major: '', description: '', id_teacher: 0 };
+  newModule: Modules = { id: 0, major: '', description: '', idTeacher: 0 };
   newUser: users = {
     name: '',
     surname: '',
     mail: '',
     password: '',
     role: 'student',
-    major: '' 
+    major: ''
   };
 
   constructor(private service: Service, private router: Router) {}
@@ -42,7 +42,7 @@ export class ModuleadminComponent implements OnInit {
           mail: '',
           password: '',
           role: 'student',
-          major: '',
+          major: ''
         };
       },
       (error) => {
@@ -57,7 +57,7 @@ export class ModuleadminComponent implements OnInit {
       (response) => {
         console.log('Module ajouté avec succès:', response);
         // Réinitialisation des champs
-        this.newModule = { id: 0, major: '', description: '', id_teacher: 0 };
+        this.newModule = { id: 0, major: '', description: '', idTeacher: 0 };
       },
       (error) => {
         console.error('Erreur lors de l\'ajout du module:', error);

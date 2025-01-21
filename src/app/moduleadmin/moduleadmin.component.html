@@ -10,21 +10,26 @@
     <label for="email">Mail :</label>
     <input id="mail" [(ngModel)]="newUser.mail" name="mail" type="mail" required />
     <br />
+    <label for="pwd">Password :</label>
+    <input id="password" [(ngModel)]="newUser.password" name="password" type="text" required=""/>
+    <br/>
     <label for="role">Rôle :</label>
     <select id="role" [(ngModel)]="newUser.role" name="role" required>
-      <option value="student">Étudiant</option>
+      <option value="student_SIC">Étudiant SIC</option>
+      <option value="student_BDA">Étudiant BDA</option>
+      <option value="student_SE">Étudiant SE</option>
       <option value="teacher">Enseignant</option>
     </select>
     <br />
     <!-- Champ "major" si le rôle est "étudiant" -->
-       <div *ngIf="newUser.role === 'student'">
+       <!--<div *ngIf="newUser.role === 'student'">
     <label for="major">Majeure :</label>
-    <select id="major" [(ngModel)]="newUser.major" name="major" required>
+    <select id="major" [(ngModel)]="newUser.role" name="major" required>
       <option value="student_SIC">SIC</option>
       <option value="student_BDA">BDA</option>
       <option value="student_SE">SE</option>
     </select>
-  </div>
+  </div>-->
     <br />
     <button type="submit">Ajouter l'utilisateur</button>
   </form>
@@ -33,14 +38,18 @@
 <div>
     <h2>Ajouter un Module</h2>
    <form (ngSubmit)="addModule()">
-      <label for="major">Matière :</label>
-      <input id="major" [(ngModel)]="newModule.major" name="major" required />
+      <label for="major">Majeur :</label>
+      <select name="major" id="major" [(ngModel)]="newModule.major">
+        <option value="SIC">Système d'Information et Cybersécurité</option>
+        <option value="BDA">Base de Données et Algorithmes</option>
+        <option value="SE">Systèmes Embarqués</option>
+      </select>
       <br />
       <label for="description">Description :</label>
       <textarea id="description" [(ngModel)]="newModule.description" name="description" required></textarea>
       <br />
       <label for="id_teacher">ID Enseignant :</label>
-      <input id="id_teacher" [(ngModel)]="newModule.id_teacher" name="id_teacher" type="number" required />
+      <input id="id_teacher" [(ngModel)]="newModule.idTeacher" name="id_teacher" type="number" required />
       <br />
     </form>
     <button (click)="addModule()">Ajouter le module</button>
