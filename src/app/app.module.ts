@@ -19,6 +19,7 @@ import { ModuleteacherComponent } from "moduleteacher/moduleteacher.component";
 import { CreerquizzComponent } from "creerquizz/creerquizz.component";
 import { ShowevalComponent } from "showeval/showeval.component";
 import { ShowquizzComponent } from "showquizz/showquizz.component";
+import { RepondrequizzComponent } from "repondrequizz/repondrequizz.component";
 import { CommonModule } from "@angular/common";
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CommonModule } from "@angular/common";
     ModuleteacherComponent, 
     CreerquizzComponent,
     ShowevalComponent, 
-    ShowquizzComponent
+    ShowquizzComponent, 
+    RepondrequizzComponent
   ],
   imports: [
     BrowserModule,

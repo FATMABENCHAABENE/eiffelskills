@@ -46,8 +46,9 @@ export class ModulestudentComponent implements OnInit {
     }
 
   
-    quizz(arg0: any) {
-    throw new Error('Method not implemented.');
+    quizz(idModule: any) {
+      this.service.setModule(idModule); 
+      this.router.navigate(['/repondrequizz']);
     }
 
     ressources() {
