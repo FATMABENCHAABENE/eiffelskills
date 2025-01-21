@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   major: string = '';
 
   users: users[] = [];
-  majors = ['student_SIC', 'student_BDA', 'student_SE'];
+  majors = ['Student_SIC', 'Student_BDA', 'Student_SE'];
   responseMessage: any;
 
   constructor(private service: Service, private router: Router) { }
@@ -71,12 +71,6 @@ export class LoginComponent implements OnInit {
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/moduleteacher']);
         }
-        else if(this.responseMessage.role == "admin")
-          {
-            console.log("je suis l'administrateur");
-            this.service.setId(this.responseMessage.id);
-            this.router.navigate(['/moduleadmin']);
-          }
       }, 
       (error: any) => {
         alert('Connexion échouée. L\'adresse mail ou le mot de passe est incorrect.');

@@ -1,1 +1,13 @@
 <p>showquizz works!</p>
+
+<div *ngFor="let item of questionsWithAnswers">
+  <h3>Question : {{ item.question.description }}</h3>
+  <ul>
+    <li *ngFor="let answer of item.answers">
+      {{ answer.description }} <!-- Affiche la description de la réponse -->
+    </li>
+  </ul>
+</div>
+
+
+  

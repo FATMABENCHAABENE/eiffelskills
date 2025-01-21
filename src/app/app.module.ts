@@ -20,7 +20,6 @@ import { CreerquizzComponent } from "creerquizz/creerquizz.component";
 import { ShowevalComponent } from "showeval/showeval.component";
 import { ShowquizzComponent } from "showquizz/showquizz.component";
 import { CommonModule } from "@angular/common";
-import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
 
 @NgModule({
   declarations: [
@@ -32,8 +31,8 @@ import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
     AutoevalComponent,
     ModuleteacherComponent, 
     CreerquizzComponent,
-    ShowevalComponent,
-    ModuleadminComponent
+    ShowevalComponent, 
+    ShowquizzComponent
   ],
   imports: [
     BrowserModule,
@@ -50,3 +49,5 @@ import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+

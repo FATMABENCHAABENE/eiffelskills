@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Eval, Qcm, Question, users } from 'models/model.model';
-import { Modules } from 'models/model.model'; 
+
 
 @Injectable({
     providedIn: 'root'
   })
 
     export class Service {
-
 
     private loginIn: number = 0;
     private id: number = 0;
@@ -113,20 +112,16 @@ import { Modules } from 'models/model.model';
     }
 
     getIdQCM(idModule: number) {
-      return this.http.get<any[]>(`http://localhost:8080/MCQ/${idModule}`);
+      return this.http.get<any[]>(`http://localhost:8080/MCQ/module/${idModule}`);
+  }
+
+  getQCM(id: number) {
+    return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
+}
+
+    getReponse(idQuestion: number) {
+        return this.http.get<any[]>(`http://localhost:8080/awnser/question/${idQuestion}`);
     }
 
-    getQCM(id: number) {
-      return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
-    }
-
-
-  addUser(user: users): Observable<users> {
-    return this.http.post<users>(`http://localhost:8080/user/add`, user);
-  }
-  addModule(module: Modules): Observable<Modules> {
-    return this.http.post<Modules>(`http://localhost:8080/module/add`, module);
-  }
-  
 }
 

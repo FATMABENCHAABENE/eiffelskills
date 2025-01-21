@@ -5,7 +5,6 @@ export interface users {
     mail: string; 
     password : string; 
     role: string; 
-    major?: string;
 }
 
 export interface mat {
@@ -45,12 +44,16 @@ export interface Affichage {
 
 export interface AffQuizz {
     id?: number;
-    descriptionMod: string; 
+    descriptionMod: string;
+    question :string; 
     reponseUn: string; 
     reponseDeux: string; 
     reponseTrois: string;
     reponseQuatre: string; 
-    is_good: boolean;   
+    is_goodUn: boolean;
+    is_goodDeux: boolean; 
+    is_goodTrois: boolean;
+    is_goodQuatre: boolean; 
 }
 
 export interface Qcm {

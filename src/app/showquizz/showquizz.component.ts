@@ -22,107 +22,172 @@ export class ShowquizzComponent implements OnInit {
   responseQuatre: string = ''; 
   is_good: boolean = false; 
   responseMessage : AffQuizz[] = []; 
+  questionsWithAnswers: { question: any; answers: any[]; }[] = [];
 
   constructor(private service: Service, private router: Router) { }
 
   ngOnInit(): void {
     this.idModule = this.service.getModule();
-    this.loadquizz(); 
+    this.loadquizz();
   }
 
-
-
-
   loadquizz() {
-    console.log("ID du module que j'envoie au BACK", this.idModule);
+    console.log("ID du module que j'envoie au BACK :", this.idModule);
   
-    // Appel à la méthode du service pour obtenir les données du QCM
     this.service.getIdQCM(this.idModule).subscribe(
-      (data: any) => {
-        console.log("je suis ici et voici Ce que je reçois pour loadquizz() : ", data);
-
-        // Initialisation de responseMessage
-        this.responseMessage = [];
+      (data: any[]) => {
+        console.log("Ce que je reçois :", data);
   
-        // Vérification si data est un tableau ou un objet
-        if (Array.isArray(data)) {
-          // Si data est un tableau, itérer dessus
-          data.forEach((response: { id: number; description: string }) => {
-           
+        const idQCM = data[0].id;
   
-            // Création d'un nouvel objet AffQuizz
-            const newAffichage: AffQuizz = {
-              id: response.id,
-              descriptionMod: response.description,
-              reponseUn: 'Chargement...',
-              reponseDeux: 'Chargement...',
-              reponseTrois: 'Chargement...',
-              reponseQuatre: 'Chargement...',
-              is_good: false,
-            };
+        if (idQCM) {
+          this.service.getQCM(idQCM).subscribe(
+            (questions: any[] ) => {
+              console.log("Les questions reçues :", questions);
   
-            // Envoi de l'ID du QCM pour récupérer plus de données
-            this.service.getQCM(1).subscribe(
-              (mat: any) => {
-                console.log("Ce que je récupère après l'envoi de l'ID du QCM :", mat);
+              const questionWithAnswers: { question: any; answers: any[] }[] = [];
   
-                // Mise à jour de l'objet avec la réponse reçue
-                // On met à jour les réponses du QCM ici
-                newAffichage.reponseUn = mat.reponseUn || 'Chargement...';
-                newAffichage.reponseDeux = mat.reponseDeux || 'Chargement...';
-                newAffichage.reponseTrois = mat.reponseTrois || 'Chargement...';
-                newAffichage.reponseQuatre = mat.reponseQuatre || 'Chargement...';
+              const answerPromises = questions.map((question) => {
+                console.log("id de la première question ", question.id);
   
-                // Ajout de l'objet à responseMessage
-                this.responseMessage.push(newAffichage);
-              },
-              (error) => {
-                console.error("Erreur lors de la récupération des données supplémentaires du QCM :", error);
-              }
-            );
-          });
-        } else if (data && !Array.isArray(data)) {
-          // Si data est un objet, nous l'utilisons directement
-          const response: { id: number; description: string } = data;
+                return this.service.getReponse(question.id).toPromise().then(
+                  (answers: any[] | undefined) => {
+                    // Vérifier si "answers" est défini avant de procéder
+                    if (answers) {
+                      console.log(`Réponses pour la question ${question.id} :`, answers);
+                      questionWithAnswers.push({ question, answers });
+                    } else {
+                      console.warn(`Aucune réponse trouvée pour la question ${question.id}`);
+                    }
+                  },
+                  (error: any) => {
+                    console.error(`Erreur lors de la récupération des réponses pour la question ${question.id} :`, error);
+                  }
+                );
+              });
   
-          // Création d'un nouvel objet AffQuizz
-          const newAffichage: AffQuizz = {
-            id: response.id,
-            descriptionMod: response.description,
-            reponseUn: 'Chargement...',
-            reponseDeux: 'Chargement...',
-            reponseTrois: 'Chargement...',
-            reponseQuatre: 'Chargement...',
-            is_good: false,
-          };
+              // Attendre que toutes les réponses soient récupérées
+              Promise.all(answerPromises).then(() => {
+                if (questionWithAnswers.length === questions.length) {
+                  console.log("Toutes les questions avec leurs réponses :", questionWithAnswers);
   
-          // Ajout de l'objet à responseMessage
-          this.responseMessage = [newAffichage];
-  
-          // Si nécessaire, récupérer des données supplémentaires en utilisant l'ID
-          this.service.getQCM(1).subscribe(
-            (mat: any) => {
-              console.log("Ce que je récupère après l'envoi de l'ID du QCM :", mat);
-  
-              // Mise à jour de l'objet avec la réponse reçue
-            //  newAffichage.reponseUn = mat.reponseUn || 'Chargement...';
-              //newAffichage.reponseDeux = mat.reponseDeux || 'Chargement...';
-              //newAffichage.reponseTrois = mat.reponseTrois || 'Chargement...';
-              //newAffichage.reponseQuatre = mat.reponseQuatre || 'Chargement...';
+                  this.questionsWithAnswers = questionWithAnswers;
+                }
+              });
             },
-            (error) => {
-              console.error("Erreur lors de la récupération des données supplémentaires du QCM :", error);
+            (error: any) => {
+              console.error("Erreur lors de la récupération des questions :", error);
             }
           );
         } else {
-          console.error("Format de données inattendu :", data);
+          console.error("ID QCM invalide reçu :", idQCM);
         }
       },
-      (error) => {
-        console.error("Erreur lors de la récupération des données du quiz :", error);
+      (error: any) => {
+        console.error("Erreur lors de la récupération de l'ID QCM :", error);
       }
     );
   }
+
+  /*
+  loadquizz() {
+    console.log("ID du module que j'envoie au BACK :", this.idModule);
+  
+    // Appel à la méthode du service pour obtenir les données du QCM
+    this.service.getIdQCM(this.idModule).subscribe(
+      (data: { id: number; description: string; idModule: number }) => {
+        console.log("Données reçues de getIdQCM :", data);
+  
+        // Créer un tableau pour afficher les questions et réponses
+        let newAffichage: any[] = [];
+  
+        // Vérifier que l'ID de la question existe
+        if (data && data.id) {
+          console.log("L'id du QCM est ", data.id);
+  
+          // Récupérer les détails des questions du QCM via le service
+          this.service.getQCM(data.id).subscribe(
+            (questions: { id: number; description: string; idMcq: number; idSkill: number }[]) => {
+              console.log("Données récupérées pour l'ID du QCM :", questions);
+  
+              // Vérifier si le tableau contient des questions
+              if (questions && questions.length > 0) {
+                // Itérer sur chaque question récupérée
+                questions.forEach((question) => {
+                  const questionAffichage: any = {
+                    id: question.id,
+                    descriptionMod: data.description,
+                    question: question.description,  // La question récupérée
+                    reponseUn: '',  // Réponse 1
+                    reponseDeux: '',  // Réponse 2
+                    reponseTrois: '',  // Réponse 3
+                    reponseQuatre: '',  // Réponse 4
+                    is_goodUn: false,  // Indicateur pour la réponse 1
+                    is_goodDeux: false,  // Indicateur pour la réponse 2
+                    is_goodTrois: false,  // Indicateur pour la réponse 3
+                    is_goodQuatre: false,  // Indicateur pour la réponse 4
+                  };
+  
+                  // Ajouter cette question au tableau newAffichage
+                  newAffichage.push(questionAffichage);
+  
+                  // Récupérer les réponses de la question
+                  this.service.getReponse(question.id).subscribe(
+                    (lot: any) => {
+                      console.log("Les réponses pour la question ", question.id, " : ", lot);
+  
+                      // Vérifier que nous avons bien 4 réponses pour chaque question
+                      if (lot && lot.length === 4) {
+                        let index = 1;  // Variable pour suivre la réponse à ajouter
+  
+                        // Itérer sur les réponses et les assigner
+                        lot.forEach((response: { description: any; good: any; }) => {
+                          if (index === 1) {
+                            questionAffichage.reponseUn = response.description;
+                            questionAffichage.is_goodUn = response.good;
+                          } else if (index === 2) {
+                            questionAffichage.reponseDeux = response.description;
+                            questionAffichage.is_goodDeux = response.good;
+                          } else if (index === 3) {
+                            questionAffichage.reponseTrois = response.description;
+                            questionAffichage.is_goodTrois = response.good;
+                          } else if (index === 4) {
+                            questionAffichage.reponseQuatre = response.description;
+                            questionAffichage.is_goodQuatre = response.good;
+                          }
+                          index++;
+                        });
+  
+                        // Rafraîchir l'affichage de toutes les questions et réponses
+                        this.responseMessage = [...newAffichage];
+                      } else {
+                        console.error("Erreur : Les réponses pour la question n'ont pas été reçues correctement");
+                      }
+                    },
+                    (error) => {
+                      console.error("Erreur lors de la récupération des réponses pour la question ", question.id, " : ", error);
+                    }
+                  );
+                });
+  
+              } else {
+                console.log("Aucune question trouvée pour ce QCM.");
+              }
+            },
+            (error) => {
+              console.error("Erreur lors de la récupération des données des questions du QCM :", error);
+            }
+          );
+        } else {
+          console.error("Erreur : ID du QCM invalide ou manquant");
+        }
+      },
+      (error) => {
+        console.error("Erreur lors de la récupération des données du QCM :", error);
+      }
+    );
+  }*/
+ 
   
   
 }

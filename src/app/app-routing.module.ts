@@ -9,7 +9,6 @@ import { ModuleteacherComponent } from "moduleteacher/moduleteacher.component";
 import { CreerquizzComponent } from "creerquizz/creerquizz.component";
 import { ShowevalComponent } from "showeval/showeval.component";
 import { ShowquizzComponent } from "showquizz/showquizz.component";
-import { ModuleadminComponent} from "moduleadmin/moduleadmin.component";
 
 const routes: Routes = [
   { path: "", component: AccueilComponent },
@@ -19,7 +18,7 @@ const routes: Routes = [
   { path: "moduleteacher", component: ModuleteacherComponent },
   { path: "creerquizz", component: CreerquizzComponent }, 
   { path: "showeval", component: ShowevalComponent },
-  { path: "moduleadmin", component: ModuleadminComponent },
+  { path: "showquizz", component: ShowquizzComponent }  
 ];
 
 @NgModule({
