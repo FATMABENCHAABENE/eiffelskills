@@ -46,10 +46,12 @@ public class QuestionService {
     @Transactional
     public void updateResult(Long idQuestion, Long idStudent, boolean isCorrect) {
         Optional<Questions> question = this.getQuestionById(idQuestion);
-        if (isCorrect) {
-            autoEvaluationService.upgradeAutoEval(idStudent, question.get().getIdSkill());
-        } else {
-            autoEvaluationService.downGradeAutoEval(idStudent, question.get().getIdSkill());
+        if (question.isPresent()) {
+            if (isCorrect) {
+                autoEvaluationService.upgradeAutoEval(idStudent, question.get().getIdSkill());
+            } else {
+                autoEvaluationService.downGradeAutoEval(idStudent, question.get().getIdSkill());
+            }
         }
     }
 

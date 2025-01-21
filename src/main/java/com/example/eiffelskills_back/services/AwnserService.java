@@ -44,6 +44,7 @@ public class AwnserService {
                 awnsers.add(awnser);
             }
         }
+        System.out.println(awnsers);
         return awnsers;
     }
 

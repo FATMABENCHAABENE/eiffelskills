@@ -31,6 +31,7 @@ public class AwnserController {
 
     @GetMapping("/question/{idQuestion}")
     public List<Awnsers> getAwnserByIdQuestion(@PathVariable Long idQuestion) {
+        System.out.println("je suis dans le back");
         return awnserService.getAwnsersByIdQuestion(idQuestion);
     }
 
