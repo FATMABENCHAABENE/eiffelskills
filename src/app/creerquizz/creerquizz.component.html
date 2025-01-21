@@ -1,6 +1,6 @@
-<h2>Créer une Question</h2>
+<div class="container">
+  <h2>Créer une Question</h2>
 
-  <!-- Affichage de l'ID du module récupéré -->
   <!-- Affichage de l'ID du module récupéré -->
   <h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
   <!-- Affichage des compétences associées au module -->
@@ -12,29 +12,26 @@
   </ul>
   <p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
 
-  <!-- Zone de saisie pour la description de la question -->
-  <label for="question">Entrer la question :</label><br>
-  <textarea 
-    id="question" 
-    [(ngModel)]="description" 
-    placeholder="Écrivez votre question ici..." 
-    rows="4" 
-    cols="50">
-  </textarea>
-  <br>
+  <!-- Affichage des compétences sous forme de liste déroulante -->
+<label for="competence">Sélectionner une compétence :</label><br>
+<select id="competence" [(ngModel)]="idSkill">
+  <option value="0" disabled selected>Sélectionnez une compétence</option>
+  <option *ngFor="let competence of competences" [value]="competence.id">
+    {{ competence.libelle }} - {{ competence.description }}
+  </option>
+</select>
+<br><br>
 
-  <!-- Sélection de la compétence -->
-  <label for="competence">Sélectionner une compétence :</label><br>
-  <select 
-    id="competence" 
-    [(ngModel)]="idSkill">
-    <option [value]="0" disabled selected>Sélectionnez une compétence</option>
-    <option *ngFor="let competence of competences" [value]="competence.id">
-      {{ competence.libelle }}
-    </option>
-  </select>
-  <br><br>
+<!-- Zone de saisie pour la description de la question -->
+<label for="question">Entrer la question :</label><br>
+<textarea 
+  id="question" 
+  [(ngModel)]="description" 
+  placeholder="Écrivez votre question ici..." 
+  rows="4" 
+  cols="50">
+</textarea>
+<br>
 
-  <!-- Bouton pour envoyer la question -->
-  <button (click)="sendquestion()">Envoyer</button>
-
+<!-- Bouton pour envoyer la question -->
+<button (click)="sendquestion()">Envoyer</button>
