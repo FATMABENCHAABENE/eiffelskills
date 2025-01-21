@@ -42,7 +42,7 @@ export class ModuleadminComponent implements OnInit {
           mail: '',
           password: '',
           role: 'student',
-          major: '' 
+          major: '',
         };
       },
       (error) => {

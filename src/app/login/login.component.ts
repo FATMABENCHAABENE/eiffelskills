@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   major: string = '';
 
   users: users[] = [];
-  majors = ['Student_SIC', 'Student_BDA', 'Student_SE'];
+  majors = ['student_SIC', 'student_BDA', 'student_SE'];
   responseMessage: any;
 
   constructor(private service: Service, private router: Router) { }

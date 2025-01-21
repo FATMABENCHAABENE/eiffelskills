@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Eval, Qcm, Question, users } from 'models/model.model';
+import { Eval, Modules, Qcm, Question, users } from 'models/model.model';
 
 
 @Injectable({
@@ -123,5 +123,13 @@ import { Eval, Qcm, Question, users } from 'models/model.model';
         return this.http.get<any[]>(`http://localhost:8080/awnser/question/${idQuestion}`);
     }
 
+    addUser(newUser: users) {
+      return this.http.post<any>('http://localhost:8080/user/add',newUser)
+    }
+
+    addModule(newModule: Modules) {
+      return this.http.post<any>('http://localhost:8080/module',newModule)
+    }
+    
 }
 
