@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from '../services/service.service';
-import { Question } from 'models/model.model';
+import { Question,Modules } from 'models/model.model';
 
 @Component({
   selector: 'creerquizz',
@@ -18,35 +18,53 @@ export class CreerquizzComponent implements OnInit {
   reponseQuatre: string = ''; 
   questionstockee: string = ''; 
   idUserReponse: number = 0; 
-
+  modules: Modules[] = [];
   question: Question[] = []; 
   reponsesRetournees: { id: number, description: string }[] = []; 
   responseMessage: any;
   id: number = 0;
   idSkill: number = 0;
-  idmodule: number = 1; // ID du module à récupérer
+  idmodule: number = 0; // ID du module à récupérer
 
   competences: any[] = []; // Liste des compétences
 
   constructor(private service: Service, private router: Router) { }
 
   ngOnInit(): void {
+    // Récupérer l'ID du QCM
     this.idMcq = this.service.getMcq(); 
     console.log("L'ID du QCM récupéré est", this.idMcq);
+    this.idmodule = this.service.getModule();  // Assurez-vous que getIdModule() retourne un nombre
 
-    // Exemple pour récupérer les compétences en fonction du module
-      this.service.getCompetencesByModule(this.idmodule).subscribe(
-        (data: any[]) => {
-          this.competences = data;
-          console.log("Compétences récupérées : ", this.competences);
-        },
-        (error) => {
-          console.error("Erreur lors de la récupération des compétences : ", error);
-        }
-      );
+  console.log("ID du module sélectionné : ", this.idmodule);
+
+  // Si idmodule est récupéré correctement, alors appeler getmodulesbyID() avec l'ID
+  if (this.idmodule) {
+    this.service.getmodulesbyID(this.idmodule).subscribe(
+      (data: any) => {
+        console.log('Modules reçus:', data);
+        this.modules = data; // Stocker les données reçues
+      },
+      (error: any) => {
+        console.error('Erreur lors de la récupération des modules:', error);
+      }
+    );
+  } else {
+    console.error('Aucun ID de module trouvé');
+  }
+    // Récupérer les compétences associées à ce module
+    this.service.getCompetencesByModule(this.idmodule).subscribe(
+      (data: any[]) => {
+        this.competences = data;
+        console.log("Compétences récupérées : ", this.competences);
+      },
+      (error) => {
+        console.error("Erreur lors de la récupération des compétences : ", error);
+      }
+    );
   }
 
-  sendquestion() {
+  sendquestion(): void {
     const newQuestion: Question = {
       description: this.description,
       idMcq: this.idMcq,
@@ -81,7 +99,7 @@ export class CreerquizzComponent implements OnInit {
       );
   }
 
-  envoyereponse() {
+  envoyereponse(): void {
     // Créer une liste des réponses
     const reponses = [
       this.reponseUn,
@@ -93,7 +111,7 @@ export class CreerquizzComponent implements OnInit {
     this.id = this.service.getIdquestion();
     this.service.envoyerRep(this.id, reponses).subscribe(
       (response) => {
-        console.log('Réponse du back après envoi des quatres réponses', response);
+        console.log('Réponse du back après envoi des quatre réponses possibles', response);
 
         // Stocker les id et description dans un tableau
         this.reponsesRetournees = response.map((item: { id: number, description: string }) => ({
@@ -104,20 +122,8 @@ export class CreerquizzComponent implements OnInit {
         console.log("Tableau des réponses retournées:", this.reponsesRetournees);
       },
       (error) => {
-        console.error('Erreur lors de l\'envoi des quatres réponses possibles:', error);
+        console.error('Erreur lors de l\'envoi des quatre réponses possibles:', error);
       }
     );
-  }
-
-  envoyeBreponse(id: number) {
-    this.service.envoyerBRep(id)
-      .subscribe(
-        response => {
-          console.log('Réponse du back après envoi de la bonne réponse', response);
-        },
-        error => {
-          console.error('Erreur lors de l\'envoi de la nouvelle réponse:', error);
-        }
-      );
   }
 }
