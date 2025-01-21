@@ -51,7 +51,9 @@ public class ModuleService {
     }
 
     @Transactional
-    public void saveModule(Modules module) {moduleDAO.save(module);}
+    public void saveModule(Modules module) {
+        moduleDAO.save(module);
+    }
 
     @Transactional
     public void updateModule(Modules module, Long id) {
