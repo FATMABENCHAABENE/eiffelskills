@@ -54,6 +54,5 @@ export class ModulestudentComponent implements OnInit {
     ressources() {
       throw new Error('Method not implemented.');
       }
-
 }
 

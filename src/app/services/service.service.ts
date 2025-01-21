@@ -9,7 +9,7 @@ import { Eval, Modules, Qcm, Question, users } from 'models/model.model';
   })
 
     export class Service {
-
+ 
     private loginIn: number = 0;
     private id: number = 0;
     private major: string = '';
@@ -129,6 +129,11 @@ import { Eval, Modules, Qcm, Question, users } from 'models/model.model';
 
     addModule(newModule: Modules) {
       return this.http.post<any>('http://localhost:8080/module',newModule)
+    }
+    
+    envoyerProp(selectedAnswers: number[], idStudent : number) {
+      // Logique pour envoyer les réponses sélectionnées
+      return this.http.post<any[]>(`http://localhost:8080/awnser/globalcheck/${idStudent}`, selectedAnswers);
     }
     
 }
