@@ -68,7 +68,7 @@ public class AutoEvaluationService {
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
-                switch (autoEvaluation.getEval()) {
+                switch (autoEvaluation.getQuizzEval()) {
                     case("acquired"): newEval = "acquiring"; break;
                     case("acquiring"): newEval = "no acquired"; break;
                     case("no acquired"): newEval = "no acquired"; break;
@@ -87,7 +87,7 @@ public class AutoEvaluationService {
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
-                switch (autoEvaluation.getEval()) {
+                switch (autoEvaluation.getQuizzEval()) {
                     case("acquired"): newEval = "acquired"; break;
                     case("acquiring"): newEval = "acquired"; break;
                     case("no acquired"): newEval = "acquiring"; break;

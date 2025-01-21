@@ -58,7 +58,7 @@ public class AwnserService {
     public void checkListAwnser(List<Long> allIdAwnsers, Long idStudent) {
         for (Long id : allIdAwnsers) {
             Awnsers awnser = awnserDAO.findById(id).get();
-            questionService.updateResult(awnser.getId(),idStudent,awnser.isGood());
+            questionService.updateResult(awnser.getIdQuestion(),idStudent,awnser.isGood());
         }
     }
 }
