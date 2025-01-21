@@ -135,6 +135,10 @@ import { Eval, Modules, Qcm, Question, users } from 'models/model.model';
       // Logique pour envoyer les réponses sélectionnées
       return this.http.post<any[]>(`http://localhost:8080/awnser/globalcheck/${idStudent}`, selectedAnswers);
     }
-    
+   getCompetencesByModule(idmodule: number): Observable<any[]> {
+  return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
+}
+
+  
 }
 
