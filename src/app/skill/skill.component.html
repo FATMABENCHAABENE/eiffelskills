@@ -12,7 +12,6 @@
 <p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
 
 <!-- Ajout d'une competence -->
-<!-- Zone de saisie pour la description de la question -->
 <label for="question">Entrer la competence :</label><br>
 <textarea 
   id="description" 
@@ -23,12 +22,13 @@
 </textarea>
 <br>
 
-<!-- Bouton pour envoyer la question -->
+<!-- Bouton pour envoyer la competence -->
 <button (click)="sendcomp()">Envoyer</button>
 
 <h3>Compétences liées au module</h3>
 <p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
 
+<!-- Suppression d'une competence -->
 <div *ngIf="competences.length > 0">
   <label for="competenceSelect">Sélectionner une compétence :</label>
   <select id="competenceSelect" [(ngModel)]="idSkill">
