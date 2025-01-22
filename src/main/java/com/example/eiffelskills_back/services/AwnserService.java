@@ -57,8 +57,10 @@ public class AwnserService {
     @Transactional
     public void checkListAwnser(List<Long> allIdAwnsers, Long idStudent) {
         for (Long id : allIdAwnsers) {
-            Awnsers awnser = awnserDAO.findById(id).get();
-            questionService.updateResult(awnser.getIdQuestion(),idStudent,awnser.isGood());
+            if (id!=null) {
+                Awnsers awnser = awnserDAO.findById(id).get();
+                questionService.updateResult(awnser.getIdQuestion(),idStudent,awnser.isGood());
+            }
         }
     }
 }
