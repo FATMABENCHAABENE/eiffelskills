@@ -32,7 +32,7 @@ export class ModuleadminComponent implements OnInit {
   addUser(): void {
     if (this.newUser.role === 'student' && !this.newUser.major) {
       console.error('La majeure doit être spécifiée pour un étudiant');
-      return; // Empêche l'ajout de l'utilisateur si major est vide
+      return;
     }
 
     this.service.addUser(this.newUser).subscribe(
@@ -59,7 +59,7 @@ export class ModuleadminComponent implements OnInit {
     this.service.addModule(this.newModule).subscribe(
       (response) => {
         console.log('Module ajouté avec succès:', response);
-        // Réinitialisation des champs
+        
         this.newModule = {major: '', description: '', idTeacher: 0 };
         this.displayModules();
       },

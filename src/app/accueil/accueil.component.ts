@@ -10,12 +10,8 @@ import { Service } from '../services/service.service';
 
 export class AccueilComponent implements OnInit {
   // Déclarations des variables
-
-
   constructor(private service: Service, private router: Router) { }
-
   ngOnInit(): void {
-    //A ajouter
   }
 
   selogin(value : number) : void {

@@ -15,18 +15,15 @@ export class ContactComponent implements OnInit {
     mail: '',
     message: ''
   };
-
   constructor(private service: Service, private router: Router) {}
-
   ngOnInit(): void {
-    // Initialisation si nécessaire
   }
 
   envoyerFormulaire(): void {
     this.service.sendContact(this.contact).subscribe({
       next: () => {
         alert('Votre message a été envoyé avec succès !');
-        this.router.navigate(['/merci']); // Redirection vers une page de confirmation
+        this.router.navigate(['/']);
       },
       error: () => {
         console.error('Erreur lors de l\'envoi du message');

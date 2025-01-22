@@ -151,6 +151,10 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
       console.log(newSkill);
       return this.http.post<any>('http://localhost:8080/skill', newSkill);
     }
+
+    deleteSkill(idSkill: number) {
+      return this.http.delete<any>(`http://localhost:8080/skill/${idSkill}`);
+    }
     
     envoyerProp(selectedAnswers: number[], idStudent : number) {
       // Logique pour envoyer les réponses sélectionnées
@@ -164,5 +168,6 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     sendContact(newContact: Contact) {
       return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
     }
+
 
     }

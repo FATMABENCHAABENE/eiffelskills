@@ -24,9 +24,9 @@ export class CreerquizzComponent implements OnInit {
   responseMessage: any;
   id: number = 0;
   idSkill: number = 0;
-  idmodule: number = 0; // ID du module à récupérer
+  idmodule: number = 0;
 
-  competences: any[] = []; // Liste des compétences
+  competences: any[] = []; 
 
   constructor(private service: Service, private router: Router) { }
 
@@ -34,16 +34,15 @@ export class CreerquizzComponent implements OnInit {
     // Récupérer l'ID du QCM
     this.idMcq = this.service.getMcq(); 
     console.log("L'ID du QCM récupéré est", this.idMcq);
-    this.idmodule = this.service.getModule();  // Assurez-vous que getIdModule() retourne un nombre
-
+    this.idmodule = this.service.getModule(); 
   console.log("ID du module sélectionné : ", this.idmodule);
 
-  // Si idmodule est récupéré correctement, alors appeler getmodulesbyID() avec l'ID
+
   if (this.idmodule) {
     this.service.getmodulesbyID(this.idmodule).subscribe(
       (data: any) => {
         console.log('Modules reçus:', data);
-        this.modules = data; // Stocker les données reçues
+        this.modules = data; 
       },
       (error: any) => {
         console.error('Erreur lors de la récupération des modules:', error);
@@ -63,12 +62,12 @@ export class CreerquizzComponent implements OnInit {
       }
     );
   }
-
+  // Envoi de la question
   sendquestion(): void {
     const newQuestion: Question = {
       description: this.description,
       idMcq: this.idMcq,
-      idSkill: this.idSkill,  // Utilisation de l'ID de la compétence sélectionnée
+      idSkill: this.idSkill,  
     };
 
     console.log("Question envoyée :", newQuestion);
@@ -77,10 +76,8 @@ export class CreerquizzComponent implements OnInit {
     this.service.sendQuestion(newQuestion)
       .subscribe(
         (data: any) => {
-          // Stockage de la réponse dans une propriété locale
           this.responseMessage = data;  
           console.log('Réponse après l\'envoi de la question:', this.responseMessage);
-
           // Vérification et affichage de l'ID reçu
           if (this.responseMessage.id) {
             console.log("ID de la question reçue :", this.responseMessage.id);
@@ -89,8 +86,7 @@ export class CreerquizzComponent implements OnInit {
           } else {
             console.error("L'ID est manquant dans la réponse :", this.responseMessage);
           }
-
-          // Réinitialisation du champ de saisie
+          
           this.description = '';
         },
         error => {
