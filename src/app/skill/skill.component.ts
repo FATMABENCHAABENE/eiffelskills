@@ -24,24 +24,20 @@ export class SkillComponent implements OnInit {
     responseMessage: any;
     id: number = 0;
     idSkill: number = 0;
-    idmodule: number = 0; // ID du module à récupérer
-
+    idmodule: number = 0; 
     
-
-    competences: any[] = []; // Liste des compétences
-  
+    competences: any[] = [];
     constructor(private service: Service, private router: Router) { }
 
     ngOnInit(): void {
     
     this.idmodule = this.service.getModule();  
     console.log("ID du module sélectionné : ", this.idmodule);
-    
     if (this.idmodule) {
       this.service.getmodulesbyID(this.idmodule).subscribe(
         (data: any) => {
           console.log('Modules reçus:', data);
-          this.modules = data; // Stocker les données reçues
+          this.modules = data; 
         },
         (error: any) => {
           console.error('Erreur lors de la récupération des modules:', error);
@@ -62,7 +58,7 @@ export class SkillComponent implements OnInit {
       );
     }
 
-    
+    // Envoi des compétences associées à ce module
     sendcomp(): void {
         const newSkill: Comp = {
     description: "",
@@ -75,7 +71,6 @@ export class SkillComponent implements OnInit {
         this.service.addSkill(newSkill)
           .subscribe(
             (data: any) => {
-              // Stockage de la réponse dans une propriété locale
               this.responseMessage = data;  
               console.log('Réponse après l\'envoi:', this.responseMessage);
               // Réinitialisation du champ de saisie
@@ -86,19 +81,18 @@ export class SkillComponent implements OnInit {
             }
           );
       }
-      deletecomp(): void {
+    // Supprimer des compétences associées à ce module
+    deletecomp(): void {
         if (this.idSkill === 0) {
           alert('Veuillez sélectionner une compétence à supprimer.');
           return;
         }
-      
         if (confirm('Êtes-vous sûr de vouloir supprimer cette compétence ?')) {
           this.service.deleteSkill(this.idSkill).subscribe(
             (response) => {
               console.log('Compétence supprimée avec succès :', response);
               // Mettre à jour la liste locale des compétences après suppression
               this.competences = this.competences.filter(skill => skill.id !== this.idSkill);
-              // Réinitialiser l'ID sélectionné
               this.idSkill = 0;
             },
             (error) => {
@@ -107,5 +101,4 @@ export class SkillComponent implements OnInit {
           );
         }
       }
-      
 }

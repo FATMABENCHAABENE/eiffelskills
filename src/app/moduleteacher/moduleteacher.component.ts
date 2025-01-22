@@ -58,11 +58,11 @@ creerunquizz(arg1: string, arg0: any) {
   this.service.sendidmodule(qcm)
     .subscribe(
       (data: any) => {
-        // Stockez la réponse dans une propriété
+        
         this.responseMessage = data;
         console.log('Réponse retour du backend:', this.responseMessage);
 
-        // Vérifiez et affichez l'ID du QCM
+        
         if (this.responseMessage.id) {
           console.log("ID du QCM reçu :", this.responseMessage.id);
           this.service.setMcq(this.responseMessage.id);
