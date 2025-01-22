@@ -15,10 +15,7 @@ public class ModuleService {
 
     @Transactional
     public List<Modules> getAllModules() {
-        Iterator<Modules> all = (Iterator<Modules>) moduleDAO.findAll();
-        List<Modules> modules = new ArrayList<>();
-        all.forEachRemaining(modules::add);
-        return modules;
+        return moduleDAO.findAll();
     }
 
     @Transactional

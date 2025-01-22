@@ -47,6 +47,11 @@ public class UserController {
         return null;
     }
 
+    @GetMapping("")
+    public List<User> getAllUsers() {
+       return userService.getAllStudents();
+    }
+
     @GetMapping("/student/{major}")
     public List<User> getStudentByMajor(@PathVariable String major) {
        return userService.getStudentByMajor(major);

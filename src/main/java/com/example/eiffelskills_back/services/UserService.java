@@ -50,6 +50,11 @@ public class UserService {
     }
 
     @Transactional
+    public List<User> getAllStudents() {
+        return userDao.findAll();
+    }
+
+    @Transactional
     public void addUser(User user) {
         user.setPassword(encoder.encrypt(user.getPassword()));
         userDao.save(user);
