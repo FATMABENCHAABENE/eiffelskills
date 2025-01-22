@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class ContactMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "created_at")
-    private Date createdAt;
+    private LocalDate createdAt = LocalDate.now();
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
@@ -29,8 +30,7 @@ public class ContactMessage {
 
     public ContactMessage() {}
 
-    public ContactMessage(Date createdAt, String name, String surname, String mail, String message) {
-        this.createdAt = createdAt;
+    public ContactMessage(String name, String surname, String mail, String message) {
         this.name = name;
         this.surname = surname;
         this.mail = mail;
