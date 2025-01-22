@@ -6,11 +6,7 @@
             <button (click)="showstudenteval(module.id, module.major)">Visualiser les évaluations des étudiants</button>
             <button (click)="showquizz(module.description, module.id)">Voir le quizz existant</button>
             <button (click)="creerunquizz(module.description, module.id)">Créer un quizz pour cette matière</button>
-
-            <!-- Section pour ajouter une compétence -->
-            <input type="text" [(ngModel)]="newSkill.description" placeholder="Nouvelle compétence" />
-            <button *ngIf="module.id !== undefined" (click)="addSkill(module.id)">Ajouter une compétence</button>
-
+            <button (click)="gotoskill(module.id)">creer competence</button>
         </li>
     </ul>
 </div>

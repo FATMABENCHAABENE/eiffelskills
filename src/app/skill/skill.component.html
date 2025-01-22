@@ -1,0 +1,29 @@
+<p> skill !</p>
+
+<!-- Lister les competences -->
+<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+
+<h3>Compétences liées au module</h3>
+<ul *ngIf="competences.length > 0">
+  <li *ngFor="let competence of competences">
+    {{ competence.id }} - : {{ competence.libelle }} - {{ competence.description }}
+  </li>
+</ul>
+<p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
+
+<!-- Ajout d'une competence -->
+<!-- Zone de saisie pour la description de la question -->
+<label for="question">Entrer la competence :</label><br>
+<textarea 
+  id="comp" 
+  [(ngModel)]="description" 
+  placeholder="Écrivez votre question ici..." 
+  rows="4" 
+  cols="50">
+</textarea>
+<br>
+
+<!-- Bouton pour envoyer la question -->
+<button (click)="sendcomp()">Envoyer</button>
+
+

@@ -132,6 +132,7 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     }
 
     addSkill(newSkill: Comp) {
+      console.log(newSkill);
       return this.http.post<any>('http://localhost:8080/skill', newSkill);
     }
     
@@ -145,7 +146,7 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     }
 
     sendContact(newContact: Contact) {
-      return this.http.post<any[]>(`http://localhost:8080/contact`, newContact);
+      return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
     }
 
     }

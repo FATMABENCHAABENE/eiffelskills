@@ -12,6 +12,7 @@ import { ShowquizzComponent } from "showquizz/showquizz.component";
 import { RepondrequizzComponent } from "repondrequizz/repondrequizz.component";
 import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
 import { ContactComponent } from "contact/contact.component";
+import {SkillComponent} from "skill/skill.component";
 
 const routes: Routes = [
   { path: "", component: AccueilComponent },
@@ -24,7 +25,9 @@ const routes: Routes = [
   { path: "showquizz", component: ShowquizzComponent }, 
   { path: "repondrequizz", component: RepondrequizzComponent },
   { path: "moduleadmin", component: ModuleadminComponent},
-  { path: "contact", component: ContactComponent} 
+  { path: "contact", component: ContactComponent},
+  { path: "skill", component: SkillComponent} 
+  
 ];
 
 @NgModule({
