@@ -32,7 +32,7 @@ export interface Modules {
 export interface Comp {
     id?: number; 
     description: string; 
-    id_module: number;
+    idmodule: number;
 }
 
 export interface Eval {

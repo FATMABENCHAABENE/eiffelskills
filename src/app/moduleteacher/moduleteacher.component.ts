@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { Service } from '../services/service.service';
-import { Users, mat, Modules, Qcm } from 'models/model.model';
+import { Users, mat, Modules, Qcm, Comp } from 'models/model.model';
 
 @Component({
   selector: 'moduleteacher',
@@ -24,6 +24,10 @@ export class ModuleteacherComponent implements OnInit {
   qcm: Qcm[] = [];  
   responseMessage: any;
 
+  newSkill: Comp = {
+    description: '', 
+    idmodule: 0,
+  };
   constructor(private service: Service, private router: Router) { }
 
   ngOnInit(): void {
@@ -92,6 +96,29 @@ showstudenteval(arg0: number | undefined, arg1: string) {
   throw new Error('Méthode non implémentée : showstudenteval.');
 }
 
+addSkill(moduleId: number | undefined): void {
+  if (!moduleId) {
+    console.error('Erreur : l\'ID du module est indéfini.');
+    return;
+  }
+
+  if (!this.newSkill || !this.newSkill.description) {
+    console.error('Erreur : la description de la compétence est vide.');
+    return;
+  }
+
+  this.newSkill.idmodule = moduleId; // Associe l'ID du module à la compétence
+
+  this.service.addSkill(this.newSkill).subscribe(
+    (response) => {
+      console.log('Compétence ajoutée avec succès :', response);
+      // Réinitialisation des champs
+      this.newSkill = { id: 0, description: '', idmodule: 0 };
+    },
+    (error) => {
+      console.error('Erreur lors de l\'ajout de la compétence :', error);
+    }
+  );
+
 }
-
-
+}

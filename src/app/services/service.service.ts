@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Eval, Modules, Qcm, Question, Users, Contact } from 'models/model.model';
+import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model.model';
 
 
 @Injectable({
@@ -113,11 +113,11 @@ import { Eval, Modules, Qcm, Question, Users, Contact } from 'models/model.model
 
     getIdQCM(idModule: number) {
       return this.http.get<any[]>(`http://localhost:8080/MCQ/module/${idModule}`);
-  }
+    }
 
-  getQCM(id: number) {
-    return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
-}
+    getQCM(id: number) {
+      return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
+    }
 
     getReponse(idQuestion: number) {
         return this.http.get<any[]>(`http://localhost:8080/awnser/question/${idQuestion}`);
@@ -130,16 +130,22 @@ import { Eval, Modules, Qcm, Question, Users, Contact } from 'models/model.model
     addModule(newModule: Modules) {
       return this.http.post<any>('http://localhost:8080/module',newModule)
     }
+
+    addSkill(newSkill: Comp) {
+      return this.http.post<any>('http://localhost:8080/skill', newSkill);
+    }
     
     envoyerProp(selectedAnswers: number[], idStudent : number) {
       // Logique pour envoyer les réponses sélectionnées
       return this.http.post<any[]>(`http://localhost:8080/awnser/globalcheck/${idStudent}`, selectedAnswers);
     }
-   getCompetencesByModule(idmodule: number): Observable<any[]> {
-  return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
+   
+    getCompetencesByModule(idmodule: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
     }
 
     sendContact(newContact: Contact) {
       return this.http.post<any[]>(`http://localhost:8080/contact`, newContact);
     }
+
     }
