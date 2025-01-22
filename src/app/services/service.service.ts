@@ -127,8 +127,24 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
       return this.http.post<any>('http://localhost:8080/user/add',newUser)
     }
 
+    getAllUser() {
+      return this.http.get<any>('http://localhost:8080/user');
+    }
+
+    deleteUserById(idUser: number | undefined) {
+      return this.http.delete<any>(`http://localhost:8080/user/${idUser}`);
+    }
+
     addModule(newModule: Modules) {
       return this.http.post<any>('http://localhost:8080/module',newModule)
+    }
+
+    getAllModule() {
+      return this.http.get<any>('http://localhost:8080/module');
+    }
+
+    deleteModuleById(idModule: number | undefined) {
+      return this.http.delete<any>(`http://localhost:8080/module/${idModule}`);
     }
 
     addSkill(newSkill: Comp) {

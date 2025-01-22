@@ -52,7 +52,21 @@
       <input id="id_teacher" [(ngModel)]="newModule.idTeacher" name="id_teacher" type="number" required />
       <br />
     </form>
-    <button (click)="addModule()">Ajouter le module</button>
-  </div>
+  <button (click)="addModule()">Ajouter le module</button>
+</div>
 
+<div>
+  <h2>Tous les utilisateurs</h2>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.surname }} - {{ user.role }} - {{ user.mail }}
+    <button (click)="deleteUser(user.id)">Supprimer cet utilisateur</button>
+  </li>
+</div>
 
+<div>
+  <h2>Tous les modules</h2>
+  <li *ngFor="let module of modules">
+    {{ module.description }} - {{ module.major }}
+    <button (click)="deleteModule(module.id)">Supprimer cet utilisateur</button>
+  </li>
+</div>
