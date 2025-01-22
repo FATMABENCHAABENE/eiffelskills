@@ -97,28 +97,32 @@ export class ModuleadminComponent implements OnInit {
 
   deleteUser(idUser: number | undefined): void {
     console.log("in delete User");
-    this.service.deleteUserById(idUser).subscribe(
-      (data:any) => {
-        console.log("user deleted");
-        this.displayUsers();
-      },
-      (error: any) => {
-          console.error('Erreur lors de la récupération des modules:', error);
-      }
-    )
+    if (confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) {
+      this.service.deleteUserById(idUser).subscribe(
+        (data:any) => {
+          console.log("user deleted");
+          this.displayUsers();
+        },
+        (error: any) => {
+            console.error('Erreur lors de la récupération des modules:', error);
+        }
+      )
+    }
   }
 
   deleteModule(idUser: number | undefined): void {
     console.log("in delete Module");
-    this.service.deleteModuleById(idUser).subscribe(
-      (data:any) => {
-        console.log("module deleted");
-        this.displayModules();
-      },
-      (error: any) => {
-          console.error('Erreur lors de la récupération des modules:', error);
-      }
-    )
+    if (confirm("Voulez-vous vraiment supprimer ce module ?")) {
+      this.service.deleteModuleById(idUser).subscribe(
+        (data:any) => {
+          console.log("module deleted");
+          this.displayModules();
+        },
+        (error: any) => {
+            console.error('Erreur lors de la récupération des modules:', error);
+        }
+      )
+    }
   }
   gotomessage() {
     this.router.navigate(['/message']);
