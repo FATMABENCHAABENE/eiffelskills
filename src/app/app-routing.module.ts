@@ -1,3 +1,4 @@
+import { MessageComponent } from './message/message.component';
 // app-routing.module.ts
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "repondrequizz", component: RepondrequizzComponent },
   { path: "moduleadmin", component: ModuleadminComponent},
   { path: "contact", component: ContactComponent},
-  { path: "skill", component: SkillComponent} 
+  { path: "skill", component: SkillComponent}, 
+  { path: "message", component: MessageComponent} 
   
 ];
 

@@ -124,4 +124,7 @@ export class ModuleadminComponent implements OnInit {
       )
     }
   }
+  gotomessage() {
+    this.router.navigate(['/message']);
+  }
 }

@@ -24,6 +24,7 @@ import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
 import { CommonModule } from "@angular/common";
 import { ContactComponent } from "contact/contact.component";
 import {SkillComponent} from "skill/skill.component";
+import {MessageComponent} from "message/message.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {SkillComponent} from "skill/skill.component";
     RepondrequizzComponent,
     ModuleadminComponent,
     ContactComponent,
-    SkillComponent
+    SkillComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

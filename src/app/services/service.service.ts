@@ -168,4 +168,12 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
   }
 
+  getallContact() {
+    return this.http.get<any[]>(`http://localhost:8080/contactmessage`);
+  }
+
+  deletemessageById(idcontact: number | undefined) {
+    return this.http.delete<any>(`http://localhost:8080/contactmessage/${idcontact}`);
+  }
+
   }
