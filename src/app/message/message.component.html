@@ -1,0 +1,11 @@
+<p>Cette page est réservée à l'administrateur pour visionner les messages !</p>
+
+<!-- Message -->
+
+<div>
+  <h2>Tous les messages</h2>
+  <li *ngFor="let contact of contact">
+    {{ contact.id }} -{{ contact.name }} - {{ contact.surname }} - - {{ contact.message }}
+    <button (click)="deletemessage(contact.id)">Supprimer cet message</button>
+  </li>
+</div>
