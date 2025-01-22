@@ -22,6 +22,7 @@ import { ShowquizzComponent } from "showquizz/showquizz.component";
 import { RepondrequizzComponent } from "repondrequizz/repondrequizz.component";
 import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
 import { CommonModule } from "@angular/common";
+import { ContactComponent } from "contact/contact.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CommonModule } from "@angular/common";
     ShowevalComponent, 
     ShowquizzComponent, 
     RepondrequizzComponent,
-    ModuleadminComponent
+    ModuleadminComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

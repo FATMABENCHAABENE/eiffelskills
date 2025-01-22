@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from '../services/service.service';
-import { users, Modules } from 'models/model.model';
+import { Users, Modules } from 'models/model.model';
 
 @Component({
   selector: 'moduleadmin',
@@ -11,7 +11,7 @@ import { users, Modules } from 'models/model.model';
 export class ModuleadminComponent implements OnInit {
   modules: Modules[] = [];
   newModule: Modules = {major: '', description: '', idTeacher: 0 };
-  newUser: users = {
+  newUser: Users = {
     name: '',
     surname: '',
     mail: '',

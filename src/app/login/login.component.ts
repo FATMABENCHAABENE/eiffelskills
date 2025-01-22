@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from '../services/service.service';
-import { users } from 'models/model.model';
+import { Users } from 'models/model.model';
 
 @Component({
   selector: 'login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   role: string = ' ';
   major: string = '';
 
-  users: users[] = [];
+  users: Users[] = [];
   majors = ['student_SIC', 'student_BDA', 'student_SE'];
   responseMessage: any;
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       this.role = "admin";
     }
 
-    const user: users = {
+    const user: Users = {
       name: this.name,
       surname: this.surname,
       mail: this.mail,

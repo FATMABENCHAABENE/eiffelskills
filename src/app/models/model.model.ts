@@ -1,4 +1,4 @@
-export interface users {
+export interface Users {
     id?: number; 
     name: string; 
     surname: string; 
@@ -6,6 +6,14 @@ export interface users {
     password : string; 
     role: string;
     major : string;
+}
+
+export interface Contact {
+    id?: number;
+    name: string; 
+    surname: string; 
+    mail: string; 
+    message: string;
 }
 
 export interface mat {

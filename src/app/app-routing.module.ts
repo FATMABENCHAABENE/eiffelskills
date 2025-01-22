@@ -11,6 +11,7 @@ import { ShowevalComponent } from "showeval/showeval.component";
 import { ShowquizzComponent } from "showquizz/showquizz.component";
 import { RepondrequizzComponent } from "repondrequizz/repondrequizz.component";
 import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
+import { ContactComponent } from "contact/contact.component";
 
 const routes: Routes = [
   { path: "", component: AccueilComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: "showeval", component: ShowevalComponent },
   { path: "showquizz", component: ShowquizzComponent }, 
   { path: "repondrequizz", component: RepondrequizzComponent },
-  { path: "moduleadmin", component: ModuleadminComponent} 
+  { path: "moduleadmin", component: ModuleadminComponent},
+  { path: "contact", component: ContactComponent} 
 ];
 
 @NgModule({

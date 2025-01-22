@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { Service } from '../services/service.service';
-import { users, mat, Comp, Eval } from 'models/model.model';
+import { Users, mat, Comp, Eval } from 'models/model.model';
 
 @Component({
   selector: 'autoeval',

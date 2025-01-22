@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { Service } from '../services/service.service';
-import { users, mat, Affichage } from 'models/model.model';
+import { Users, mat, Affichage } from 'models/model.model';
 
 @Component({
   selector: 'showeval',
