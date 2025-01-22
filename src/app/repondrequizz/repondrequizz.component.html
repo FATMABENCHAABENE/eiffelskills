@@ -10,10 +10,6 @@
             name="question-{{ questionObj.question.id }}" 
             [value]="answer.id"
             (change)="onAnswerSelected(questionObj.question.id, answer.id)" />
-          <!--<input 
-            type="radio" 
-            name="question-{{ questionObj.question.id }}" 
-            [value]="answer.id"/>-->
           {{ answer.description }}
         </label>
       </div>
