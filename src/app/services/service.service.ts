@@ -9,7 +9,6 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
   })
 
     export class Service {
- 
     private loginIn: number = 0;
     private id: number = 0;
     private major: string = '';
@@ -127,24 +126,8 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
       return this.http.post<any>('http://localhost:8080/user/add',newUser)
     }
 
-    getAllUser() {
-      return this.http.get<any>('http://localhost:8080/user');
-    }
-
-    deleteUserById(idUser: number | undefined) {
-      return this.http.delete<any>(`http://localhost:8080/user/${idUser}`);
-    }
-
     addModule(newModule: Modules) {
       return this.http.post<any>('http://localhost:8080/module',newModule)
-    }
-
-    getAllModule() {
-      return this.http.get<any>('http://localhost:8080/module');
-    }
-
-    deleteModuleById(idModule: number | undefined) {
-      return this.http.delete<any>(`http://localhost:8080/module/${idModule}`);
     }
 
     addSkill(newSkill: Comp) {
@@ -164,7 +147,7 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     getCompetencesByModule(idmodule: number): Observable<any[]> {
     return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
     }
-
+    // Logique pour envoyer les message de contact
     sendContact(newContact: Contact) {
       return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
     }
