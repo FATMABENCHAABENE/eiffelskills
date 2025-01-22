@@ -5,152 +5,167 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
 
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 
-    export class Service {
-    private loginIn: number = 0;
-    private id: number = 0;
-    private major: string = '';
-    private module: number = 0; 
-    private idMcQ: number = 0;
-    private idquestion: number = 0;   
+  export class Service {
 
-    constructor(private http: HttpClient) { }
+  private loginIn: number = 0;
+  private id: number = 0;
+  private major: string = '';
+  private module: number = 0; 
+  private idMcQ: number = 0;
+  private idquestion: number = 0;   
 
-    setLoginIn(value : number): void {
-      this.loginIn = value;
-    }
+  constructor(private http: HttpClient) { }
 
-    getLoginIn(): number {
-      return this.loginIn; 
-    }
+  setLoginIn(value : number): void {
+    this.loginIn = value;
+  }
 
-    setMajor(value : string): void {
-      this.major = value; 
-    }
+  getLoginIn(): number {
+    return this.loginIn; 
+  }
 
-    getMajor(): string {
-      return this.major; 
-    }
+  setMajor(value : string): void {
+    this.major = value; 
+  }
 
-    setId(value : number): void {
-      this.id = value;
-    }
+  getMajor(): string {
+    return this.major; 
+  }
 
-    getId(): number {
-      return this.id; 
-    }
+  setId(value : number): void {
+    this.id = value;
+  }
 
-    setModule(value : number): void {
-      this.module = value; 
-    }
+  getId(): number {
+    return this.id; 
+  }
 
-    getModule(): number {
-      return this.module; 
-    }
+  setModule(value : number): void {
+    this.module = value; 
+  }
 
-    setMcq(value : number): void {
-      this.idMcQ = value; 
-    }
+  getModule(): number {
+    return this.module; 
+  }
 
-    getMcq(): number {
-      return this.idMcQ; 
-    }
+  setMcq(value : number): void {
+    this.idMcQ = value; 
+  }
 
-    setIdquestion(value : number): void {
-      this.idquestion = value; 
-    }
+  getMcq(): number {
+    return this.idMcQ; 
+  }
 
-    getIdquestion(): number {
-      return this.idquestion; 
-    }
+  setIdquestion(value : number): void {
+    this.idquestion = value; 
+  }
 
-    login(user: Users) {
-      return this.http.post<any>('http://localhost:8080/user/login', user);
-    }
+  getIdquestion(): number {
+    return this.idquestion; 
+  }
 
-    getAllInfosMat(major: string) {
-      return this.http.get<any[]>(`http://localhost:8080/module/major/${major}`);
-    }
+  login(user: Users) {
+    return this.http.post<any>('http://localhost:8080/user/login', user);
+  }
 
-    getAllInfosComp(module: number) {
-      return this.http.get<any[]>(`http://localhost:8080/skill/module/${module}`); 
-    }
+  getAllInfosMat(major: string) {
+    return this.http.get<any[]>(`http://localhost:8080/module/major/${major}`);
+  }
 
-    getAllEvals(id: number) {
-      return this.http.get<any[]>(`http://localhost:8080/autoeval/student/${id}`);
-    }
+  getAllInfosComp(module: number) {
+    return this.http.get<any[]>(`http://localhost:8080/skill/module/${module}`); 
+  }
 
-    getLibelle(idSkill: number) {
-      return this.http.get<any[]>(`http://localhost:8080/skill/${idSkill}`);
-    }
+  getAllEvals(id: number) {
+    return this.http.get<any[]>(`http://localhost:8080/autoeval/student/${id}`);
+  }
 
-    updateval(evaluation: Eval) {
-      return this.http.post<any>('http://localhost:8080/autoeval/skill', evaluation);
-    } 
+  getLibelle(idSkill: number) {
+    return this.http.get<any[]>(`http://localhost:8080/skill/${idSkill}`);
+  }
 
-    getmodulesbyID(id: number) {
-      return this.http.get<any[]>(`http://localhost:8080/module/teacher/${id}`);
-    }
+  updateval(evaluation: Eval) {
+    return this.http.post<any>('http://localhost:8080/autoeval/skill', evaluation);
+  } 
 
-    sendidmodule(qcm: Qcm) {
-      return this.http.post<any[]>(`http://localhost:8080/MCQ`, qcm);
-    }
+  getmodulesbyID(id: number) {
+    return this.http.get<any[]>(`http://localhost:8080/module/teacher/${id}`);
+  }
 
-    sendQuestion(newQuestion: Question) {
-      return this.http.post<any[]>(`http://localhost:8080/question`, newQuestion);
-    }
+  sendidmodule(qcm: Qcm) {
+    return this.http.post<any[]>(`http://localhost:8080/MCQ`, qcm);
+  }
 
-    envoyerRep(p0: number, reponses: string[]) {
-      return this.http.post<any[]>(`http://localhost:8080/awnser/question/${p0}`, reponses);
-    }
-    
-    envoyerBRep(id: number) {
-      return this.http.post<any[]>(`http://localhost:8080/awnser/updateGood`, id);
-    }
+  sendQuestion(newQuestion: Question) {
+    return this.http.post<any[]>(`http://localhost:8080/question`, newQuestion);
+  }
 
-    getIdQCM(idModule: number) {
-      return this.http.get<any[]>(`http://localhost:8080/MCQ/module/${idModule}`);
-    }
+  envoyerRep(p0: number, reponses: string[]) {
+    return this.http.post<any[]>(`http://localhost:8080/awnser/question/${p0}`, reponses);
+  }
 
-    getQCM(id: number) {
-      return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
-    }
+  envoyerBRep(id: number) {
+    return this.http.post<any[]>(`http://localhost:8080/awnser/updateGood`, id);
+  }
 
-    getReponse(idQuestion: number) {
-        return this.http.get<any[]>(`http://localhost:8080/awnser/question/${idQuestion}`);
-    }
+  getIdQCM(idModule: number) {
+    return this.http.get<any[]>(`http://localhost:8080/MCQ/module/${idModule}`);
+  }
 
-    addUser(newUser: Users) {
-      return this.http.post<any>('http://localhost:8080/user/add',newUser)
-    }
+  getQCM(id: number) {
+    return this.http.get<any[]>(`http://localhost:8080/question/MCQ/${id}`);
+  }
 
-    addModule(newModule: Modules) {
-      return this.http.post<any>('http://localhost:8080/module',newModule)
-    }
+  getReponse(idQuestion: number) {
+      return this.http.get<any[]>(`http://localhost:8080/awnser/question/${idQuestion}`);
+  }
 
-    addSkill(newSkill: Comp) {
-      console.log(newSkill);
-      return this.http.post<any>('http://localhost:8080/skill', newSkill);
-    }
+  addUser(newUser: Users) {
+    return this.http.post<any>('http://localhost:8080/user/add',newUser)
+  }
 
-    deleteSkill(idSkill: number) {
-      return this.http.delete<any>(`http://localhost:8080/skill/${idSkill}`);
-    }
-    
-    envoyerProp(selectedAnswers: number[], idStudent : number) {
-      // Logique pour envoyer les réponses sélectionnées
-      return this.http.post<any[]>(`http://localhost:8080/awnser/globalcheck/${idStudent}`, selectedAnswers);
-    }
-   
-    getCompetencesByModule(idmodule: number): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
-    }
-    // Logique pour envoyer les message de contact
-    sendContact(newContact: Contact) {
-      return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
-    }
+  getAllUser() {
+    return this.http.get<any>('http://localhost:8080/user');
+  }
 
+  deleteUserById(idUser: number | undefined) {
+    return this.http.delete<any>(`http://localhost:8080/user/${idUser}`);
+  }
 
-    }
+  addModule(newModule: Modules) {
+    return this.http.post<any>('http://localhost:8080/module',newModule)
+  }
+
+  getAllModule() {
+    return this.http.get<any>('http://localhost:8080/module');
+  }
+
+  deleteModuleById(idModule: number | undefined) {
+    return this.http.delete<any>(`http://localhost:8080/module/${idModule}`);
+  }
+
+  addSkill(newSkill: Comp) {
+    console.log(newSkill);
+    return this.http.post<any>('http://localhost:8080/skill', newSkill);
+  }
+  deleteSkill(idSkill: number) {
+    return this.http.delete<any>(`http://localhost:8080/skill/${idSkill}`);
+  }
+
+  envoyerProp(selectedAnswers: number[], idStudent : number) {
+    // Logique pour envoyer les réponses sélectionnées
+    return this.http.post<any[]>(`http://localhost:8080/awnser/globalcheck/${idStudent}`, selectedAnswers);
+  }
+
+  getCompetencesByModule(idmodule: number): Observable<any[]> {
+  return this.http.get<any[]>(`http://localhost:8080/skill/module/${idmodule}`);
+  }
+
+  sendContact(newContact: Contact) {
+    return this.http.post<any[]>(`http://localhost:8080/contactmessage`, newContact);
+  }
+
+  }
