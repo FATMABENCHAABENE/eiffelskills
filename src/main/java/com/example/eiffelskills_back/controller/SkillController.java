@@ -30,7 +30,10 @@ public class SkillController {
     }
 
     @GetMapping("/module/{id}")
-    public List<Skills> getSkillsByModule(@PathVariable Long id) {return skillService.getSkillsByModule(id);}
+    public List<Skills> getSkillsByModule(@PathVariable Long id) {
+        System.out.println("In getSkillsByModule");
+        return skillService.getSkillsByModule(id);
+    }
 
     @PostMapping("/{id}")
     public void updateSkillById(@PathVariable Long id, @RequestBody Skills skill) {

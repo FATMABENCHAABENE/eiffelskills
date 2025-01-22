@@ -27,11 +27,13 @@ public class SkillService {
 
     @Transactional
     public void addSkill(Skills skill) {
+        System.out.println(skill);
         skillDAO.save(skill);
     }
 
     @Transactional
     public List<Skills> getSkillsByModule(Long moduleId) {
+        System.out.println("Inside getSkillsByModule with moduleId: " + moduleId);
         List<Skills> all = skillDAO.findAll();
         List<Skills> skills = new ArrayList<Skills>();
         for (Skills skill : all) {
