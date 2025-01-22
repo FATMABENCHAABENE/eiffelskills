@@ -15,7 +15,7 @@
 <!-- Zone de saisie pour la description de la question -->
 <label for="question">Entrer la competence :</label><br>
 <textarea 
-  id="comp" 
+  id="description" 
   [(ngModel)]="description" 
   placeholder="Écrivez votre question ici..." 
   rows="4" 
@@ -26,4 +26,16 @@
 <!-- Bouton pour envoyer la question -->
 <button (click)="sendcomp()">Envoyer</button>
 
+<h3>Compétences liées au module</h3>
+<p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
 
+<div *ngIf="competences.length > 0">
+  <label for="competenceSelect">Sélectionner une compétence :</label>
+  <select id="competenceSelect" [(ngModel)]="idSkill">
+    <option *ngFor="let competence of competences" [value]="competence.id">
+      {{ competence.libelle }} - {{ competence.description }}
+    </option>
+  </select>
+  <br><br>
+  <button (click)="deletecomp()">Supprimer</button>
+</div>

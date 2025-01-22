@@ -86,5 +86,26 @@ export class SkillComponent implements OnInit {
             }
           );
       }
-
-  }
+      deletecomp(): void {
+        if (this.idSkill === 0) {
+          alert('Veuillez sélectionner une compétence à supprimer.');
+          return;
+        }
+      
+        if (confirm('Êtes-vous sûr de vouloir supprimer cette compétence ?')) {
+          this.service.deleteSkill(this.idSkill).subscribe(
+            (response) => {
+              console.log('Compétence supprimée avec succès :', response);
+              // Mettre à jour la liste locale des compétences après suppression
+              this.competences = this.competences.filter(skill => skill.id !== this.idSkill);
+              // Réinitialiser l'ID sélectionné
+              this.idSkill = 0;
+            },
+            (error) => {
+              console.error('Erreur lors de la suppression de la compétence :', error);
+            }
+          );
+        }
+      }
+      
+}
