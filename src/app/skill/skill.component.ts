@@ -46,6 +46,10 @@ export class SkillComponent implements OnInit {
     } else {
       console.error('Aucun ID de module trouvé');
     }
+    this.getAllSkills();
+    }
+
+    getAllSkills() {
       // Récupérer les compétences associées à ce module
       this.service.getCompetencesByModule(this.idmodule).subscribe(
         (data: any[]) => {
@@ -75,6 +79,7 @@ export class SkillComponent implements OnInit {
               console.log('Réponse après l\'envoi:', this.responseMessage);
               // Réinitialisation du champ de saisie
               this.description = '';
+              this.getAllSkills();
             },
             error => {
               console.error("Erreur lors de l'envoi :", error);
@@ -94,6 +99,7 @@ export class SkillComponent implements OnInit {
               // Mettre à jour la liste locale des compétences après suppression
               this.competences = this.competences.filter(skill => skill.id !== this.idSkill);
               this.idSkill = 0;
+              this.getAllSkills();
             },
             (error) => {
               console.error('Erreur lors de la suppression de la compétence :', error);
