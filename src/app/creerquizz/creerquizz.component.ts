@@ -122,4 +122,17 @@ export class CreerquizzComponent implements OnInit {
       }
     );
   }
+
+  envoyeBreponse(id: number) {
+    this.service.envoyerBRep(id)
+          .subscribe(
+            response => {
+                console.log("je suis ici");
+              console.log('Réponse du back après envoi de la bonne réponse', response);
+            },
+            error => {
+              console.error('Erreur lors de l\'envoi de la nouvelle réponse:', error);
+            }
+          );
+  }
 }
