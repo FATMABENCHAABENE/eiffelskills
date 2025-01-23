@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,6 +22,18 @@ public class ResourceService {
     @Transactional
     public Resources getResourceById(Long id) {
         return resourcesDAO.findById(id).orElse(null);
+    }
+
+    @Transactional
+    public List<Resources> getResourcesByIdModule(Long id) {
+        List<Resources> all = this.getAllResources();
+        List<Resources> resources= new ArrayList<>();
+        for (Resources resource : all) {
+            if (resource.getIdModule().equals(id)) {
+                resources.add(resource);
+            }
+        }
+        return resources;
     }
 
     @Transactional

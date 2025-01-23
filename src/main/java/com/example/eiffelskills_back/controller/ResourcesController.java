@@ -29,6 +29,11 @@ public class ResourcesController {
         return resourceService.getResourceById(id);
     }
 
+    @GetMapping("/module/{idModule}")
+    public List<Resources> getResourcesByModule(@PathVariable Long idModule) {
+        return resourceService.getResourcesByIdModule(idModule);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteResource(@PathVariable Long id) {
         resourceService.deleteResourceById(id);
