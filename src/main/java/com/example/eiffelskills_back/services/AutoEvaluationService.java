@@ -136,4 +136,22 @@ public class AutoEvaluationService {
             autoEvaluationDAO.updateQuizzEvalBySkillAndStudent(autoEvaluations.getQuizzEval(), idSkill,idStudent);
         }
     }
+
+    @Transactional
+    public Float makeScore(Long studentId, List<Long> skillIds) {
+        List<AutoEvaluations> autoEvaluations = new ArrayList<>();
+        for (Long skillId : skillIds) {
+            autoEvaluations.addAll(this.getAutoEvalByStudentAndSkills(studentId, skillId));
+        }
+        Float score = 20.0F;
+        for (AutoEvaluations autoEvaluation : autoEvaluations) {
+            switch (autoEvaluation.getQuizzEval()) {
+                case ("acquired"): score=score; break;
+                case ("acquiring"): score=score/2; break;
+                case ("no acquired"): score=score/3; break;
+                case ("no evaluated"): score=1F; break;
+            }
+        }
+        return score;
+    }
 }

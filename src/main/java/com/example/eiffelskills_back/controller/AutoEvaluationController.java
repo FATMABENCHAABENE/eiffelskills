@@ -48,6 +48,11 @@ public class AutoEvaluationController {
         autoEvaluationService.updateEvalBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
     }
 
+    @PostMapping("/score/{idStudent}")
+    public Float makeScore(@PathVariable Long idStudent, @RequestBody List<Long> idsModules) {
+        return autoEvaluationService.makeScore(idStudent, idsModules);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteAutoEvaluation(@PathVariable Long id) {
         autoEvaluationService.deleteById(id);
