@@ -22,3 +22,25 @@
     </table>
   </div>
   
+  <button (click)="loadnotefinale()">Afficher mes notes finales</button>
+
+  <div class="resultats-container">
+    <h2>Résultats des évaluations</h2>
+  
+    <table class="resultats-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- itère sur le tableau resultats -->
+        <tr *ngFor="let resultat of resultats">
+          <td>{{ resultat.description }}</td>
+          <td>{{ resultat.note }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

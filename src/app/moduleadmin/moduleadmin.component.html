@@ -59,7 +59,7 @@
   <h2>Tous les utilisateurs</h2>
   <li *ngFor="let user of users">
     {{ user.id }} - {{ user.name }} - {{ user.surname }} - {{ user.role }} - {{ user.mail }}
-    <button (click)="deleteUser(user.id)">Supprimer cet utilisateur</button>
+    <button (click)="deleteUser(user.id)">Supprimer cet Utilisateur</button>
   </li>
 </div>
 
@@ -67,7 +67,7 @@
   <h2>Tous les modules</h2>
   <li *ngFor="let module of modules">
     {{ module.description }} - {{ module.major }}
-    <button (click)="deleteModule(module.id)">Supprimer cet utilisateur</button>
+    <button (click)="deleteModule(module.id)">Supprimer ce Module</button>
   </li>
 </div>
 
