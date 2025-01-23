@@ -59,7 +59,7 @@ public class SkillService {
         List<Skills> skills = this.getSkillsByModule(idModule);
         List<Long> idsSkill = new ArrayList<>();
         for (Skills skill : skills) {
-            idsSkill.add(skill.getIdModule());
+            idsSkill.add(skill.getId());
         }
         return autoEvaluationService.makeScore(idStudent, idsSkill);
     }

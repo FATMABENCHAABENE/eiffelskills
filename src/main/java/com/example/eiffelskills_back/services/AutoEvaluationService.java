@@ -143,10 +143,12 @@ public class AutoEvaluationService {
 
     @Transactional
     public Float makeScore(Long studentId, List<Long> skillIds) {
+        //System.out.println("Skills : "+skillIds+"\n studentId : "+studentId);
         List<AutoEvaluations> autoEvaluations = new ArrayList<>();
         for (Long skillId : skillIds) {
             autoEvaluations.addAll(this.getAutoEvalByStudentAndSkills(studentId, skillId));
         }
+        //System.out.println("All eval : "+autoEvaluations);
         List<Float> allScores = new ArrayList<>();
         for (AutoEvaluations autoEvaluation : autoEvaluations) {
             switch (autoEvaluation.getQuizzEval()) {
@@ -160,6 +162,7 @@ public class AutoEvaluationService {
         for (Float allScore : allScores) {
             score += allScore;
         }
+        //System.out.println("scores = "+allScores);
         return score/allScores.size();
     }
 }
