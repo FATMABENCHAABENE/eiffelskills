@@ -22,15 +22,15 @@ export class ShowevalComponent implements OnInit{
   description : string = ''; 
   responseLib: any;
   listemodule: number[] = []; // Tableau vide 
-  resultats: { id: number, note: number, description: string }[] = [];
+  resultats: {  description: string , note: number}[] = [];
   responseMessage : Affichage[] = []; 
+  note: number = 0;
 
   constructor(private service: Service, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.service.getId(); 
-   // this.loadAutoEval(this.id); 
-   this.loadnotefinale(this.id); 
+    this.loadAutoEval(this.id); 
   }
 
   loadAutoEval(id: number): void {
@@ -78,13 +78,10 @@ export class ShowevalComponent implements OnInit{
         console.error("Erreur lors de la récupération des évaluations :", error);
       }
     );
-    this.loadnotefinale(this.id);
   }
 
-  loadnotefinale(id: number): void {
-
-    this.loadAutoEval(id); 
-    // Suppression des doublons
+  loadnotefinale(): void {
+    // Suppression des doublons 
     console.log("nous sommes dans la méthode pour afficher la note finale, voici la liste : ", this.listemodule);
     this.listemodule = [...new Set(this.listemodule)];
 
@@ -95,14 +92,17 @@ export class ShowevalComponent implements OnInit{
       console.log("Traitement de l'item : ", item);
 
       // 1. Récupérer la note pour cet id
-      this.service.getNote(id, item).subscribe(
+      this.service.getNote(this.id, item).subscribe(
         (note: number) => {
           console.log(`Note finale pour le module ${item} : ${note}`);
+          this.note = note;
 
           // 2. Une fois la note récupérée, récupérer la description du module
           this.service.getDescription(item).subscribe(
             (description: any) => {
-              console.log("pour avoir la description : ", description); 
+              console.log("pour avoir la description : ", description?.description);
+              this.resultats.push({ description: description?.description, note: this.note });
+
             },
             (error) => {
               console.error("Erreur lors de la récupération de la description : ", error);
