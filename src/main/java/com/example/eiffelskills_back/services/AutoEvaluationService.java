@@ -143,15 +143,19 @@ public class AutoEvaluationService {
         for (Long skillId : skillIds) {
             autoEvaluations.addAll(this.getAutoEvalByStudentAndSkills(studentId, skillId));
         }
-        Float score = 20.0F;
+        List<Float> allScores = new ArrayList<>();
         for (AutoEvaluations autoEvaluation : autoEvaluations) {
             switch (autoEvaluation.getQuizzEval()) {
-                case ("acquired"): score=score; break;
-                case ("acquiring"): score=score/2; break;
-                case ("no acquired"): score=score/3; break;
-                case ("no evaluated"): score=1F; break;
+                case ("acquired"): allScores.add(20F); break;
+                case ("acquiring"): allScores.add(10F); break;
+                case ("no acquired"): allScores.add(1F); break;
+                case ("no evaluated"): allScores.add(0F); break;
             }
         }
-        return score;
+        Float score = 0F;
+        for (Float allScore : allScores) {
+            score += allScore;
+        }
+        return score/allScores.size();
     }
 }

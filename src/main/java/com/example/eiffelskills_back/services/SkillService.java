@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SkillService {
     public final SkillDAO skillDAO;
+    public final AutoEvaluationService autoEvaluationService;
 
     @Transactional
     public List<Skills> getAllSkills() {
@@ -51,6 +52,16 @@ public class SkillService {
         } else {
             skillDAO.updateById(id,skill.getDescription(),skill.getIdModule());
         }
+    }
+
+    @Transactional
+    public Float makeScore(Long idStudent, Long idModule) {
+        List<Skills> skills = this.getSkillsByModule(idModule);
+        List<Long> idsSkill = new ArrayList<>();
+        for (Skills skill : skills) {
+            idsSkill.add(skill.getIdModule());
+        }
+        return autoEvaluationService.makeScore(idStudent, idsSkill);
     }
 
     @Transactional
