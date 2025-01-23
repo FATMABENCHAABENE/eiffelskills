@@ -10,7 +10,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("resources")
+@RequestMapping("resource")
 public class ResourcesController {
     private final ResourceService resourceService;
 
