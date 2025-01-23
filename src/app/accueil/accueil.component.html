@@ -5,3 +5,14 @@
     <button class="button" (click)="selogin(2)" style="margin: 0 15px 15px 15px;">Connexion Professeur</button>
     <button class="button" (click)="selogin(3)" style="margin: 0 15px;">Connexion Administrateur</button>
 </div>
+
+<div class="form-container">
+    <h2>Recruteur - Entrez l'ID du candidat</h2>
+  
+    <!-- Zone de texte pour entrer l'ID du candidat -->
+    <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
+  
+    <!-- Bouton pour envoyer l'ID du candidat -->
+    <button (click)="loadevalrecrut()">Envoyer</button>
+  </div>
+  
