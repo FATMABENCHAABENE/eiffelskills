@@ -9,7 +9,9 @@ import { Service } from '../services/service.service';
 })
 
 export class AccueilComponent implements OnInit {
-  // Déclarations des variables
+
+candidateId: number = 0;
+
   constructor(private service: Service, private router: Router) { }
   ngOnInit(): void {
   }
@@ -18,5 +20,10 @@ export class AccueilComponent implements OnInit {
     this.service.setLoginIn(value);
     this.router.navigate(['/login']);
   } 
+
+  loadevalrecrut() {
+    this.service.setId(this.candidateId);
+    this.router.navigate(['/showeval']);
+  }
   
 }
