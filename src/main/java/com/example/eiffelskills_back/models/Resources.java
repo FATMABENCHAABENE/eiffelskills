@@ -14,6 +14,8 @@ public class Resources {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false)
+    private String name;
     @Column(name = "content", nullable = false)
     private String content;
     @Column(name = "id_module", nullable = false)
@@ -21,7 +23,8 @@ public class Resources {
 
     public Resources() {}
 
-    public Resources(String content, Long idModule) {
+    public Resources(String name, String content, Long idModule) {
+        this.name = name;
         this.content = content;
         this.idModule = idModule;
     }
