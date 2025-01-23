@@ -14,6 +14,7 @@ import { RepondrequizzComponent } from "repondrequizz/repondrequizz.component";
 import { ModuleadminComponent } from "moduleadmin/moduleadmin.component";
 import { ContactComponent } from "contact/contact.component";
 import {SkillComponent} from "skill/skill.component";
+import {RessourceComponent} from "ressource/ressource.component";
 
 const routes: Routes = [
   { path: "", component: AccueilComponent },
@@ -28,8 +29,8 @@ const routes: Routes = [
   { path: "moduleadmin", component: ModuleadminComponent},
   { path: "contact", component: ContactComponent},
   { path: "skill", component: SkillComponent}, 
-  { path: "message", component: MessageComponent} 
-  
+  { path: "message", component: MessageComponent}, 
+  { path: "ressource", component: RessourceComponent}, 
 ];
 
 @NgModule({

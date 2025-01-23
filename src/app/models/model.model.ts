@@ -8,6 +8,13 @@ export interface Users {
     major : string;
 }
 
+export interface Ressource {
+    id?: number; 
+    name?: string;
+    content?: string;
+    idmodule: number;
+}
+
 export interface Contact {
     id?: number;
     name: string; 

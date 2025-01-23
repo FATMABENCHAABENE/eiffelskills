@@ -1,0 +1,36 @@
+<p>Gestion des Ressources</p>
+
+<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+
+
+<!-- Liste des ressources -->
+<h3>Ressources associées au module</h3>
+<ul *ngIf="ressources.length > 0">
+  <li *ngFor="let ressource of ressources">
+    {{ ressource.id }} - {{ ressource.name }}
+    <button (click)="deleteRessource(ressource.id)">Supprimer</button>
+  </li>
+</ul>
+<p *ngIf="ressources.length === 0">Aucune ressource trouvée pour ce module.</p>
+
+<hr>
+
+<!-- Ajout d'une ressource -->
+<div>
+  <h3>Ajouter une nouvelle ressource</h3>
+
+  <label for="ressourceName">Nom de la ressource :</label><br>
+  <input
+    id="ressourceName"
+    [(ngModel)]="newRessource.name"
+    placeholder="Entrez le nom de la ressource"
+  /><br><br>
+  <label for="ressourceFile">Choisir une ressource :</label><br>
+  <input 
+    type="text" 
+    id="ressourceFile" 
+    [(ngModel)]="newRessource.content"
+  /><br><br>
+
+  <button (click)="addRessource()">Ajouter</button>
+</div>

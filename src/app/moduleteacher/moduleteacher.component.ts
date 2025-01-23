@@ -97,5 +97,12 @@ gotoskill(modid: number | undefined ) {
     this.service.setModule(modid);
   }
 }
+
+gotoressource(id: number | undefined) {
+  this.router.navigate(['/ressource']);
+  if (id) {
+    this.service.setModule(id);
+  }
+}
   
 }
