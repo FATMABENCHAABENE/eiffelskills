@@ -175,7 +175,6 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Ressource } from 'm
   deletemessageById(idcontact: number | undefined) {
     return this.http.delete<any>(`http://localhost:8080/contactmessage/${idcontact}`);
   }
-<<<<<<< HEAD
   addR(newRessource: Ressource) {
     console.log(newRessource);
     return this.http.post<any>('http://localhost:8080/resource', newRessource);
@@ -186,9 +185,7 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Ressource } from 'm
   getRByModule(idModule: number): Observable<Ressource[]> {
     return this.http.get<any>(`http://localhost:8080/resource/module/${idModule}`);
   }
-}
-=======
-
+  
   getNote(id: number, item: number) {
     return this.http.get<any>(`http://localhost:8080/skill/score/${id}/${item}`);
   }
@@ -196,6 +193,4 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Ressource } from 'm
   getDescription(item: number) {
     return this.http.get<any[]>(`http://localhost:8080/module/${item}`);
   }
-
-  }
->>>>>>> 3da8b4549dbe66b81fed34a4154d14d6a4658d8e
+}
