@@ -8,7 +8,7 @@ export interface Users {
     major : string;
 }
 
-export interface Ressource {
+export interface Resource {
     id?: number; 
     name?: string;
     content?: string;

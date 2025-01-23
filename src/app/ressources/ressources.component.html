@@ -1,0 +1,16 @@
+<div class="ressources-container">
+  <h3>Ressources associées au module</h3>
+
+  <!-- Affichage si aucune ressource n'est trouvée -->
+  <p *ngIf="resources.length === 0" class="no-ressources">
+    Aucune ressource trouvée pour ce module.
+  </p>
+
+  <!-- Liste des ressources -->
+  <ul *ngIf="resources.length > 0" class="ressources-list">
+    <li *ngFor="let resource of resources" class="ressource-item">
+      {{ resource.name }} : {{ resource.content }}
+
+    </li>
+  </ul>
+</div>

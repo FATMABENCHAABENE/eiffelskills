@@ -26,6 +26,7 @@ import { ContactComponent } from "contact/contact.component";
 import {SkillComponent} from "skill/skill.component";
 import {MessageComponent} from "message/message.component";
 import {RessourceComponent} from "ressource/ressource.component";
+import {RessourcesComponent} from "ressources/ressources.component";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import {RessourceComponent} from "ressource/ressource.component";
     ContactComponent,
     SkillComponent,
     MessageComponent,
-    RessourceComponent
+    RessourceComponent,
+    RessourcesComponent
+    
   ],
   imports: [
     BrowserModule,

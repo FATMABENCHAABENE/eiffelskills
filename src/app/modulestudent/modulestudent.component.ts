@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { Service } from '../services/service.service';
-import { Users, mat } from 'models/model.model';
+import { mat, Modules } from 'models/model.model';
 
 @Component({
   selector: 'modulestudent',
@@ -12,7 +12,7 @@ import { Users, mat } from 'models/model.model';
   styleUrl: './modulestudent.component.scss'
 })
 export class ModulestudentComponent implements OnInit {
-
+  module: Modules[] = [];
   major: string = '';
   mat: mat[] =  [];
 
@@ -21,6 +21,7 @@ export class ModulestudentComponent implements OnInit {
   ngOnInit(): void {
     this.major = this.service.getMajor();
     this.loadMat(this.major); 
+
   }
 
   showeval() {
@@ -50,9 +51,13 @@ export class ModulestudentComponent implements OnInit {
       this.service.setModule(idModule); 
       this.router.navigate(['/repondrequizz']);
     }
-
-    ressources() {
-      throw new Error('Method not implemented.');
+    gotoressource(id: number | undefined): void {
+      if (id) {
+        this.service.setModule(id); // Stocker l'ID du module dans le service
+        this.router.navigate(['/ressources']); // Naviguer vers la page des ressources
+      } else {
+        console.error('ID du module non défini.');
       }
+    }
 }
 

@@ -6,9 +6,9 @@
 <!-- Liste des ressources -->
 <h3>Ressources associées au module</h3>
 <ul *ngIf="ressources.length > 0">
-  <li *ngFor="let ressource of ressources">
-    {{ ressource.id }} - {{ ressource.name }}
-    <button (click)="deleteRessource(ressource.id)">Supprimer</button>
+  <li *ngFor="let resource of ressources">
+    {{ resource.id }} - {{ resource.name }}
+    <button (click)="deleteRessource(resource.id)">Supprimer</button>
   </li>
 </ul>
 <p *ngIf="ressources.length === 0">Aucune ressource trouvée pour ce module.</p>

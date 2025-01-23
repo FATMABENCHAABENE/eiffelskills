@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Ressource } from 'models/model.model';
+import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Resource } from 'models/model.model';
 
 
 @Injectable({
@@ -175,14 +175,14 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Ressource } from 'm
   deletemessageById(idcontact: number | undefined) {
     return this.http.delete<any>(`http://localhost:8080/contactmessage/${idcontact}`);
   }
-  addR(newRessource: Ressource) {
+  addR(newRessource: Resource) {
     console.log(newRessource);
     return this.http.post<any>('http://localhost:8080/resource', newRessource);
   }
   deleteR(idR: number | undefined) {
     return this.http.delete<any>(`http://localhost:8080/resource/${idR}`);
   }
-  getRByModule(idModule: number): Observable<Ressource[]> {
+  getRByModule(idModule: number): Observable<Resource[]> {
     return this.http.get<any>(`http://localhost:8080/resource/module/${idModule}`);
   }
   
