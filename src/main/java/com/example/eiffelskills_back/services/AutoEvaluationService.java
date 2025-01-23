@@ -63,6 +63,7 @@ public class AutoEvaluationService {
     @Transactional
     public void downGradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
+        //System.out.println("Current Eval : "+all);
         if (all.isEmpty()) {
             this.save(new AutoEvaluations(skillId,studentId,"no evaluated","no acquired"));
         } else {
@@ -72,6 +73,7 @@ public class AutoEvaluationService {
                     case("acquired"): newEval = "acquiring"; break;
                     case("acquiring"): newEval = "no acquired"; break;
                     case("no acquired"): newEval = "no acquired"; break;
+                    default: newEval = "no acquired"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
                 this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
@@ -82,6 +84,7 @@ public class AutoEvaluationService {
     @Transactional
     public void upgradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
+        //System.out.println("Current Eval : "+all.get(0).getQuizzEval());
         if (all.isEmpty()) {
             this.save(new AutoEvaluations(skillId,studentId,"no evaluated","acquired"));
         } else {
@@ -91,6 +94,7 @@ public class AutoEvaluationService {
                     case("acquired"): newEval = "acquired"; break;
                     case("acquiring"): newEval = "acquired"; break;
                     case("no acquired"): newEval = "acquiring"; break;
+                    default: newEval = "acquired"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
                 this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
