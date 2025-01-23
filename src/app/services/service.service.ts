@@ -176,4 +176,12 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp } from 'models/model
     return this.http.delete<any>(`http://localhost:8080/contactmessage/${idcontact}`);
   }
 
+  getNote(id: number, item: number) {
+    return this.http.get<any>(`http://localhost:8080/skill/score/${id}/${item}`);
+  }
+
+  getDescription(item: number) {
+    return this.http.get<any[]>(`http://localhost:8080/module/${item}`);
+  }
+
   }
