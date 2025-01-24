@@ -1,0 +1,126 @@
+.form-container {
+    position: relative; /* Crée un contexte pour le positionnement des enfants */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Zone de gauche (texte et boutons) */
+.text-and-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Ajuste selon tes besoins */
+    height: 100%;
+    z-index: 10; /* Plus grand que l'image */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0); /* Optionnel : couleur de fond semi-transparente */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+.image-container {
+    position: relative;
+    width: 100vw; /* Largeur de la fenêtre visible */
+    height: 100vh; /* Hauteur de la fenêtre visible */
+    overflow: hidden; /* Coupe les parties débordantes */
+  }
+  
+  .image {
+    position: absolute;
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Centrage parfait */
+    
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+    height: auto; /* Maintient les proportions */
+    
+    /* Si l'image ne couvre pas toute la hauteur, on ajuste */
+    min-height: 100%; /* Force à couvrir au minimum la hauteur */
+    min-width: 100%; /* Force à couvrir au minimum la largeur */
+    
+    /* Masque pour l'effet */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0) 45%, 
+        rgba(0, 0, 0, 1) 55%, 
+        rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0) 45%, 
+        rgba(0, 0, 0, 1) 55%, 
+        rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+
+  .button {
+    background-color: #e6eaee;
+    border: none; /* Supprime la bordure */
+    color: black; /* Texte noir */
+    position: absolute; /* Permet de positionner librement */
+    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
+    font-family: 'Montserrat', sans-serif; /* Choisissez ici la police que vous souhaitez */
+    font-size: 16px; /* Taille de police par défaut */
+    text-align: center; /* Centre le texte horizontalement */
+    text-decoration: none; /* Supprime la décoration par défaut */
+    display: inline-block; /* Permet de rendre le bouton un élément en ligne */
+    cursor: pointer; /* Change le curseur au survol */
+    border-radius: 50px; /* Bords arrondis */
+    transition: background-color 0.3s; /* Animation lors du changement de couleur */
+    
+    /* Spécification de la taille du bouton */
+    width: 16%; /* Largeur fixe du bouton */
+    height: 50px; /* Hauteur fixe du bouton */
+}
+
+.button_etudiant {
+    position: absolute; /* Positionnement absolu */
+    top: 62%; /* Place le texte au milieu verticalement */
+    left: 30%; /* Place le texte à 10% de la largeur de la page */
+    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+.button_professeur {
+    position: absolute; /* Positionnement absolu */
+    top: 62%; /* Distance du haut */
+    left: 50%; /* Distance de la gauche */
+}
+
+.button_administrateur {
+    position: absolute; /* Positionnement absolu */
+    top: 62%; /* Distance du haut */
+    left: 70%; /* Distance de la gauche */
+}
+
+.button_connexion {
+    position: absolute; /* Positionnement absolu */
+    top: 92%; /* Distance du bas */
+    left: 50%; /* Distance de la gauche */
+}
+
+/* Effet au survol */
+.button:hover {
+    background-color: #168b75; /* Change la couleur au survol */
+}
+
+/* Style pour le texte */
+.text {
+    position: absolute; 
+    font-size: 24px;
+    color: #168b75;
+    font-weight: bold;
+    left: 50%; /* Place le texte au milieu horizontalement */
+    transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+/* Style pour le texte "Identifiant du candidat" */
+.text_Id {
+    top: 72%; /* Place le texte au milieu verticalement */
+}

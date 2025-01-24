@@ -1,18 +1,24 @@
-<p>Page d'accueil !</p>
-
-<div class="container">
-    <button class="button" (click)="selogin(1)" style="margin: 0 15px 15px 15px;">Connexion Étudiant</button>
-    <button class="button" (click)="selogin(2)" style="margin: 0 15px 15px 15px;">Connexion Professeur</button>
-    <button class="button" (click)="selogin(3)" style="margin: 0 15px;">Connexion Administrateur</button>
-</div>
 
 <div class="form-container">
-    <h2>Recruteur - Entrez l'ID du candidat</h2>
+    <div class="text-and-buttons">
+        <div class="container">
+            <button class="button button_etudiant" (click)="selogin(1)" style="margin: 0 15px 15px 15px;">Connexion Étudiant</button>
+            <button class="button button_professeur" (click)="selogin(2)" style="margin: 0 15px 15px 15px;">Connexion Professeur</button>
+            <button class="button button_administrateur" (click)="selogin(3)" style="margin: 0 15px;">Connexion Administrateur</button>
+        </div>
+
+        <p class="text text_Id">Recruteur - Entrez l'ID du candidat</p>
   
-    <!-- Zone de texte pour entrer l'ID du candidat -->
-    <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
+        <!-- Zone de texte pour entrer l'ID du candidat -->
+        <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
   
-    <!-- Bouton pour envoyer l'ID du candidat -->
-    <button (click)="loadevalrecrut()">Envoyer</button>
-  </div>
+        <!-- Bouton pour envoyer l'ID du candidat -->
+        <button (click)="loadevalrecrut()">Envoyer</button>
+        </div>
+
+    <!-- Conteneur de l'image de fond -->
+  <div class="image-container">
+    <img src="../../assets/img4.png" alt="Image avec fondu" class="image">
+  <div class="gradient"></div>
+</div>
   
