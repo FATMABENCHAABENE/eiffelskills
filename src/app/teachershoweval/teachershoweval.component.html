@@ -6,10 +6,30 @@
 <div *ngIf="users.length > 0">
   <ul>
     <li *ngFor="let user of users">
-      <strong> etudiants : </strong>{{ user.name }} - {{ user.surname }} - (ID: {{ user.id }})
-      <button>Envoyer</button>
+      <strong>Étudiant :</strong> {{ user.name }} - {{ user.surname }} - {{ user.id }}
+      <div *ngIf="compe.length > 0" style="margin-top: 10px;">
+        <label for="competenceSelect-{{ user.id }}">Sélectionner une compétence :</label>
+        <select 
+          id="competenceSelect-{{ user.id }}" 
+          (change)="updateSkill($event)">
+          <option value="0" disabled selected>Choisir une compétence</option>
+          <option *ngFor="let compeItem of compe" [value]="compeItem.id">
+            {{ compeItem.id }} - {{ compeItem.description }}
+          </option>
+        </select>
+        <br><br>
+        <button (click)="sendid(user.id)">Envoyer</button>
+      </div>
     </li>
   </ul>
 </div>
-
 <p *ngIf="users.length === 0">Aucun utilisateur trouvé pour ce major.</p>
+
+<h2>Résultats des evaluations</h2>
+<ul *ngIf="res.length > 0">
+  <li *ngFor="let response of res">
+    <strong>Évaluation :</strong> {{ response.eval }} <br>
+    <strong>Évaluation Quizz :</strong> {{ response.quizzEval }}
+  </li>
+</ul>
+<p *ngIf="res.length === 0">Aucune évaluation.</p>

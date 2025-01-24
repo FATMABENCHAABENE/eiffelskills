@@ -196,4 +196,7 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Resource } from 'mo
   getDescription(item: number) {
     return this.http.get<any[]>(`http://localhost:8080/module/${item}`);
   }
+  postid(idStudent: number | undefined, idSkill: number[]) {
+    return this.http.post<Eval[]>(`http://localhost:8080/autoeval/student/${idStudent}`,idSkill);
+  }
 }
