@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Users } from 'models/model.model';
+import { Eval, Users } from 'models/model.model';
 import { Service } from 'services/service.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class TeachershowevalComponent implements OnInit {
   idModule: number=0;
   moduleDescription: string="";
   students: Users[]= [];
+  evals: Eval[]=[];
 
   ngOnInit(): void {
     
