@@ -30,6 +30,11 @@ public class AutoEvaluationController {
         return autoEvaluationService.getAutoEvaluationsByIdStudent(id);
     }
 
+    @PostMapping("/student/{idStudent}")
+    public List<AutoEvaluations> getAutoEvalByStudentAndListSkills(@PathVariable Long idStudent, @RequestBody List<Long> skills) {
+        return autoEvaluationService.getAutoEvalByStudentAndListSkills(idStudent, skills);
+    }
+
     @PostMapping("")
     public void addAutoEvaluation(@RequestBody AutoEvaluations autoEvaluation) {
         autoEvaluationService.save(autoEvaluation);
@@ -46,11 +51,6 @@ public class AutoEvaluationController {
         System.out.println("ID student Reçu du client : " + autoEvaluation.getIdStudent());
         System.out.println("Eval Reçu du client : " + autoEvaluation.getEval());
         autoEvaluationService.updateEvalBySkillAndStudent(autoEvaluation.getIdSkill(), autoEvaluation.getIdStudent(), autoEvaluation);
-    }
-
-    @PostMapping("/score/{idStudent}")
-    public Float makeScore(@PathVariable Long idStudent, @RequestBody List<Long> idsModules) {
-        return autoEvaluationService.makeScore(idStudent, idsModules);
     }
 
     @DeleteMapping("/{id}")

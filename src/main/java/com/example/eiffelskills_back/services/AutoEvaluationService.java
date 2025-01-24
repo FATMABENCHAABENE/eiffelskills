@@ -141,6 +141,17 @@ public class AutoEvaluationService {
         }
     }
 
+    public List<AutoEvaluations> getAutoEvalByStudentAndListSkills(Long studentId, List<Long> idSkills) {
+        List<AutoEvaluations> all = autoEvaluationDAO.findAll();
+        List<AutoEvaluations> autoEvaluations = new ArrayList<>();
+        for (AutoEvaluations autoEvaluation : all) {
+            if (autoEvaluation.getIdStudent().equals(studentId) && idSkills.contains(autoEvaluation.getIdSkill())) {
+                autoEvaluations.add(autoEvaluation);
+            }
+        }
+        return autoEvaluations;
+    }
+
     @Transactional
     public Float makeScore(Long studentId, List<Long> skillIds) {
         //System.out.println("Skills : "+skillIds+"\n studentId : "+studentId);
