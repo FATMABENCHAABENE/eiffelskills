@@ -83,10 +83,13 @@ showquizz(arg0: string,arg1: any) {
     this.router.navigate(['/showquizz']);
   }
 
-showstudenteval(arg0: number | undefined, arg1: string) {
+showstudenteval(arg0: number|undefined, arg1: string) {
   //this.service.setModule(arg0);
   this.service.setMajor(arg1);
-
+  if (arg0) {
+    this.service.setModule(arg0);
+  }
+  this.router.navigate(['/teachershoweval']);
   // Exception pour signaler que la méthode n'est pas encore implémentée
   throw new Error('Méthode non implémentée : showstudenteval.');
 }

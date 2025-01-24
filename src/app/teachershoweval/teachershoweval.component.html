@@ -1,1 +1,15 @@
-<p>teachershoweval works!</p>
+<h1>Liste des utilisateurs liés au major : {{ major }}</h1>
+
+<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+
+<!-- Affichage de la liste des utilisateurs -->
+<div *ngIf="users.length > 0">
+  <ul>
+    <li *ngFor="let user of users">
+      <strong> etudiants : </strong>{{ user.name }} - {{ user.surname }} - (ID: {{ user.id }})
+      <button>Envoyer</button>
+    </li>
+  </ul>
+</div>
+
+<p *ngIf="users.length === 0">Aucun utilisateur trouvé pour ce major.</p>

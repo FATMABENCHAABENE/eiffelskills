@@ -27,6 +27,7 @@ import {SkillComponent} from "skill/skill.component";
 import {MessageComponent} from "message/message.component";
 import {RessourceComponent} from "ressource/ressource.component";
 import {RessourcesComponent} from "ressources/ressources.component";
+import {TeachershowevalComponent} from "teachershoweval/teachershoweval.component";
 
 @NgModule({
   declarations: [
@@ -46,8 +47,8 @@ import {RessourcesComponent} from "ressources/ressources.component";
     SkillComponent,
     MessageComponent,
     RessourceComponent,
-    RessourcesComponent
-    
+    RessourcesComponent,
+    TeachershowevalComponent,
   ],
   imports: [
     BrowserModule,

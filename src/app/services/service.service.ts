@@ -74,6 +74,9 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Resource } from 'mo
   getAllInfosMat(major: string) {
     return this.http.get<any[]>(`http://localhost:8080/module/major/${major}`);
   }
+  getUserbyMat(major: string) {
+    return this.http.get<any[]>(`http://localhost:8080/user/student/${major}`);
+  }
 
   getAllInfosComp(module: number) {
     return this.http.get<any[]>(`http://localhost:8080/skill/module/${module}`); 
