@@ -16,6 +16,7 @@ import { ContactComponent } from "contact/contact.component";
 import {SkillComponent} from "skill/skill.component";
 import {RessourceComponent} from "ressource/ressource.component";
 import {RessourcesComponent} from "ressources/ressources.component";
+import { TeachershowevalComponent } from 'teachershoweval/teachershoweval.component';
 
 const routes: Routes = [
   { path: "", component: AccueilComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: "message", component: MessageComponent}, 
   { path: "ressource", component: RessourceComponent}, 
   { path: 'ressources', component: RessourcesComponent },
+  { path: 'teachershoweval', component: TeachershowevalComponent }
   
 ];
 
