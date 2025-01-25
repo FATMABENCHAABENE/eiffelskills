@@ -1,27 +1,32 @@
 
 <div class="form-container">
 
-    <div class="text-and-buttons">
-        <div class="container">
-            <button class="button button_etudiant" (click)="selogin(1)" style="margin: 0 15px 15px 15px;">Connexion Étudiant</button>
-            <button class="button button_professeur" (click)="selogin(2)" style="margin: 0 15px 15px 15px;">Connexion Professeur</button>
-            <button class="button button_administrateur" (click)="selogin(3)" style="margin: 0 15px;">Connexion Administrateur</button>
-        </div>
+  <div class="text-and-buttons">
 
-        <p class="text text_Id">Recruteur - Entrez l'ID du candidat</p>
-
-    <h2>Si vous etes recruteur - Entrez l'ID du candidat</h2>
+    <p class="text_devise">Les compétences d’aujourd’hui,<br><br>les opportunités de demain.</p>
+    <p class="text text_Id">Recruteur - Entrez l'ID du candidat</p>
   
-        <!-- Zone de texte pour entrer l'ID du candidat -->
-        <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
+    <!-- Zone de texte pour entrer l'ID du candidat -->
+    <div class="rectangle rectangle1">
+      <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
+    </div>
   
-        <!-- Bouton pour envoyer l'ID du candidat -->
-        <button (click)="loadevalrecrut()">Envoyer</button>
-        </div>
+    <button class="button button_etudiant" (click)="selogin(1)" >Connexion Étudiant</button>
+    <button class="button button_professeur" (click)="selogin(2)" >Connexion Professeur</button>
+    <button class="button button_connexion" (click)="loadevalrecrut()">Envoyer</button>
 
-    <!-- Conteneur de l'image de fond -->
+    
+  </div>
+        
+
+  <!-- Conteneur de l'image de fond -->
   <div class="image-container">
+    <div class="logo">
+      <img src="../../assets/logo.png">
+    </div>
     <img src="../../assets/img4.png" alt="Image avec fondu" class="image">
+    <button class="button button_administrateur" (click)="selogin(3)" >Connexion Administrateur</button>
   <div class="gradient"></div>
+  
 </div>
   

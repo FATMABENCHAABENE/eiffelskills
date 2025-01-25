@@ -23,7 +23,7 @@
     width: 100vw; /* Largeur de la fenêtre visible */
     height: 100vh; /* Hauteur de la fenêtre visible */
     overflow: hidden; /* Coupe les parties débordantes */
-  }
+}
   
   .image {
     position: absolute;
@@ -71,31 +71,33 @@
     display: inline-block; /* Permet de rendre le bouton un élément en ligne */
     cursor: pointer; /* Change le curseur au survol */
     border-radius: 50px; /* Bords arrondis */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre légère */
+    border: 2px solid black; /* Bordure */
     transition: background-color 0.3s; /* Animation lors du changement de couleur */
     
     /* Spécification de la taille du bouton */
-    width: 16%; /* Largeur fixe du bouton */
-    height: 50px; /* Hauteur fixe du bouton */
+    width: 25%; /* Largeur fixe du bouton */
+    height: 56px; /* Hauteur fixe du bouton */
 }
 
 .button_etudiant {
     position: absolute; /* Positionnement absolu */
-    top: 62%; /* Place le texte au milieu verticalement */
-    left: 30%; /* Place le texte à 10% de la largeur de la page */
+    top: 63%; /* Place le texte au milieu verticalement */
+    left: 35%; /* Place le texte à 10% de la largeur de la page */
     transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
     text-align: center; /* Centre le texte horizontalement */
 }
 
 .button_professeur {
     position: absolute; /* Positionnement absolu */
-    top: 62%; /* Distance du haut */
-    left: 50%; /* Distance de la gauche */
+    top: 63%; /* Distance du haut */
+    left: 65%; /* Distance de la gauche */
 }
 
 .button_administrateur {
     position: absolute; /* Positionnement absolu */
-    top: 62%; /* Distance du haut */
-    left: 70%; /* Distance de la gauche */
+    top: 93%; /* Distance du haut */
+    left: 90%; /* Distance de la gauche */
 }
 
 .button_connexion {
@@ -122,5 +124,52 @@
 
 /* Style pour le texte "Identifiant du candidat" */
 .text_Id {
-    top: 72%; /* Place le texte au milieu verticalement */
+    top: 76%; /* Place le texte au milieu verticalement */
+}
+
+/* Style pour le texte "Code unique associé" */
+.text_devise {
+    position: relative; 
+    font-family: 'Alice'; /* Choisissez ici la police que vous souhaitez */
+    font-size: 36px;
+    color: black;
+    font-weight: normal;
+    top: 43%; /* Place le texte au milieu verticalement */
+    left: 0%; /* Place le texte au milieu horizontalement */
+    font-style: italic; /* Texte en italique */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+.rectangle {
+    width: 36%; /* Largeur du rectangle */
+    height: 5%; /* Hauteur du rectangle */
+    border: 2px solid black; /* Bordure */
+    background-color: white; /* Couleur de fond */
+    padding: 2px; /* Espacement interne */
+    box-sizing: border-box; /* Inclut la bordure et le padding dans les dimensions */
+    border-radius: 15px; /* Bords arrondis */
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre légère */
+    position: absolute; /* Permet un positionnement absolu */
+    top: 80%; /* Distance du haut */
+    left: 32%; /* Distance de la gauche */
+}
+
+.rectangle input {
+    width: 95%; /* Largeur de l'input */
+    height: 50%; /* Hauteur de l'input */
+    border: none; /* Supprime la bordure par défaut */
+    outline: none; /* Supprime le contour actif */
+    background-color: transparent; /* Fond transparent */
+    font-size: 100%; /* Taille du texte */
+}
+
+
+.logo {
+    position: absolute;
+    top: 20%; 
+    left: 25%; 
+    transform: translate(-50%, -50%); 
 }
