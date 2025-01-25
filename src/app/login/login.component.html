@@ -1,48 +1,56 @@
-<p>Page de login!</p>
+<div class="login-container"[ngClass]="{
+  'bg-login-1': loginIn === 1,
+  'bg-login-2': loginIn === 2,
+  'bg-login-3': loginIn === 3
+}">
+  <form (ngSubmit)="tentativelogin()">
+  <div *ngIf="loginIn === 1">
+    <p>Bienvenue</p>
+      <div>
+        <input type="email" id="email" [(ngModel)]="mail" name="email" required placeholder="Email"/>
+      </div>
+  
+      <div>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de Passe"/>
+      </div>
+  
+      <div>
+        <label for="major" style="color: white; font-size: 20px;">Majeure</label>
+      </div>
 
-<div class="login-container">
-    <h2>Connexion</h2>
+      <div>
+        <select id="major" [(ngModel)]="major" name="major" required class="send send_majeure">
+          <option *ngFor="let major of majors" [value]="major">{{ major }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="loginIn === 2 || loginIn === 3">
+      <p>Bienvenue</p>
+      <div>
+        <input type="email" id="email" [(ngModel)]="mail" name="email" required placeholder="Email"/>
+      </div>
+      
+      <div>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de Passe"/>
+      </div>
+      
+      <div>
+        <label for="role">Rôle:</label>
+        <span>{{ loginIn === 2 ? 'Professeur' : 'Administrateur' }}</span>
+      </div>
+    </div>
+
+    <button type="submit" class="send">Envoyer</button>
+
+    <div class="drop drop-1"></div>
+    <div class="drop drop-2"></div>
+    <div class="drop drop-3"></div>
+    <div class="drop drop-4"></div>
+    <div class="drop drop-5"></div>
     
-    <form (ngSubmit)="tentativelogin()">
-      <div *ngIf="loginIn === 1">
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" [(ngModel)]="mail" name="email" required />
-        </div>
-  
-        <div>
-          <label for="password">Mot de Passe:</label>
-          <input type="password" id="password" [(ngModel)]="password" name="password" required />
-        </div>
-  
-        <div>
-          <label for="major">Majeure:</label>
-          <select id="major" [(ngModel)]="major" name="major" required>
-            <option *ngFor="let major of majors" [value]="major">{{ major }}</option>
-          </select>
-        </div>
-        
-      </div>
-  
-      <div *ngIf="loginIn === 2 || loginIn === 3">
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" [(ngModel)]="mail" name="email" required />
-        </div>
-      
-        <div>
-          <label for="password">Mot de Passe:</label>
-          <input type="password" id="password" [(ngModel)]="password" name="password" required />
-        </div>
-      
-        <div>
-          <label for="role">Rôle:</label>
-          <span>{{ loginIn === 2 ? 'Professeur' : 'Administrateur' }}</span>
-        </div>
-      </div>
-      
-  
-      <button type="submit">Envoyer</button>
-    </form>
-  </div>
+  </form>
+
+
+</div>
   
