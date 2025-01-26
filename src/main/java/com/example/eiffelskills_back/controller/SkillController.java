@@ -40,10 +40,10 @@ public class SkillController {
         skillService.updateSkill(id, skill);
     }
 
-    /*@GetMapping("/score/{idStudent}/{idModule}")
+    @GetMapping("/score/{idStudent}/{idModule}")
     public Float getScore(@PathVariable Long idStudent, @PathVariable Long idModule) {
         return skillService.makeScore(idStudent, idModule);
-    }*/
+    }
 
     @DeleteMapping("/{id}")
     public void deleteSkill(@PathVariable Long id) {skillService.deleteSkill(id);}
