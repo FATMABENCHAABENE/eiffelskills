@@ -10,7 +10,7 @@ body, html {
     display: flex;
     width: 100%;
     height: calc(100vh - 80px); /* Hauteur totale de la page - hauteur de la navbar */
-    background-color: black;
+    background: linear-gradient(45deg, #eae4d2, #9cc9c0);
     flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
   }
   
