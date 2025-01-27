@@ -1,7 +1,7 @@
 -- insert admin user
 insert into public.users(name,mail,password,role) values('admin','admin@es.fr','testadmin','admin');
 -- insert student users
-insert into public.users(name,surname,mail,password,role) values('Elliot','Handersen','elliot@es.fr','studentsic','student_SIC');
+insert into public.users(name,surname,mail,password,role) values('Elliot','Handersen','ehandersen@es.fr','studentsic','student_SIC');
 insert into public.users(name, surname, mail, password, role) VALUES ('Aelita','Stones','astones@es.fr','studentbda','student_BDA');
 insert into users (name, surname, mail, password, role) values ('Henry','Case','hcase@es.fr','studentse','student_SE');
 -- insert teacher users
@@ -23,6 +23,22 @@ insert into public.skills(description, id_module) values ('NMAP',1);
 insert into public.skills(description, id_module) values ('Metasploit',1);
 insert into public.skills(description, id_module) values ('K-mean usage',3);
 insert into public.skills(description, id_module) VALUES ('C++',4);
+
+-- insert MCQ
+insert into public.mcq(description, id_module) VALUES ('MCQ SI security',1);
+-- ## with questions
+    insert into public.questions(description, id_mcq, id_skill) VALUES ('A quoi sert NMAP ?',1,1);
+    insert into public.questions(description, id_mcq, id_skill) VALUES ('Quel command metasploit permet de lancer un exploit ?',1,2);
+-- ### with awnsers
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Faire une injection SQL',1,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Scanner un réseau ou un appareil',1,true);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Les deux réponses précédentes',1,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Aucune réponse',1,false);
+
+        insert into public.awnsers(description, id_question, is_good) VALUES ('start',2,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('launch',2,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('attack',2,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('run',2,true);
 
 -- insert eval
 --insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,2,'acquiring');
