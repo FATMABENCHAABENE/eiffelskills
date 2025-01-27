@@ -1,9 +1,3 @@
-<div>
-  <button class="switch-button" type="button" (click)="showeval()">Voir mon auto-évaluation et évaluation par compétences</button>
-</div>
-
-
-
 
 <section>
   <div class="container_page">
@@ -16,18 +10,38 @@
             <ul>
               <li>
                 <!-- Bouton pour l'autoévaluation -->
-                <button class="submit-button" type="button" (click)="autoeval(subject.id)">S'auto-évaluer</button>
+                <button 
+                class="submit-button" 
+                type="button" 
+                (click)="autoeval(subject.id)">
+                S'auto-évaluer
+              </button>
                 
                 <!-- Bouton pour le quiz -->
-                <button class="submit-button" type="button" (click)="quizz(subject.id)">QUIZZ</button>
+                <button 
+                class="submit-button" 
+                type="button" 
+                (click)="quizz(subject.id)">
+                QUIZZ
+              </button>
                 
                 <!-- Bouton pour voir les ressources -->
-                <button class="switch-button" type="button" (click)="gotoressource(subject.id)">Voir les ressources</button>
+                <button 
+                class="submit-button" 
+                type="button" 
+                (click)="gotoressource(subject.id)">
+                Voir les ressources
+              </button>
           
               </li>
             </ul>
           </div>
         </div>
+        <div class="module">Module B</div>
+      </div>
+      
+      <div class="container-button">
+        <button class="switch-button" type="button" (click)="showeval()">Voir mon auto-évaluation et évaluation par compétences</button>
       </div>
     </div>  
     <div class="container-text">

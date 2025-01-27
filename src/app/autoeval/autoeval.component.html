@@ -1,18 +1,34 @@
-<p>autoeval works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétences</title>
+</head>
+<body>
+  <div class="decorations">
+    <!-- Bulles de décoration -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <!-- Formes géométriques -->
+    <div class="shape shape-triangle"></div>
+    <div class="shape shape-square"></div>
+  </div>
 
-<div class="label-container">
+  <div class="container">
     <label class="label">Compétences</label>
-    <ul>
-      <li *ngFor="let info of comp">
+    <ul class="skills-list">
+      <li class="skill-item" *ngFor="let info of comp">
         <span class="id-span">Compétence: {{ info.description }}</span>
-  
+
         <!-- Liste déroulante pour l'évaluation -->
-        <select #evalInput>
-          <option value='acquired'>Acquired</option>
-          <option value='acquiring'>Acquiring</option>
-          <option value='no acquired'>No Acquired</option>
+        <select class="dropdown" #evalInput>
+          <option value="acquired">Acquis</option>
+          <option value="acquiring">En cours d'acquisition</option>
+          <option value="no acquired">Non acquis</option>
         </select>
-  
+
         <!-- Bouton d'enregistrement -->
         <button 
           class="save-button" 
@@ -23,4 +39,5 @@
       </li>
     </ul>
   </div>
-  
+</body>
+</html>

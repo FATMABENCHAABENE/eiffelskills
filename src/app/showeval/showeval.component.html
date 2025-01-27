@@ -1,8 +1,24 @@
-<p>showeval works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des Évaluations</title>
+</head>
+<body>
+  <div class="decorations">
+    <!-- Bulles de décoration -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <!-- Formes géométriques -->
+    <div class="shape shape-triangle"></div>
+    <div class="shape shape-square"></div>
+  </div>
 
-<div class="container">
-    <h2>Liste des Évaluations</h2>
-    <table class="table table-bordered">
+  <div class="container">
+    <label class="label">Liste des Évaluations</label>
+    <table class="table">
       <thead>
         <tr>
           <th>ID Skill</th>
@@ -14,19 +30,18 @@
       <tbody>
         <tr *ngFor="let response of responseMessage">
           <td>{{ response.idSkill }}</td>
-          <td>{{ response.description || 'Chargement...' }}</td>  <!-- Affiche la description -->
+          <td>{{ response.description || 'Chargement...' }}</td>
           <td>{{ response.eval }}</td>
           <td>{{ response.quizzeval }}</td>
         </tr>
       </tbody>
     </table>
+
+    <button class="save-button" (click)="loadnotefinale()">Afficher mes notes finales</button>
   </div>
-  
-  <button (click)="loadnotefinale()">Afficher mes notes finales</button>
 
   <div class="resultats-container">
-    <h2>Résultats des évaluations</h2>
-  
+    <label class="label">Résultats des évaluations</label>
     <table class="resultats-table">
       <thead>
         <tr>
@@ -35,7 +50,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- itère sur le tableau resultats -->
         <tr *ngFor="let resultat of resultats">
           <td>{{ resultat.description }}</td>
           <td>{{ resultat.note }}</td>
@@ -43,4 +57,5 @@
       </tbody>
     </table>
   </div>
-  
+</body>
+</html>
