@@ -50,6 +50,9 @@ insert into public.mcq(description, id_module) VALUES ('MCQ Machine Learning',3)
         insert into public.awnsers(description, id_question, is_good) VALUES ('Basé sur un modèle',3,false);
         insert into public.awnsers(description, id_question, is_good) VALUES ('Aucune réponse',3,false);
 
+-- insert a resource in SI security
+insert into public.resources(content, id_module, name) VALUES ('nmap.org',1,'Site officiel de NMAP');
+
 -- insert eval
 --insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,2,'acquiring');
 --insert into public.autoevaluations(id_skill, id_student, eval) VALUES (2,2,'acquired');
