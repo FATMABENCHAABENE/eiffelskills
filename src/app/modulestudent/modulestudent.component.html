@@ -2,32 +2,16 @@
   <button class="switch-button" type="button" (click)="showeval()">Voir mon auto-évaluation et évaluation par compétences</button>
 </div>
 
-<div *ngFor="let subject of mat" class="label-container">
-  <!-- Affiche la description de la matière -->
-  <label class="label">{{ subject.description }}</label>
-  <ul>
-    <li>
-      <!-- Bouton pour l'autoévaluation -->
-      <button class="submit-button" type="button" (click)="autoeval(subject.id)">S'auto-évaluer</button>
-      
-      <!-- Bouton pour le quiz -->
-      <button class="submit-button" type="button" (click)="quizz(subject.id)">QUIZZ</button>
-      
-      <!-- Bouton pour voir les ressources -->
-      <button class="switch-button" type="button" (click)="gotoressource(subject.id)">Voir les ressources</button>
 
-    </li>
-  </ul>
-</div>
 
 
 <section>
   <div class="container_page">
     <div class="container-scrollable">
       <div class="container-scrollable2">
-        <div class="module">Module A
           <div *ngFor="let subject of mat" class="label-container">
             <!-- Affiche la description de la matière -->
+            <div class="module">Module A
             <label class="label">{{ subject.description }}</label>
             <ul>
               <li>
@@ -44,9 +28,6 @@
             </ul>
           </div>
         </div>
-        <div class="module">Module B</div>
-        <div class="module">Module C</div>
-        <div class="module">Module D</div>
       </div>
     </div>  
     <div class="container-text">
