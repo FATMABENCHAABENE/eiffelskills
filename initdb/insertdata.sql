@@ -24,7 +24,7 @@ insert into public.skills(description, id_module) values ('Metasploit',1);
 insert into public.skills(description, id_module) values ('K-mean usage',3);
 insert into public.skills(description, id_module) VALUES ('C++',4);
 
--- insert MCQ
+-- insert MCQ SI security
 insert into public.mcq(description, id_module) VALUES ('MCQ SI security',1);
 -- ## with questions
     insert into public.questions(description, id_mcq, id_skill) VALUES ('A quoi sert NMAP ?',1,1);
@@ -39,6 +39,16 @@ insert into public.mcq(description, id_module) VALUES ('MCQ SI security',1);
         insert into public.awnsers(description, id_question, is_good) VALUES ('launch',2,false);
         insert into public.awnsers(description, id_question, is_good) VALUES ('attack',2,false);
         insert into public.awnsers(description, id_question, is_good) VALUES ('run',2,true);
+
+-- insert MCQ Machine Learning
+insert into public.mcq(description, id_module) VALUES ('MCQ Machine Learning',3);
+-- ## with questions
+    insert into public.questions(description, id_mcq, id_skill) VALUES ('Quel est le type de l algorithme K-mean ?',2,3);
+-- ### with awnsers
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Arbre de désision',3,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Voisinage',3,true);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Basé sur un modèle',3,false);
+        insert into public.awnsers(description, id_question, is_good) VALUES ('Aucune réponse',3,false);
 
 -- insert eval
 --insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,2,'acquiring');
