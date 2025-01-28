@@ -4,8 +4,11 @@
 <div>
   <h2>Ajouter un Utilisateur</h2>
   <form (ngSubmit)="addUser()">
-    <label for="name">Nom :</label>
-    <input id="name" [(ngModel)]="newUser.name" name="name" required />
+    <label for="name">Prénom :</label>
+    <input name="name" [(ngModel)]="newUser.name" id="name" required>
+    <br>
+    <label for="surname">Nom :</label>
+    <input id="surname" [(ngModel)]="newUser.surname" name="surname" />
     <br />
     <label for="email">Mail :</label>
     <input id="mail" [(ngModel)]="newUser.mail" name="mail" type="mail" required />
