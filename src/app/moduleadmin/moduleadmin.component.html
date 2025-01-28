@@ -1,79 +1,122 @@
-<p>Cette page est réservée à l'administrateur !</p>
+<div class="dashboard">
+  <!-- Toggle Button -->
+  <button class="menu-btn" (click)="toggleDashboard()">Menu</button>
 
-<!-- Ajout d'un utilisateur -->
-<div>
-  <h2>Ajouter un Utilisateur</h2>
-  <form (ngSubmit)="addUser()">
-    <label for="name">Prénom :</label>
-    <input name="name" [(ngModel)]="newUser.name" id="name" required>
-    <br>
-    <label for="surname">Nom :</label>
-    <input id="surname" [(ngModel)]="newUser.surname" name="surname" />
-    <br />
-    <label for="email">Mail :</label>
-    <input id="mail" [(ngModel)]="newUser.mail" name="mail" type="mail" required />
-    <br />
-    <label for="pwd">Password :</label>
-    <input id="password" [(ngModel)]="newUser.password" name="password" type="text" required=""/>
-    <br/>
-    <label for="role">Rôle :</label>
-    <select id="role" [(ngModel)]="newUser.role" name="role" required>
-      <option value="student_SIC">Étudiant SIC</option>
-      <option value="student_BDA">Étudiant BDA</option>
-      <option value="student_SE">Étudiant SE</option>
-      <option value="teacher">Enseignant</option>
-    </select>
-    <br />
-    <!-- Champ "major" si le rôle est "étudiant" -->
-       <!--<div *ngIf="newUser.role === 'student'">
-    <label for="major">Majeure :</label>
-    <select id="major" [(ngModel)]="newUser.role" name="major" required>
-      <option value="student_SIC">SIC</option>
-      <option value="student_BDA">BDA</option>
-      <option value="student_SE">SE</option>
-    </select>
-  </div>-->
-    <br />
-    <button type="submit">Ajouter l'utilisateur</button>
-  </form>
-</div>
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.hidden]="!isSidebarVisible">
+    <h2>Admin Dashboard</h2>
+    <nav>
+      <ul>
+        <li (click)="showSection('users')">Gestion des Utilisateurs</li>
+        <li (click)="showSection('modules')">Gestion des Modules</li>
+        <li (click)="gotomessage()">Messagerie</li>
+      </ul>
+    </nav>
+  </aside>
 
-<div>
-    <h2>Ajouter un Module</h2>
-   <form (ngSubmit)="addModule()">
-      <label for="major">Majeur :</label>
-      <select name="major" id="major" [(ngModel)]="newModule.major">
-        <option value="SIC">Système d'Information et Cybersécurité</option>
-        <option value="BDA">Base de Données et Algorithmes</option>
-        <option value="SE">Systèmes Embarqués</option>
-      </select>
-      <br />
-      <label for="description">Description :</label>
-      <textarea id="description" [(ngModel)]="newModule.description" name="description" required></textarea>
-      <br />
-      <label for="id_teacher">ID Enseignant :</label>
-      <input id="id_teacher" [(ngModel)]="newModule.idTeacher" name="id_teacher" type="number" required />
-      <br />
-    </form>
-  <button (click)="addModule()">Ajouter le module</button>
-</div>
+  <!-- Main Content -->
+  <main class="content" [class.full-width]="!isSidebarVisible">
+    <!-- User Management Section -->
+    <div *ngIf="activeSection === 'users'">
+      <section>
+        <h2>Gestion des Utilisateurs</h2>
+        <div class="card">
+          <h3>Ajouter un Utilisateur</h3>
+          <form (ngSubmit)="addUser()">
+            <div class="form-group">
+              <label for="name">Prénom :</label>
+              <input name="name" [(ngModel)]="newUser.name" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="surname">Nom :</label>
+              <input id="surname" [(ngModel)]="newUser.surname" name="surname">
+            </div>
+            <div class="form-group">
+              <label for="email">Mail :</label>
+              <input id="mail" [(ngModel)]="newUser.mail" name="mail" type="email" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password :</label>
+              <input id="password" [(ngModel)]="newUser.password" name="password" type="password" required>
+            </div>
+            <div class="form-group">
+              <label for="role">Rôle :</label>
+              <select id="role" [(ngModel)]="newUser.role" name="role" required>
+                <option value="student_SIC">Étudiant SIC</option>
+                <option value="student_BDA">Étudiant BDA</option>
+                <option value="student_SE">Étudiant SE</option>
+                <option value="teacher">Enseignant</option>
+              </select>
+            </div>
+            <button type="submit" class="btn primary">Ajouter l'utilisateur</button>
+          </form>
+        </div>
 
-<div>
-  <h2>Tous les utilisateurs</h2>
-  <li *ngFor="let user of users">
-    {{ user.id }} - {{ user.name }} - {{ user.surname }} - {{ user.role }} - {{ user.mail }}
-    <button (click)="deleteUser(user.id)">Supprimer cet Utilisateur</button>
-  </li>
-</div>
+        <div class="card">
+          <h3>Tous les utilisateurs</h3>
+          <ul class="user-list">
+            <li *ngFor="let user of users">
+              <span>{{ user.name }} {{ user.surname }} - {{ user.role }}</span>
+              <button (click)="deleteUser(user.id)" class="btn danger small-btn">Supprimer</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
 
-<div>
-  <h2>Tous les modules</h2>
-  <li *ngFor="let module of modules">
-    {{ module.description }} - {{ module.major }}
-    <button (click)="deleteModule(module.id)">Supprimer ce Module</button>
-  </li>
-</div>
+    <!-- Module Management Section -->
+    <div *ngIf="activeSection === 'modules'">
+      <section>
+        <h2>Gestion des Modules</h2>
 
-<div>
-    <button (click)="gotomessage()">Message</button>
+        <div class="card">
+          <h3>Ajouter un Module</h3>
+          <form (ngSubmit)="addModule()" class="form-layout">
+            <div class="form-group">
+              <label for="major">Majeur :</label>
+              <select name="major" id="major" [(ngModel)]="newModule.major">
+                <option value="SIC">Système d'Information et Cybersécurité</option>
+                <option value="BDA">Base de Données et Algorithmes</option>
+                <option value="SE">Systèmes Embarqués</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Description :</label>
+              <textarea id="description" [(ngModel)]="newModule.description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="id_teacher">ID Enseignant :</label>
+              <input id="id_teacher" [(ngModel)]="newModule.idTeacher" name="id_teacher" type="number" required>
+            </div>
+            <button type="submit" class="btn primary">Ajouter le module</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Tous les modules</h3>
+          <ul class="module-list">
+            <li *ngFor="let module of modules" class="module-item">
+              <span>{{ module.description }} - {{ module.major }}</span>
+              <button (click)="deleteModule(module.id)" class="btn danger small-btn">Supprimer</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Messages Section -->
+    <div *ngIf="activeSection === 'messages'">
+      <section>
+        <h2>Messagerie</h2>
+        <div class="card">
+          <h3>Messages Récents</h3>
+          <ul class="messages-list">
+            <li *ngFor="let message of messages" class="message-item">
+              <span>{{ message }}</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
 </div>

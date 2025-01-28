@@ -1,0 +1,260 @@
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+  
+    /* Toggle Button Styling */
+    .menu-btn {
+      position: absolute;
+      top: 3px;
+      left: 10px;
+      background-color: #168b75;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 1100;
+  
+      &:hover {
+        background-color: #146b5c;
+      }
+    }
+  
+    /* Sidebar Styling */
+    .sidebar {
+      width: 250px;
+      background-color: #168b75;
+      color: white;
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(0);
+      z-index: 1000;
+  
+      &.hidden {
+        transform: translateX(-100%);
+      }
+  
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 40px; /* Adds space below the text */
+        margin-top: 20px; /* Optional: Adds space above the text */
+        text-align: center; /* Centers the text horizontally */
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          padding: 10px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #146b5c;
+          }
+        }
+      }
+    }
+  
+    /* Content Styling */
+    .content {
+      flex: 1;
+      padding: 20px;
+      transition: margin-left 0.3s ease-in-out;
+  
+      &.full-width {
+        margin-left: 0;
+      }
+    }
+    
+  
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        h3 {
+          color: #168b75;
+          margin-bottom: 20px;
+        }
+  
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+  
+          label {
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+  
+          input,
+          select {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+          }
+        }
+  
+        .user-list {
+          list-style: none;
+          padding: 0;
+  
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+        }
+  
+        .btn {
+          border: none;
+          border-radius: 4px;
+          padding: 10px 15px;
+          cursor: pointer;
+  
+          &.primary {
+            background-color: #168b75;
+            color: white;
+  
+            &:hover {
+              background-color: #146b5c;
+            }
+          }
+  
+          &.danger {
+            background-color: #ff4d4d;
+            color: white;
+  
+            &:hover {
+              background-color: #e63939;
+            }
+          }
+  
+          &.small {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Module List Styling */
+  .module-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  
+    .module-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+  
+      &:last-child {
+        border-bottom: none;
+      }
+  
+      .btn {
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  /* Button Variants */
+  .btn {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  
+    &.primary {
+      background-color: #168b75;
+      color: white;
+  
+      &:hover {
+        background-color: #146b5c;
+      }
+    }
+  
+    &.danger {
+      background-color: #ff4d4d;
+      color: white;
+  
+      &:hover {
+        background-color: #e63939;
+      }
+    }
+  
+    &.small-btn {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  
+    &:focus {
+      outline: 2px solid #168b75;
+      outline-offset: 2px;
+    }
+  }
+  
+  /* Messages Section */
+  .messages-list {
+    list-style: none;
+    padding: 0;
+  
+    .message-item {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      span {
+        color: #168b75;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+  
+      .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        transform: translateX(-100%); /* Initially hidden */
+        z-index: 1000;
+      }
+  
+      .content {
+        padding: 10px;
+      }
+  
+      .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+      }
+    }
+  }
+  

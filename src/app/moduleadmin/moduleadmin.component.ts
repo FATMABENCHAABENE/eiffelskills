@@ -11,7 +11,8 @@ import { Users, Modules } from 'models/model.model';
 export class ModuleadminComponent implements OnInit {
   modules: Modules[] = [];
   users: Users[] = [];
-  newModule: Modules = {major: '', description: '', idTeacher: 0 };
+  messages: string[] = []; // Mock messages for demonstration
+  newModule: Modules = { major: '', description: '', idTeacher: 0 };
   newUser: Users = {
     name: '',
     surname: '',
@@ -21,14 +22,42 @@ export class ModuleadminComponent implements OnInit {
     major: ''
   };
 
+  activeSection: string = 'users'; // Default section is "users"
+  isSidebarVisible: boolean = true; // Track sidebar visibility
+
   constructor(private service: Service, private router: Router) {}
 
   ngOnInit(): void {
     this.displayModules();
     this.displayUsers();
+    this.loadMessages(); // Load messages on initialization
   }
 
-  // Ajout d'un utilisateur
+  // Toggle sidebar visibility
+  toggleDashboard(): void {
+    this.isSidebarVisible = !this.isSidebarVisible;
+  }
+
+  // Switch sections
+  showSection(section: string): void {
+    this.activeSection = section;
+  }
+
+  // Navigate to the "Messagerie" section
+  gotomessage(): void {
+    this.activeSection = 'messages'; // Switch the active section to "messages"
+  }
+
+  // Load messages (mock implementation)
+  loadMessages(): void {
+    this.messages = [
+      'Bienvenue sur le tableau de bord admin',
+      'Votre dernier utilisateur a été ajouté avec succès.',
+      'Un module a été mis à jour.'
+    ];
+  }
+
+  // Add a new user
   addUser(): void {
     if (this.newUser.role === 'student' && !this.newUser.major) {
       console.error('La majeure doit être spécifiée pour un étudiant');
@@ -36,95 +65,60 @@ export class ModuleadminComponent implements OnInit {
     }
 
     this.service.addUser(this.newUser).subscribe(
-      (response) => {
-        console.log('Utilisateur ajouté avec succès:', response);
-        this.newUser = {
-          name: '',
-          surname: '',
-          mail: '',
-          password: '',
-          role: 'student',
-          major: ''
-        };
-        this.displayUsers();
+      () => {
+        this.newUser = { name: '', surname: '', mail: '', password: '', role: 'student', major: '' };
+        this.displayUsers(); // Refresh the users list
       },
-      (error) => {
-        console.error('Erreur lors de l\'ajout de l\'utilisateur:', error);
-      }
+      (error) => console.error('Erreur lors de l\'ajout de l\'utilisateur:', error)
     );
   }
 
-  // Ajout d'un module
+  // Add a new module
   addModule(): void {
     this.service.addModule(this.newModule).subscribe(
-      (response) => {
-        console.log('Module ajouté avec succès:', response);
-        
-        this.newModule = {major: '', description: '', idTeacher: 0 };
-        this.displayModules();
+      () => {
+        this.newModule = { major: '', description: '', idTeacher: 0 };
+        this.displayModules(); // Refresh the modules list
       },
-      (error) => {
-        console.error('Erreur lors de l\'ajout du module:', error);
-      }
+      (error) => console.error('Erreur lors de l\'ajout du module:', error)
     );
   }
 
+  // Fetch all modules
   displayModules(): void {
     this.service.getAllModule().subscribe(
-      (data:any) => {
-        console.log("loading modules");
-        this.modules = data;
-      },
-      (error: any) => {
-          console.error('Erreur lors de la récupération des modules:', error);
-      }
-    )
+      (data: Modules[]) => (this.modules = data),
+      (error) => console.error('Erreur lors de la récupération des modules:', error)
+    );
   }
 
+  // Fetch all users
   displayUsers(): void {
-    console.log("in display users");
     this.service.getAllUser().subscribe(
-      (data:any) => {
-        console.log("loading modules");
-        this.users = data;
-        console.log("loaded data : "+data);
-      },
-      (error: any) => {
-          console.error('Erreur lors de la récupération des modules:', error);
-      }
-    )
+      (data: Users[]) => (this.users = data),
+      (error) => console.error('Erreur lors de la récupération des utilisateurs:', error)
+    );
   }
 
+  // Delete a user
   deleteUser(idUser: number | undefined): void {
-    console.log("in delete User");
-    if (confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) {
+    if (!idUser) return;
+    if (confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) {
       this.service.deleteUserById(idUser).subscribe(
-        (data:any) => {
-          console.log("user deleted");
-          this.displayUsers();
-        },
-        (error: any) => {
-            console.error('Erreur lors de la récupération des modules:', error);
-        }
-      )
+        () => this.displayUsers(), // Refresh the users list
+        (error) => console.error('Erreur lors de la suppression de l\'utilisateur:', error)
+      );
     }
   }
 
-  deleteModule(idUser: number | undefined): void {
-    console.log("in delete Module");
-    if (confirm("Voulez-vous vraiment supprimer ce module ?")) {
-      this.service.deleteModuleById(idUser).subscribe(
-        (data:any) => {
-          console.log("module deleted");
-          this.displayModules();
-        },
-        (error: any) => {
-            console.error('Erreur lors de la récupération des modules:', error);
-        }
-      )
+  // Delete a module
+  deleteModule(idModule: number | undefined): void {
+    if (!idModule) return;
+    if (confirm('Voulez-vous vraiment supprimer ce module ?')) {
+      this.service.deleteModuleById(idModule).subscribe(
+        () => this.displayModules(), // Refresh the modules list
+        (error) => console.error('Erreur lors de la suppression du module:', error)
+      );
     }
-  }
-  gotomessage() {
-    this.router.navigate(['/message']);
   }
 }
