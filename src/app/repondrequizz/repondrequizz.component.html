@@ -1,20 +1,37 @@
-<p>repondrequizz works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+</head>
+<body>
+  <div class="decorations">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="shape shape-triangle"></div>
+    <div class="shape shape-square"></div>
+  </div>
 
-<div *ngFor="let questionObj of questionsWithAnswers">
-    <div>
-      <h3>{{ questionObj.question.description }}</h3>
-      <div *ngFor="let answer of questionObj.answers">
-        <label>
-          <input 
-            type="radio" 
-            name="question-{{ questionObj.question.id }}" 
-            [value]="answer.id"
-            (change)="onAnswerSelected(questionObj.question.id, answer.id)" />
-          {{ answer.description }}
-        </label>
+  <div class="container">
+    <label class="label">Quiz</label>
+    <div *ngFor="let questionObj of questionsWithAnswers">
+      <div>
+        <h3>{{ questionObj.question.description }}</h3>
+        <div *ngFor="let answer of questionObj.answers">
+          <label class="radio-option">
+            <input 
+              type="radio" 
+              name="question-{{ questionObj.question.id }}" 
+              [value]="answer.id"
+              (change)="onAnswerSelected(questionObj.question.id, answer.id)" />
+            {{ answer.description }}
+          </label>
+        </div>
       </div>
     </div>
+    <button class="save-button" (click)="sendAnswers()">Envoyer</button>
   </div>
-  
-  <button (click)="sendAnswers()">Envoyer</button>
-  
+</body>
+</html>

@@ -138,14 +138,7 @@ body, html {
     font-weight: bold;
     color: #168b75;
     top: 70%;
-  }
-  
-  /* Effet au survol des modules */
-  .module:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
+  }  
 
   li {
     display: flex;
@@ -163,6 +156,11 @@ body, html {
   transition: background 0.2s, transform 0.3s;
 }
 
+ .submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .switch-button {
   top : 80%;
   left: 10%;
@@ -174,4 +172,9 @@ body, html {
   cursor: pointer;
   flex: 0.3;
   transition: background 0.2s, transform 0.3s;
+}
+
+ .switch-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

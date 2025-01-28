@@ -1,12 +1,15 @@
 .login-container {
   position: relative;
   height: calc(100vh - 80px);
-  font-family: arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Open Sans';
 }
 
+.text-default {
+  color: black; 
+}
 
 .bg-login-1 {
     background: linear-gradient(45deg, #eae4d2, #9cc9c0);
@@ -37,7 +40,7 @@ form {
 }
 
 p {
-  color: white;
+  color: black;
   font-weight: 500;
   opacity: .7;
   font-size: 1.4rem;
@@ -47,7 +50,7 @@ p {
     
 a{
   text-decoration: none;
-  color: #ddd;
+  color: black;
   font-size: 12px;
 }
   
@@ -71,26 +74,7 @@ a:active {
   -webkit-backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
   box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-  color: white;
-  font-weight: 500;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-  transition: all .3s;
-  margin-bottom: 2em;
-}
-
-.send{
-  background: transparent;
-  border: none;
-  border-left: 1px solid rgba(255, 255, 255, .3);
-  border-top: 1px solid rgba(255, 255, 255, .3);
-  padding: 1rem;
-  width: 200px;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  -moz-backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-  color: white;
+  color: black;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
   transition: all .3s;
@@ -144,7 +128,7 @@ input[type="button"] {
 }
 
 ::placeholder {
-  color: #fff;
+  color: black;
 }
 
 .drop {

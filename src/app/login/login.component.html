@@ -5,7 +5,8 @@
 }">
   <form (ngSubmit)="tentativelogin()">
   <div *ngIf="loginIn === 1">
-    <p>Bienvenue</p>
+    <p style="color: black;">Bienvenue</p>
+
       <div>
         <input type="email" id="email" [(ngModel)]="mail" name="email" required placeholder="Email"/>
       </div>
@@ -15,7 +16,7 @@
       </div>
   
       <div>
-        <label for="major" style="color: white; font-size: 20px;">Majeure</label>
+        <label for="major" style="color: black; font-size: 20px;">Majeure</label>
       </div>
 
       <div>
@@ -26,7 +27,7 @@
     </div>
 
     <div *ngIf="loginIn === 2 || loginIn === 3">
-      <p>Bienvenue</p>
+      <p style="color: black;">Bienvenue</p>
       <div>
         <input type="email" id="email" [(ngModel)]="mail" name="email" required placeholder="Email"/>
       </div>
@@ -35,10 +36,13 @@
         <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de Passe"/>
       </div>
       
-      <div>
+      <!-- 
+        <div>
         <label for="role">Rôle:</label>
         <span>{{ loginIn === 2 ? 'Professeur' : 'Administrateur' }}</span>
-      </div>
+        </div> 
+      -->
+
     </div>
 
     <button type="submit" class="send">Envoyer</button>

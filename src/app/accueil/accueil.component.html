@@ -19,14 +19,27 @@
   </div>
         
 
-  <!-- Conteneur de l'image de fond -->
   <div class="image-container">
     <div class="logo">
       <img src="../../assets/logo.png">
     </div>
     <img src="../../assets/img4.png" alt="Image avec fondu" class="image">
-    <button class="button button_administrateur" (click)="selogin(3)" >Connexion Administrateur</button>
-  <div class="gradient"></div>
+    <div class="gradient"></div>
+  </div>
+
+  <!-- Bouton "?" en haut à droite -->
+  <div class="help-container">
+    <button class="help-button" (click)="toggleHelpMenu()">?</button>
+    <ul class="help-menu" *ngIf="isHelpMenuVisible">
+      <li class="help-menu-item">
+        <a routerLink="/contact" routerLinkActive="active" class="help-link">Contact</a>
+      </li>
+      <li class="help-menu-item">
+        <a (click)="selogin(3)" class="help-link">Connexion Administrateur</a>
+      </li>
+    </ul>
+  </div>
+  
   
 </div>
   
