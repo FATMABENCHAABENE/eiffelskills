@@ -1,0 +1,142 @@
+.resource-management {
+    padding: 20px;
+    color: #168b75;
+    font-family: 'Arial', sans-serif;
+  
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+  
+      h2 {
+        font-size: 2rem;
+        color: #146b5c;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+    }
+  
+    .module-id {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 4px solid #168b75;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+  
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+  
+      span {
+        font-weight: bold;
+        font-size: 1rem;
+        color: #168b75;
+      }
+    }
+  
+    .resource-list {
+      margin-bottom: 30px;
+  
+      h3 {
+        font-size: 1.5rem;
+        color: #168b75;
+        margin-bottom: 20px;
+      }
+  
+      .resource-items {
+        list-style: none;
+        padding: 0;
+  
+        .resource-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #ffffff;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 15px;
+          margin-bottom: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+          h4 {
+            color: #168b75;
+            margin: 0;
+          }
+  
+          p {
+            color: #555;
+            font-size: 0.9rem;
+          }
+  
+          .btn.danger {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+  
+            &:hover {
+              background-color: #e63939;
+            }
+          }
+        }
+      }
+  
+      .empty-list {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #555;
+      }
+    }
+  
+    .add-resource {
+      h3 {
+        font-size: 1.5rem;
+        color: #168b75;
+        margin-bottom: 20px;
+      }
+  
+      .resource-form {
+        .form-group {
+          margin-bottom: 15px;
+  
+          label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+          }
+  
+          .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+          }
+        }
+  
+        .btn.primary {
+          background-color: #168b75;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #146b5c;
+          }
+        }
+      }
+    }
+  }
+  

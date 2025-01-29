@@ -1,36 +1,69 @@
-<p>Gestion des Ressources</p>
+<div class="resource-management">
+  <!-- Titre Principal -->
+  <header class="header">
+    <h2>Gestion des Ressources</h2>
+    <p>Gérez les ressources associées à vos modules de manière simple et efficace.</p>
+  </header>
 
-<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+  <!-- ID du Module -->
+  <div class="module-id" *ngIf="idmodule">
+    <h3>Module Sélectionné :</h3>
+    <span>ID : {{ idmodule }}</span>
+  </div>
 
+  <!-- Liste des Ressources -->
+  <section class="resource-list">
+    <h3>Ressources du Module</h3>
 
-<!-- Liste des ressources -->
-<h3>Ressources associées au module</h3>
-<ul *ngIf="ressources.length > 0">
-  <li *ngFor="let resource of ressources">
-    {{ resource.id }} - {{ resource.name }}
-    <button (click)="deleteRessource(resource.id)">Supprimer</button>
-  </li>
-</ul>
-<p *ngIf="ressources.length === 0">Aucune ressource trouvée pour ce module.</p>
+    <ul *ngIf="ressources.length > 0" class="resource-items">
+      <li *ngFor="let resource of ressources" class="resource-item">
+        <div>
+          <h4>{{ resource.name }}</h4>
+          <p>ID : {{ resource.id }}</p>
+        </div>
+        <button class="btn danger" (click)="deleteRessource(resource.id)">Supprimer</button>
+      </li>
+    </ul>
 
-<hr>
+    <div class="empty-list" *ngIf="ressources.length === 0">
+      <p>Aucune ressource trouvée pour ce module.</p>
+    </div>
+  </section>
 
-<!-- Ajout d'une ressource -->
-<div>
-  <h3>Ajouter une nouvelle ressource</h3>
+  <hr />
 
-  <label for="ressourceName">Nom de la ressource :</label><br>
-  <input
-    id="ressourceName"
-    [(ngModel)]="newRessource.name"
-    placeholder="Entrez le nom de la ressource"
-  /><br><br>
-  <label for="ressourceFile">Choisir une ressource :</label><br>
-  <input 
-    type="text" 
-    id="ressourceFile" 
-    [(ngModel)]="newRessource.content"
-  /><br><br>
+  <!-- Formulaire d'Ajout de Ressources -->
+  <section class="add-resource">
+    <h3>Ajouter une Nouvelle Ressource</h3>
 
-  <button (click)="addRessource()">Ajouter</button>
+    <form (ngSubmit)="addRessource()" class="resource-form">
+      <!-- Nom de la Ressource -->
+      <div class="form-group">
+        <label for="ressourceName">Nom de la ressource :</label>
+        <input
+          id="ressourceName"
+          [(ngModel)]="newRessource.name"
+          placeholder="Entrez le nom de la ressource"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Contenu de la Ressource -->
+      <div class="form-group">
+        <label for="ressourceFile">Lien ou Contenu :</label>
+        <input
+          type="text"
+          id="ressourceFile"
+          [(ngModel)]="newRessource.content"
+          placeholder="Entrez un lien ou un contenu"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Bouton Ajouter -->
+      <button type="submit" class="btn primary">Ajouter la Ressource</button>
+    </form>
+  </section>
 </div>
