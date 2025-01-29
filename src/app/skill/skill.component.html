@@ -1,41 +1,64 @@
-<p> skill !</p>
+<div class="skills-management">
+  <!-- En-tête -->
+  <header class="header">
+    <h1>Gestion des Compétences</h1>
+    <p>Ajoutez, supprimez et explorez les compétences associées à vos modules avec facilité.</p>
+  </header>
 
-<!-- Lister les competences -->
-<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+  <!-- Informations sur le module -->
+  <section class="module-info" *ngIf="idmodule">
+    <div>
+      <h2>Module Sélectionné</h2>
+      <p><strong>ID :</strong> {{ idmodule }}</p>
+    </div>
+  </section>
 
-<h3>Compétences liées au module</h3>
-<ul *ngIf="competences.length > 0">
-  <li *ngFor="let competence of competences">
-    {{ competence.id }} - : {{ competence.libelle }} - {{ competence.description }}
-  </li>
-</ul>
-<p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
+  <!-- Liste des compétences -->
+  <section class="competences-list">
+    <h2>Liste des Compétences</h2>
 
-<!-- Ajout d'une competence -->
-<label for="question">Entrer la competence :</label><br>
-<textarea 
-  id="description" 
-  [(ngModel)]="description" 
-  placeholder="Écrivez votre question ici..." 
-  rows="4" 
-  cols="50">
-</textarea>
-<br>
+    <ul *ngIf="competences.length > 0" class="competences">
+      <li *ngFor="let competence of competences" class="competence-item">
+        <div class="details">
+          <h3>{{ competence.libelle }}</h3>
+          <p>{{ competence.description }}</p>
+        </div>
+        <span class="id-tag">ID : {{ competence.id }}</span>
+      </li>
+    </ul>
 
-<!-- Bouton pour envoyer la competence -->
-<button (click)="sendcomp()">Envoyer</button>
+    <p class="empty-message" *ngIf="competences.length === 0">
+      Aucune compétence trouvée pour ce module.
+    </p>
+  </section>
 
-<h3>Compétences liées au module</h3>
-<p *ngIf="competences.length === 0">Aucune compétence trouvée pour ce module.</p>
+  <!-- Ajouter une compétence -->
+  <section class="add-competence">
+    <h2>Ajouter une Compétence</h2>
+    <div class="form-group">
+      <label for="description">Description de la compétence</label>
+      <textarea
+        id="description"
+        [(ngModel)]="description"
+        placeholder="Décrivez la compétence ici..."
+        class="form-control"
+        rows="4"
+      ></textarea>
+    </div>
+    <button class="btn primary" (click)="sendcomp()">Ajouter</button>
+  </section>
 
-<!-- Suppression d'une competence -->
-<div *ngIf="competences.length > 0">
-  <label for="competenceSelect">Sélectionner une compétence :</label>
-  <select id="competenceSelect" [(ngModel)]="idSkill">
-    <option *ngFor="let competence of competences" [value]="competence.id">
-      {{ competence.libelle }} - {{ competence.description }}
-    </option>
-  </select>
-  <br><br>
-  <button (click)="deletecomp()">Supprimer</button>
+  <!-- Supprimer une compétence -->
+  <section class="delete-competence" *ngIf="competences.length > 0">
+    <h2>Supprimer une Compétence</h2>
+    <div class="form-group">
+      <label for="competenceSelect">Sélectionnez une compétence</label>
+      <select id="competenceSelect" [(ngModel)]="idSkill" class="form-control">
+        <option *ngFor="let competence of competences" [value]="competence.id">
+          {{ competence.libelle }} - {{ competence.description }}
+        </option>
+      </select>
+    </div>
+    <button class="btn danger" (click)="deletecomp()">Supprimer</button>
+  </section>
 </div>
