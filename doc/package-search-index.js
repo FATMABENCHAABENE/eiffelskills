@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.eiffelskills_back"},{"l":"com.example.eiffelskills_back.controller"},{"l":"com.example.eiffelskills_back.DAO"},{"l":"com.example.eiffelskills_back.models"},{"l":"com.example.eiffelskills_back.services"}];updateSearchResults();
