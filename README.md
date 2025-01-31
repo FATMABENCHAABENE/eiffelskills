@@ -1,5 +1,8 @@
-# eiffelskills
+# Eiffelskills (back-end)
 
-Use this to make sessions : 
-- https://medium.com/@Lakshitha_Fernando/spring-security-6-and-spring-boot-3-with-simple-project-91389cc13119
-- https://www.baeldung.com/spring-security-login-angular
+## Run the application
+- open the project in Intellij
+- right click on **pom.xml** file and on maven project
+- launch **Docker Desktop** (Windows only)
+- launch the command ```docker-compose up``` in the project root folder
+- run the file **EiffelskillsBackApplication**
