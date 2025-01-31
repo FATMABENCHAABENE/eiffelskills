@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * AutoEvaluationController :
+ * Autoevaluations and Quizz evaluations made by students are managed through this controller
+ */
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -30,6 +34,12 @@ public class AutoEvaluationController {
         return autoEvaluationService.getAutoEvaluationsByIdStudent(id);
     }
 
+    /**
+     * Method getAutoEvalByStudentAndListSkills
+     * @param idStudent <Long> The student id we are searching evaluations
+     * @param skills <List(Long)> All skills id we are searching evaluations
+     * @return All evaluations made by the given student for all given skills
+     */
     @PostMapping("/student/{idStudent}")
     public List<AutoEvaluations> getAutoEvalByStudentAndListSkills(@PathVariable Long idStudent, @RequestBody List<Long> skills) {
         return autoEvaluationService.getAutoEvalByStudentAndListSkills(idStudent, skills);

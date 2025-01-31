@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * SkillController :
+ * Skill are managed trough this controller.
+ */
 @CrossOrigin
 @RequiredArgsConstructor
 @RestController
@@ -40,6 +44,12 @@ public class SkillController {
         skillService.updateSkill(id, skill);
     }
 
+    /**
+     * Method getScore
+     * @param idStudent <Long> The student we want to have the score
+     * @param idModule <Long> This module we want skill's evaluations
+     * @return The global score for all skills in performed by the given student in the given module
+     */
     @GetMapping("/score/{idStudent}/{idModule}")
     public Float getScore(@PathVariable Long idStudent, @PathVariable Long idModule) {
         return skillService.makeScore(idStudent, idModule);

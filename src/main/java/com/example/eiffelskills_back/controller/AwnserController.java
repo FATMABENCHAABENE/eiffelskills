@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * AwnserController :
+ * Questions are inserted by teachers and managed through this controller. It is also used to check awnsers validity.
+ */
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -40,6 +44,12 @@ public class AwnserController {
         return awnserService.checkAwnser(id);
     }
 
+    /**
+     * Method checkGlobalAwnser
+     * @param idStudent <Long> Student who made awnsers
+     * @param idList <List(Long)> List of given awnsers
+     * Check if given awnsers are good and update evaluation in function of results
+     */
     @PostMapping("/globalcheck/{idStudent}")
     public void checkGlobalAwnser(@PathVariable Long idStudent, @RequestBody List<Long> idList) {
         awnserService.checkListAwnser(idList, idStudent);

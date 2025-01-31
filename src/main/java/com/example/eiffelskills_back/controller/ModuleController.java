@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * ModuleController :
+ * Modules are inserted by the admin and managed through this controller
+ */
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor

@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * ContactMessageController
+ * Plateform users can send message through this controller and admin can use it to check and delete them
+ */
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor

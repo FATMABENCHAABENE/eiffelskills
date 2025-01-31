@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * McqController :
+ * MCQ are inserted by teacher and managed through this controller
+ */
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor

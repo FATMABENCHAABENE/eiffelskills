@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import java.security.MessageDigest;
 import java.util.List;
 
+/**
+ * UserController :
+ * All the user management is made with this Controller
+ */
 @CrossOrigin
 @RequiredArgsConstructor
 @RestController

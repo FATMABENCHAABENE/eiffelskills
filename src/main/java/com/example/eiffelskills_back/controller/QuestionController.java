@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * QuestionController :
+ * All question are inserted by teacher and managed through this controller
+ */
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin
