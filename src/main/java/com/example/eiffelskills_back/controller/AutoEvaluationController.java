@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * AutoEvaluationController :
+ * @Class AutoEvaluationController
  * Autoevaluations and Quizz evaluations made by students are managed through this controller
  */
 @CrossOrigin

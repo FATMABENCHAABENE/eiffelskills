@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * AwnserController :
+ * @Class AwnserController
  * Questions are inserted by teachers and managed through this controller. It is also used to check answers validity.
  */
 @CrossOrigin

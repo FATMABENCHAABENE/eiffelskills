@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * @Class AutoEvaluations
+ */
 @Entity
 @Getter
 @Setter
@@ -23,8 +26,18 @@ public class AutoEvaluations {
     @Column(name = "quizz_eval", nullable = false)
     private String quizzEval;
 
+    /**
+     * Empty Constructor
+     */
     public AutoEvaluations() {}
 
+    /**
+     * Constructor
+     * @param idSkill Long
+     * @param idStudent Long
+     * @param eval String
+     * @param quizzEval String
+     */
     public AutoEvaluations(Long idSkill, Long idStudent, String eval, String quizzEval) {
         this.idSkill = idSkill;
         this.idStudent = idStudent;
@@ -32,6 +45,10 @@ public class AutoEvaluations {
         this.quizzEval = quizzEval;
     }
 
+    /**
+     * Method toString
+     * @return String
+     */
     @Override
     public String toString() {
         return "["+idSkill+", "+idStudent+", "+eval+", "+quizzEval+"]";

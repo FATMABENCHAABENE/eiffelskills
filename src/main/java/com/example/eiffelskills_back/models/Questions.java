@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * @Class Questions
+ */
 @Entity
 @Getter
 @Setter
@@ -19,8 +22,17 @@ public class Questions {
     @Column(name = "id_skill", nullable = false)
     private Long idSkill;
 
+    /**
+     * Empty Constructor
+     */
     public Questions() {}
 
+    /**
+     * Constructor
+     * @param description String
+     * @param idMcq Long
+     * @param idSkill Long
+     */
     public Questions(String description, Long idMcq, Long idSkill) {
         this.description = description;
         this.idMcq = idMcq;

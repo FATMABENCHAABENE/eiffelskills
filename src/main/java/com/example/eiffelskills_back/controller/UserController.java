@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.util.List;
 
 /**
- * UserController :
+ * @Class UserController
  * All the user management is made with this Controller
  */
 @CrossOrigin
@@ -35,6 +35,12 @@ public class UserController {
     }*/
 
 
+    /**
+     * Method login
+     * @param user User Platform user to check if exists
+     * @param response !Not used!
+     * @return A ResponseEntity(User) if the user exists
+     */
    @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user, HttpServletResponse response) {
         //System.out.println("Requête reçue avec utilisateur : " + user.toString());
@@ -51,16 +57,30 @@ public class UserController {
         return null;
     }
 
+    /**
+     * Method getAllUsers
+     * @return All Users entries
+     */
     @GetMapping("")
     public List<User> getAllUsers() {
        return userService.getAllStudents();
     }
 
+    /**
+     * Method getStudentByMajor
+     * @param major String The major we are searching all users
+     * @return All Users entries with the given major
+     */
     @GetMapping("/student/{major}")
     public List<User> getStudentByMajor(@PathVariable String major) {
        return userService.getStudentByMajor(major);
     }
 
+    /**
+     * Method add
+     * @param user The object to add in entries
+     * Add the given Users object in entries
+     */
     @PostMapping("/add")
     public void add(/*@CookieValue(value = "token") String token, @CookieValue(value = "id") String id,*/ @RequestBody User user) {
         //if (token.toString().equals("d033e22ae348aeb5660fc2140aec35850c4da997") || id.toString().equals("1")) {
@@ -68,6 +88,12 @@ public class UserController {
         //}
     }
 
+    /**
+     * Method updateById
+     * @param user User Object with attributes to change
+     * @param uid Long ID of the user to update
+     * Update Users entries in function of the given ID with attributes of the given Users object
+     */
     @PostMapping("/{uid}")
     public void updateById(/*@CookieValue(value = "token") String token, @CookieValue(value = "id") String id,*/ @RequestBody User user, @PathVariable Long uid) {
         //if (token.toString().equals("d033e22ae348aeb5660fc2140aec35850c4da997") || id.toString().equals("1")) {
@@ -75,6 +101,11 @@ public class UserController {
         //}
     }
 
+    /**
+     * Method deleteById
+     * @param did Long ID of the entry to delete
+     * Delete the Users entry in function of the given ID
+     */
     @DeleteMapping("/{did}")
     public void deleteById(/*@CookieValue(value = "token") String token, @CookieValue(value = "id") String id,*/ @PathVariable Long did) {
         //if (token.toString().equals("d033e22ae348aeb5660fc2140aec35850c4da997") || id.toString().equals("1")) {

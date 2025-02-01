@@ -14,6 +14,9 @@ import java.util.Arrays;
 public class Encoder {
     MessageDigest crypt;
 
+    /**
+     * Empty Constructor
+     */
     public Encoder() {
         try {
             crypt = MessageDigest.getInstance("SHA-1");
@@ -22,6 +25,11 @@ public class Encoder {
         }
     }
 
+    /**
+     * Method encrypt
+     * @param input String to encrypt
+     * @return The string encrypted !Not working!
+     */
     public String encrypt(String input) {
         crypt.reset();
         crypt.update(input.getBytes());

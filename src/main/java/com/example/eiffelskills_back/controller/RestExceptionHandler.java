@@ -19,9 +19,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Class RestExceptionHandler
+ * Manage API exceptions
+ */
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     * Method handleMethodArgumentNotValid
+     * @param ex MethodArgumentNotValidException : Exception
+     * @param headers HttpHeaders
+     * @param status HttpStatus
+     * @param request WebRequest
+     * @return A render of the exception
+     */
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
             HttpHeaders headers,
@@ -41,6 +53,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 ex, apiError, headers, apiError.getStatus(), request);
     }
 
+    /**
+     * Method handleMissingServletRequestParameter
+     * @param ex MissingServletRequestParameterException : Exception
+     * @param headers HttpHeaders
+     * @param status HttpStatus
+     * @param request WebRequest
+     * @return A render of the exception
+     */
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
             MissingServletRequestParameterException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
@@ -52,6 +72,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 apiError, new HttpHeaders(), apiError.getStatus());
     }
 
+    /**
+     * Method handleHttpRequestMethodNotSupported
+     * @param ex HttpRequestMethodNotSupportedException : Exception
+     * @param headers HttpHeaders
+     * @param status HttpStatus
+     * @param request WebRequest
+     * @return A render of the exception
+     */
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(
             HttpRequestMethodNotSupportedException ex,
             HttpHeaders headers,

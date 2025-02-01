@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * @Class Skills
+ */
 @Getter
 @Setter
 @Entity
@@ -19,8 +22,16 @@ public class Skills {
     @Column(name = "id_module", nullable = false)
     private Long idModule;
 
+    /**
+     * Empty Constructor
+     */
     public Skills() {}
 
+    /**
+     * Constructor
+     * @param description String
+     * @param idModule String
+     */
     public Skills(String description, Long idModule) {
         this.description = description;
         this.idModule = idModule;

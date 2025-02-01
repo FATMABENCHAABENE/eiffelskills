@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @Class ApiError
+ */
 @Getter
 @Setter
 public class ApiError {
@@ -14,6 +17,12 @@ public class ApiError {
     private String message;
     private List<String> errors;
 
+    /**
+     * Constructor
+     * @param status HttpStatus
+     * @param message String
+     * @param errors List(String)
+     */
     public ApiError(HttpStatus status, String message, List<String> errors) {
         super();
         this.status = status;
@@ -21,6 +30,12 @@ public class ApiError {
         this.errors = errors;
     }
 
+    /**
+     * Constructor
+     * @param status HttpStatus
+     * @param message String
+     * @param error String
+     */
     public ApiError(HttpStatus status, String message, String error) {
         super();
         this.status = status;

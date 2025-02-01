@@ -8,6 +8,9 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * @Class ContactMessage
+ */
 @Entity
 @Getter
 @Setter
@@ -28,8 +31,18 @@ public class ContactMessage {
     @Column(name = "message")
     private String message;
 
+    /**
+     * Empty Constructor
+     */
     public ContactMessage() {}
 
+    /**
+     * Constructor
+     * @param name String
+     * @param surname String
+     * @param mail String
+     * @param message String
+     */
     public ContactMessage(String name, String surname, String mail, String message) {
         this.name = name;
         this.surname = surname;

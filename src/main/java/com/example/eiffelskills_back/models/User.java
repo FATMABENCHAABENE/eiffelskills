@@ -3,10 +3,15 @@ package com.example.eiffelskills_back.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+/**
+ * @Class Users
+ */
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name="users")
 public class User {
     @Id
@@ -24,22 +29,23 @@ public class User {
     @Column(name = "role")
     private String role;
 
+    /**
+     * Empty Constructor
+     */
     public User(){}
 
+    /**
+     * Constructor
+     * @param name String
+     * @param surname String
+     * @param mail String
+     * @param password String
+     * @param role String
+     */
     public User(String name, String surname, String mail, String password, String role) {
         this.name = name;
         this.surname = surname;
         this.mail = mail;
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "\nID : "+this.id+
-                "\nName : "+this.name+
-                "\nSurname : "+this.surname+
-                "\nMail : "+this.mail+
-                "\nPassword : "+this.password+
-                "\nRole : "+this.role;
     }
 }

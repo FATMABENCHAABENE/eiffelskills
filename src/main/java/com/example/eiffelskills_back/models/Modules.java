@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * @Class Modules
+ */
 @Entity
 @Getter
 @Setter
@@ -21,8 +24,17 @@ public class Modules {
     @Column(name = "id_teacher", nullable = false)
     private Long idTeacher;
 
+    /**
+     * Empty Constructor
+     */
     public Modules() {}
 
+    /**
+     * Constructor
+     * @param description String
+     * @param major String
+     * @param idTeacher Long
+     */
     public Modules(String description, String major, Long idTeacher) {
         this.description = description;
         this.major = major;
