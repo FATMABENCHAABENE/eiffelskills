@@ -1,13 +1,15 @@
-<p>showquizz works!</p>
+<p class="success-message">✅ Le quiz s'affiche correctement !</p>
 
-<div *ngFor="let item of questionsWithAnswers">
-  <h3>Question : {{ item.question.description }}</h3>
-  <ul>
-    <li *ngFor="let answer of item.answers">
-      {{ answer.description }} <!-- Affiche la description de la réponse -->
+<div *ngFor="let item of questionsWithAnswers" class="quiz-container">
+  <h3 class="question-title">❓ Question : {{ item.question.description }}</h3>
+  
+  <ul class="answer-list">
+    <li *ngFor="let answer of item.answers" class="answer-item">
+      📝 {{ answer.description }} <!-- Affiche la description de la réponse -->
     </li>
   </ul>
 </div>
+
 
 
   
