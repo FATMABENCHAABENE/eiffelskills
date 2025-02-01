@@ -10,4 +10,4 @@ Lancer `npm i`
 
 ## Pour lancer le projet
 
-Lancer `npm start` et se rendre sur `http://localhost:4200/`
+Lancer `ng serve` et se rendre sur `http://localhost:4200/`

@@ -56,7 +56,7 @@
           <h3>Tous les utilisateurs</h3>
           <ul class="user-list">
             <li *ngFor="let user of users">
-              <span>{{ user.name }} {{ user.surname }} - {{ user.role }}</span>
+              <span>{{user.id}} {{ user.name }} {{ user.surname }} - {{ user.role }}</span>
               <button (click)="deleteUser(user.id)" class="btn danger small-btn">Supprimer</button>
             </li>
           </ul>

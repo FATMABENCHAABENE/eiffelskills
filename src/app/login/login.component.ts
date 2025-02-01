@@ -54,21 +54,28 @@ export class LoginComponent implements OnInit {
         this.responseMessage = data;  
         console.log('Réponse retour du backend:', this.responseMessage);
         if(this.responseMessage.role == "student_SIC") {
+          alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
+            'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("SIC");
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         } else if(this.responseMessage.role == "student_BDA"){
+          alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
+            'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("BDA");
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         }else if(this.responseMessage.role == "student_SE")
         {
+          alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
+            'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("SE");
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         }else if(this.responseMessage.role == "teacher")
         {
           console.log("je suis un professeur");
+          alert('En continuant la navigation, vous consentez à ce que les quizzes, compétences et ressources que vous créez soit utilisez par les étudiants');
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/moduleteacher']);
         }else if(this.responseMessage.role == "admin") {

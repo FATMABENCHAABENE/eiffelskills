@@ -46,7 +46,8 @@ creerunquizz(arg1: string, arg0: any) {
   console.log("Création du QCM avec description :", arg1, "et module :", arg0);
 
   // Configurez le module
-  this.service.setModule(arg0);
+  if (confirm("En créant un nouveau quizz vous supprimez automatiquement le précédent.\nVoulez-vous vraiment continuer ?")) {
+    this.service.setModule(arg0);
 
   // Préparez l'objet QCM
   const qcm: Qcm = {
@@ -75,6 +76,7 @@ creerunquizz(arg1: string, arg0: any) {
         console.error("Erreur lors de l'envoi de la requête :", error);
       }
     );
+  }
 }
 
 
