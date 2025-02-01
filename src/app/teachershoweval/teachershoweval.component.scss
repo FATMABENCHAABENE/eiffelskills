@@ -1,0 +1,88 @@
+/* 🌟 Global container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 🎯 Major & Module Highlight */
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* 🎓 User List */
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-card {
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* 🏆 Competence Selection */
+.competence-section {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.competence-dropdown {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* 📤 Buttons */
+.btn {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+/* 📊 Evaluation Results */
+.evaluation-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.evaluation-item {
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 5px solid #007bff;
+}
+
+/* ⚠️ Empty Message */
+.empty-message {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}

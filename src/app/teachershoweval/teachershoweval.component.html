@@ -1,35 +1,43 @@
-<h1>Liste des utilisateurs liés au major : {{ major }}</h1>
+<div class="container">
+  <h1>📋 Liste des utilisateurs liés au major : <span class="highlight">{{ major }}</span></h1>
 
-<h1 *ngIf="idmodule">L'ID du module sélectionné : {{ idmodule }}</h1>
+  <h2 *ngIf="idmodule">📌 Module sélectionné : <span class="highlight">{{ idmodule }}</span></h2>
 
-<!-- Affichage de la liste des utilisateurs -->
-<div *ngIf="users.length > 0">
-  <ul>
-    <li *ngFor="let user of users">
-      <strong>Étudiant :</strong> {{ user.name }} - {{ user.surname }} - {{ user.id }}
-      <div *ngIf="compe.length > 0" style="margin-top: 10px;">
-        <label for="competenceSelect-{{ user.id }}">Sélectionner une compétence :</label>
-        <select 
-          id="competenceSelect-{{ user.id }}" 
-          (change)="updateSkill($event)">
-          <option value="0" disabled selected>Choisir une compétence</option>
-          <option *ngFor="let compeItem of compe" [value]="compeItem.id">
-            {{ compeItem.id }} - {{ compeItem.description }}
-          </option>
-        </select>
-        <br><br>
-        <button (click)="sendid(user.id)">Envoyer</button>
-      </div>
+  <!-- 🎓 Affichage des utilisateurs -->
+  <div *ngIf="users.length > 0">
+    <ul class="user-list">
+      <li *ngFor="let user of users" class="user-card">
+        <strong>👤 Étudiant :</strong> {{ user.name }} {{ user.surname }} (ID: {{ user.id }})
+
+        <!-- 🎯 Sélection de compétence -->
+        <div *ngIf="compe.length > 0" class="competence-section">
+          <label for="competenceSelect-{{ user.id }}" class="label">Sélectionner une compétence :</label>
+          <select 
+            id="competenceSelect-{{ user.id }}" 
+            class="competence-dropdown"
+            (change)="updateSkill($event)">
+            <option value="0" disabled selected>🔽 Choisir une compétence</option>
+            <option *ngFor="let compeItem of compe" [value]="compeItem.id">
+              {{ compeItem.id }} - {{ compeItem.description }}
+            </option>
+          </select>
+
+          <!-- 📤 Bouton d'envoi -->
+          <button class="btn btn-primary" (click)="sendid(user.id)">📩 Envoyer</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <p *ngIf="users.length === 0" class="empty-message">⚠️ Aucun utilisateur trouvé pour ce major.</p>
+
+  <!-- 📊 Résultats des évaluations -->
+  <h2>📊 Résultats des évaluations</h2>
+  <ul *ngIf="res.length > 0" class="evaluation-list">
+    <li *ngFor="let response of res" class="evaluation-item">
+      <strong>📝 Évaluation :</strong> {{ response.eval }} <br>
+      <strong>📝 Évaluation Quizz :</strong> {{ response.quizzEval }}
     </li>
   </ul>
+  <p *ngIf="res.length === 0" class="empty-message">❌ Aucune évaluation disponible.</p>
 </div>
-<p *ngIf="users.length === 0">Aucun utilisateur trouvé pour ce major.</p>
-
-<h2>Résultats des evaluations</h2>
-<ul *ngIf="res.length > 0">
-  <li *ngFor="let response of res">
-    <strong>Évaluation :</strong> {{ response.eval }} <br>
-    <strong>Évaluation Quizz :</strong> {{ response.quizzEval }}
-  </li>
-</ul>
-<p *ngIf="res.length === 0">Aucune évaluation.</p>
