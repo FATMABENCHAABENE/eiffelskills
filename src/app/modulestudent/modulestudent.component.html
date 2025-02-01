@@ -1,58 +1,40 @@
-
 <section>
   <div class="container_page">
+    <!-- Information Section -->
+    <div class="container-text">
+      <h1 class="text_title">Bienvenue sur votre espace de suivi des compétences</h1>
+      <p class="text_content">
+        Cette page regroupe tous les enseignements que vous suivez actuellement.<br><br>
+        • Explorer les compétences associées pour comprendre les attentes et objectifs.<br><br>
+        • Procéder à votre auto-évaluation afin de repérer vos forces et vos axes d’amélioration.<br><br>
+        • Consulter l’évaluation de vos enseignants et comparer vos résultats pour suivre votre progression.<br><br>
+        Cliquez sur une matière pour commencer et prenez en main votre réussite !
+      </p>
+      <p class="text_content2">Votre avenir commence ici. Prenez le contrôle de vos compétences dès aujourd’hui !</p>
+    </div>
+
+    <!-- Scrollable Section -->
     <div class="container-scrollable">
       <div class="container-scrollable2">
-          <div *ngFor="let subject of mat" class="label-container">
-            <!-- Affiche la description de la matière -->
-            <div class="module">Module :
+        <div *ngFor="let subject of mat" class="label-container">
+          <div class="module">
+            <span>Module :</span>
             <label class="label">{{ subject.description }}</label>
             <ul>
               <li>
-                <!-- Bouton pour l'autoévaluation -->
-                <button 
-                class="submit-button" 
-                type="button" 
-                (click)="autoeval(subject.id)">
-                S'auto-évaluer
-              </button>
-                
-                <!-- Bouton pour le quiz -->
-                <button 
-                class="submit-button" 
-                type="button" 
-                (click)="quizz(subject.id)">
-                QUIZZ
-              </button>
-                
-                <!-- Bouton pour voir les ressources -->
-                <button 
-                class="submit-button" 
-                type="button" 
-                (click)="gotoressource(subject.id)">
-                Voir les ressources
-              </button>
-          
+                <button class="submit-button" type="button" (click)="autoeval(subject.id)">S'auto-évaluer</button>
+                <button class="submit-button" type="button" (click)="quizz(subject.id)">QUIZZ</button>
+                <button class="submit-button" type="button" (click)="gotoressource(subject.id)">Voir les ressources</button>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      
       <div class="container-button">
-        <button class="switch-button" type="button" (click)="showeval()">Voir mon auto-évaluation et évaluation par compétences</button>
+        <button class="switch-button" type="button" (click)="showeval()">
+          Voir mon auto-évaluation et évaluation par compétences
+        </button>
       </div>
-    </div>  
-    <div class="container-text">
-      <p class="text text_title">Bienvenue sur votre espace de suivi des compétences</p>
-      <p class="text text_content">Cette page regroupe tous les enseignements que vous suivez actuellement.<br> Pour chaque matière, vous pouvez :<br><br>
-        • &nbsp;&nbsp;&nbsp;Explorer les compétences associées pour comprendre les attentes et objectifs.<br><br>
-        • &nbsp;&nbsp;&nbsp;Procéder à votre auto-évaluation afin de repérer vos forces et vos axes d’amélioration.<br><br>
-        • &nbsp;&nbsp;&nbsp;Consulter l’évaluation de vos enseignants et comparer vos résultats pour suivre votre progression.<br><br>
-        Cliquez sur une matière pour commencer et prenez en main votre réussite !</p>
-        <p class="text text_content2">Votre avenir commence ici. Prenez le contrôle de vos compétences dès aujourd’hui !</p>
-
-
-    </div> 
+    </div>
   </div>
 </section>

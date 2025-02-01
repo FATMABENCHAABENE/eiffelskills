@@ -1,180 +1,179 @@
-/* Style général */
+/* 🌟 General Styles */
 body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-
+/* 🌟 Page Layout */
 .container_page {
-    display: flex;
-    width: 100%;
-    height: calc(100vh - 80px); /* Hauteur totale de la page - hauteur de la navbar */
-    background: linear-gradient(45deg, #eae4d2, #9cc9c0);
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
-  }
-  
-  /* Styles pour les écrans étroits */
-  @media (max-width: 768px) {
-    .container_page {
-      flex-direction: column; /* Empile les éléments en colonne */
-      gap: 10px; /* Espacement entre les éléments */
-    }
-  }
-  
-  /* Zone défilante */
-  .container-scrollable {
-    flex-basis: 30%; /* Prend 30% de l'espace, mais peut se réduire si nécessaire */
-    position: relative;
-    left: 80px;
-    top: 80px;
-    height: calc(100vh - 254.75px); /* Hauteur calculée */
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, .8);
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
-  }
-
-    /* Zone défilante */
-    .container-button {
-      Position: absolute;
-      flex-basis: 100%; /* Prend 30% de l'espace, mais peut se réduire si nécessaire */
-      top: 87%;
-      left: 10%;
-      height: calc(20%); /* Hauteur calculée */
-      background-color: #f5f5f5;
-      
-      background: rgba(255, 255, 255, .0000001);
-    }
-
-  .container-scrollable2 {
-    flex-basis: 100%; /* Prend 30% de l'espace, mais peut se réduire si nécessaire */
-    position: absolute;
-    top: 10px;
-    height: 80%; /* Hauteur calculée */
-    width: 100%;
-    border-radius: 20px;
-    overflow-y: scroll; /* Permet le défilement vertical */
-    overflow-x: hidden; /* Désactive le défilement horizontal */
-    background: rgba(255, 255, 255, .001);
-    scrollbar-width: none; /* Masque la barre de défilement (Firefox) */
-  }
-  
-  /* Masque la barre de défilement (Chrome, Edge, Safari) */
-  .container-scrollable::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Style des modules */
-  .module {
-    width: 90%;
-    height: 200px;
-    margin: 10px auto;
-    padding: 15px;
-    background: #9cc9c0;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Zone texte */
-  .container-text {
-    
-    position: relative;
-    left: calc(25vh);
-    top: 80px;
-    width: 50%;
-    height: calc(100vh - 254.75px); /* Hauteur calculée */
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, .8);
-    padding: 3rem;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
-   
-  }
-  
-  /* Style du texte */
-  .text {
-    padding: 10px;
-    position: absolute;
-    font-size: 24px;
-    color: black;
-    left: 0%;
-  }
-  
-  .text_title {
-    font-size: 28px;
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Open sans';
-    top: 0%;
-  }
-  
-  .text_content {
-    font-family: 'Montserrat';
-    top: 10%;
-  }
-  
-  .text_content2 {
-    font-family: 'Montserrat';
-    font-weight: bold;
-    color: #168b75;
-    top: 70%;
-  }  
-
-  li {
-    display: flex;
-    gap: 15px; /* Espace horizontal entre les boutons */
-  }
-
-.submit-button {
-  padding: 8px 15px;
-  background-color: #168b75;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  flex: 0.3;
-  transition: background 0.2s, transform 0.3s;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  height: calc(100vh - 80px);
+  background: linear-gradient(45deg, #eae4d2, #9cc9c0); /* Original gradient */
+  gap: 20px; /* Space between sections */
+  padding: 20px;
 }
 
- .submit-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* 📜 Information Section */
+.container-text {
+  flex: 1;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9); /* Slightly translucent white */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.text_title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Original dark text color */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.text_content {
+  font-size: 16px;
+  color: #444; /* Slightly lighter text */
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.text_content2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #168b75; /* Original accent green */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 🎛 Scrollable Section */
+.container-scrollable {
+  flex: 1;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.8); /* Original translucency */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Matches text container */
+  overflow-y: auto;
+}
+
+/* Scrollable Area Inside */
+.container-scrollable2 {
+  max-height: 300px; /* Controlled scrolling area */
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #168b75 #f0f0f0; /* Subtle green scrollbar */
+}
+
+.container-scrollable2::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container-scrollable2::-webkit-scrollbar-thumb {
+  background-color: #168b75;
+  border-radius: 10px;
+}
+
+.container-scrollable2::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* /* 🌟 Module Container Styling */
+.label-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.label-container:hover {
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.module {
+  font-size: 20px; /* Clearer and larger font for module title */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* 🌟 Button Styling (Module Buttons) */
+.submit-button {
+  display: inline-block;
+  margin: 8px 8px 0 0; /* Even spacing between buttons */
+  padding: 10px 20px; /* Balanced padding */
+  background: #e3c45c; /* Soft orange for buttons */
+  color: #333; /* Dark text for contrast */
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px; /* Rounded corners for a clean look */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background: #fda085; /* Slightly darker orange on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Layout for Buttons */
+li {
+  display: flex;
+  flex-wrap: wrap; /* Buttons wrap on smaller screens */
+  gap: 10px; /* Space between buttons */
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+
+/* Switch Button */
+.container-button {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .switch-button {
-  top : 80%;
-  left: 10%;
-  padding: 8px 15px;
-  background-color: #168b75;
+  padding: 15px 20px;
+  font-size: 16px;
+  background: #168b75; /* Original green */
+  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
   cursor: pointer;
-  flex: 0.3;
-  transition: background 0.2s, transform 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
- .switch-button:hover {
+.switch-button:hover {
+  background: #218838; /* Darker green on hover */
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 Responsive Design */
+@media (max-width: 768px) {
+  .container_page {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .container-text, .container-scrollable {
+    max-width: 90%;
+  }
+
+  .container-text {
+    margin-bottom: 20px;
+  }
 }
