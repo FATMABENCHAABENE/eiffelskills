@@ -1,7 +1,7 @@
 package com.example.eiffelskills_back.controller;
 
-import com.example.eiffelskills_back.models.Awnsers;
-import com.example.eiffelskills_back.services.AwnserService;
+import com.example.eiffelskills_back.models.Answers;
+import com.example.eiffelskills_back.services.AnswerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +15,8 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("awnser")
-public class AwnserController {
-    private final AwnserService awnserService;
+public class AnswerController {
+    private final AnswerService answerService;
 
     /**
      * Method addByList
@@ -25,8 +25,8 @@ public class AwnserController {
      * @return List(Awnsers) The list of created entries
      */
     @PostMapping("/question/{idQuestion}")
-    public List<Awnsers> addByList(@RequestBody List<String> list, @PathVariable Long idQuestion) {
-        return awnserService.addByList(list, idQuestion);
+    public List<Answers> addByList(@RequestBody List<String> list, @PathVariable Long idQuestion) {
+        return answerService.addByList(list, idQuestion);
     }
 
     /**
@@ -36,7 +36,7 @@ public class AwnserController {
      */
     @PostMapping("/updateGood")
     public void updateGoodAwnser(@RequestBody Long id) {
-        awnserService.updateGoodAwnser(id);
+        answerService.updateGoodAwnser(id);
     }
 
     /**
@@ -44,8 +44,8 @@ public class AwnserController {
      * @return The list of all awnser entries
      */
     @GetMapping("")
-    public List<Awnsers> getAllAwnsers() {
-        return awnserService.getAllAwnsers();
+    public List<Answers> getAllAwnsers() {
+        return answerService.getAllAwnsers();
     }
 
     /**
@@ -54,9 +54,9 @@ public class AwnserController {
      * @return All awnsers related to the given question
      */
     @GetMapping("/question/{idQuestion}")
-    public List<Awnsers> getAwnserByIdQuestion(@PathVariable Long idQuestion) {
+    public List<Answers> getAwnserByIdQuestion(@PathVariable Long idQuestion) {
         System.out.println("je suis dans le back");
-        return awnserService.getAwnsersByIdQuestion(idQuestion);
+        return answerService.getAwnsersByIdQuestion(idQuestion);
     }
 
     /**
@@ -66,7 +66,7 @@ public class AwnserController {
      */
     @GetMapping("/check/{id}")
     public Boolean checkAwnserById(@PathVariable Long id) {
-        return awnserService.checkAwnser(id);
+        return answerService.checkAwnser(id);
     }
 
     /**
@@ -77,6 +77,6 @@ public class AwnserController {
      */
     @PostMapping("/globalcheck/{idStudent}")
     public void checkGlobalAwnser(@PathVariable Long idStudent, @RequestBody List<Long> idList) {
-        awnserService.checkListAwnser(idList, idStudent);
+        answerService.checkListAwnser(idList, idStudent);
     }
 }

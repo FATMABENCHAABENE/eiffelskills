@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "awnsers")
-public class Awnsers {
+public class Answers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,9 +19,9 @@ public class Awnsers {
     @Column(name = "id_question")
     private Long idQuestion;
 
-    public Awnsers() {}
+    public Answers() {}
 
-    public Awnsers(String description, boolean isGood, Long idQuestion) {
+    public Answers(String description, boolean isGood, Long idQuestion) {
         this.description = description;
         this.isGood = isGood;
         this.idQuestion = idQuestion;

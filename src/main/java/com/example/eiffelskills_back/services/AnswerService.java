@@ -1,7 +1,7 @@
 package com.example.eiffelskills_back.services;
 
-import com.example.eiffelskills_back.DAO.AwnserDAO;
-import com.example.eiffelskills_back.models.Awnsers;
+import com.example.eiffelskills_back.DAO.AnswerDAO;
+import com.example.eiffelskills_back.models.Answers;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,34 +12,34 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AwnserService {
-    private final AwnserDAO awnserDAO;
+public class AnswerService {
+    private final AnswerDAO answerDAO;
     private final QuestionService questionService;
 
     @Transactional
-    public List<Awnsers> addByList(List<String> stringAwnsers, Long idQuestion) {
-        List<Awnsers> addedAwnsers = new ArrayList<>();
+    public List<Answers> addByList(List<String> stringAwnsers, Long idQuestion) {
+        List<Answers> addedAwnsers = new ArrayList<>();
         for (String stringAwnser : stringAwnsers) {
-            addedAwnsers.add(awnserDAO.save(new Awnsers(stringAwnser,false,idQuestion)));
+            addedAwnsers.add(answerDAO.save(new Answers(stringAwnser,false,idQuestion)));
         }
         return addedAwnsers;
     }
 
     @Transactional
     public void updateGoodAwnser(Long idAwnser) {
-        awnserDAO.updateGoodAwnser(idAwnser);
+        answerDAO.updateGoodAwnser(idAwnser);
     }
 
     @Transactional
-    public List<Awnsers> getAllAwnsers() {
-        return awnserDAO.findAll();
+    public List<Answers> getAllAwnsers() {
+        return answerDAO.findAll();
     }
 
     @Transactional
-    public List<Awnsers> getAwnsersByIdQuestion(Long idQuestion) {
-        List<Awnsers> allAwnsers = getAllAwnsers();
-        List<Awnsers> awnsers = new ArrayList<>();
-        for (Awnsers awnser : allAwnsers) {
+    public List<Answers> getAwnsersByIdQuestion(Long idQuestion) {
+        List<Answers> allAwnsers = getAllAwnsers();
+        List<Answers> awnsers = new ArrayList<>();
+        for (Answers awnser : allAwnsers) {
             if (awnser.getIdQuestion().equals(idQuestion)) {
                 awnsers.add(awnser);
             }
@@ -50,7 +50,7 @@ public class AwnserService {
 
     @Transactional
     public Boolean checkAwnser(Long idAwnser) {
-        Optional<Awnsers> awnsers = awnserDAO.findById(idAwnser);
+        Optional<Answers> awnsers = answerDAO.findById(idAwnser);
         return awnsers.get().isGood();
     }
 
@@ -58,7 +58,7 @@ public class AwnserService {
     public void checkListAwnser(List<Long> allIdAwnsers, Long idStudent) {
         for (Long id : allIdAwnsers) {
             if (id!=null) {
-                Awnsers awnser = awnserDAO.findById(id).get();
+                Answers awnser = answerDAO.findById(id).get();
                 questionService.updateResult(awnser.getIdQuestion(),idStudent,awnser.isGood());
             }
         }
