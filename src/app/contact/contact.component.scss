@@ -1,129 +1,97 @@
+/* 🌟 Contact Form Container */
 .contact-container {
-    position: relative;
-    height: calc(100vh - 80px);
-    font-family: arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #eae4d2, #9cc9c0);
-  }
-      
-  
-  
-  form {
-    background: rgba(255, 255, 255, .3);
-    padding: 3rem;
-    width: 80vh;
-    height: 75vh;
-    border-radius: 20px;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
-    align-items: center;
-    text-align: center; 
-  }
+  position: relative;
+  height: calc(100vh - 80px);
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #eae4d2, #9cc9c0);
+}
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-  
-  p {
-    color: black;
-    font-weight: 500;
-    opacity: .7;
-    font-size: 1.4rem;
-    margin-bottom: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-  }
-      
-  a{
-    text-decoration: none;
-    color: black;
-    font-size: 12px;
-  }
-    
-  a:hover {
-    text-shadow: 2px 2px 6px #00000040;
-  }
-    
-  a:active {
-    text-shadow: none;
-  }
-  
-  
-  .send{
-    background: transparent;
-    border: none;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    padding: 1rem;
-    width: 200px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-    color: black;
-    font-weight: 500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-    transition: all .3s;
-    margin-bottom: 2em;
-  }
-  
-  .send_majeure{
-      color: black;
-  }
-  
-  .send input {
-      width: 95%; /* Largeur de l'input */
-      height: 50%; /* Hauteur de l'input */
-      border: none; /* Supprime la bordure par défaut */
-      outline: none; /* Supprime le contour actif */
-      background-color: transparent; /* Fond transparent */
-      font-size: 100%; /* Taille du texte */
-      color: black;
-  }
-  
-  input {
-    background: transparent;
-    border: none;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    padding: 1rem;
-    width: 400px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-    color: black;
-    font-weight: 500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-    transition: all .3s;
-    margin-bottom: 2em;
-  }
-  
-  input:hover{
-    background: rgba(255,255,255,0.1);
-    box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-  }
-      
-  input[type="button"] {
-    margin-top: 10px;
-    width: 150px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  ::placeholder {
-    color: black;
-  }
+/* 🎯 Form Styling */
+form {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 3rem;
+  width: 70vh;  /* ✅ Adjusted width */
+  max-width: 500px; /* ✅ Prevents form from being too large */
+  height: auto; /* ✅ Allows form to expand with content */
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
-  
+/* 📥 Input Fields */
+input, textarea {
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  width: 100%;  /* ✅ Full width */
+  max-width: 400px; /* ✅ Prevents it from being too wide */
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  margin-bottom: 1.5em; /* ✅ Reduced margin for better spacing */
+}
+
+input:hover, textarea:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Improved Placeholder Styling */
+::placeholder {
+  color: black;
+  opacity: 0.7;
+}
+
+/* ✅ Submit Button */
+.btn-submit {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  width: 180px;  /* ✅ Larger button */
+  font-size: 16px; /* ✅ More readable */
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  background: rgba(22, 139, 117, 0.7);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ✅ Form Title */
+p {
+  color: black;
+  font-weight: 500;
+  opacity: 0.8;
+  font-size: 1.5rem;  /* ✅ Increased size */
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
