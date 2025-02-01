@@ -101,6 +101,8 @@ export class RepondrequizzComponent implements OnInit {
     this.service.envoyerProp(this.selectedAnswers, this.idStudent).subscribe(
       (response) => {
         console.log("Réponses envoyées avec succès", response);
+        alert("Vous venez de répondre au QCM");
+        this.router.navigate(['/modulestudent']);
       },
       (error) => {
         console.error("Erreur lors de l'envoi des réponses", error);
