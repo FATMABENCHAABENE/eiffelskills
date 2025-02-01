@@ -1,100 +1,133 @@
-/* 🎨 Conteneur principal */
+/* 🌟 Container Background */
 .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-}
-
-/* 🏆 Message de bienvenue */
-h1 {
-    color: #333;
-    font-size: 26px;
+    background: linear-gradient(135deg, #eae4d2, #9cc9c0); /* Subtle gradient background */
+    border-radius: 20px; /* Rounded corners to match the style */
+    padding: 30px; /* Internal spacing */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Add depth with a shadow */
+    margin: 20px auto; /* Center and add spacing around the container */
+    max-width: 1200px; /* Limit the container width */
+  }
+  
+  /* Title and Subtitle */
+  h1 {
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.subtitle {
+    color: #333;
+    text-align: center;
+  }
+  
+  .subtitle {
     font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* 📚 Titre de la liste des modules */
-h2 {
-    color: #007bff;
-    margin-bottom: 20px;
+    color: #555;
+    margin: 10px 0 30px 0;
+    text-align: center;
+  }
+  
+  /* 📚 Module List Section */
+  h2 {
     font-size: 22px;
-}
-
-/* 🗂️ Style des cartes de module */
-.module-card {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .module-card {
     background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
-}
-
-.module-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* 🏷️ En-tête du module */
-.module-header {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.module-header h3 {
-    margin: 5px 0;
-    color: #007bff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .module-card:hover {
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  }
+  
+  /* Module Header */
+  .module-header h3 {
     font-size: 20px;
-}
-
-.module-header p {
+    font-weight: bold;
+    color: #168b75; /* Accent green */
+  }
+  
+  .module-header p {
     font-size: 14px;
     color: #555;
-}
-
-/* 🔘 Groupe de boutons */
-.button-group {
-    margin-top: 10px;
+    margin: 5px 0 10px;
+  }
+  
+  /* Button Group */
+  .button-group {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
-}
-
-/* 🎨 Boutons stylisés */
-.btn {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+    margin-top: 15px;
+  }
+  
+  button {
+    padding: 10px 15px;
     font-size: 14px;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-}
-
-.btn-primary { background: #007bff; color: white; }
-.btn-secondary { background: #6c757d; color: white; }
-.btn-success { background: #28a745; color: white; }
-.btn-warning { background: #ffc107; color: black; }
-.btn-info { background: #17a2b8; color: white; }
-
-/* ⚠️ Message si aucun module */
-.no-data {
-    color: red;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+  }
+  
+  /* Button Colors */
+  .btn-primary {
+    background: #007bff;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+  
+  .btn-secondary {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background: #5a6268;
+  }
+  
+  .btn-success {
+    background: #28a745;
+    color: white;
+  }
+  
+  .btn-success:hover {
+    background: #218838;
+  }
+  
+  .btn-warning {
+    background: #ffc107;
+    color: black;
+  }
+  
+  .btn-warning:hover {
+    background: #e0a800;
+  }
+  
+  .btn-info {
+    background: #17a2b8;
+    color: white;
+  }
+  
+  .btn-info:hover {
+    background: #117a8b;
+  }
+  
+  /* No Modules Message */
+  .no-data {
     font-size: 16px;
     font-weight: bold;
-    margin-top: 20px;
-}
+    color: #ff4c4c; /* Red for emphasis */
+    text-align: center;
+  }
+  

@@ -1,37 +1,38 @@
 <div class="container">
-  <h1>👋 Bienvenue sur votre espace d'administration</h1>
-  <p class="subtitle">Gérez vos modules, créez des quiz et consultez les évaluations des étudiants.</p>
-
-  <h2>📚 Liste des Modules</h2>
-
-  <div *ngIf="modules && modules.length > 0; else noModules">
+    <h1>👋 Bienvenue sur votre espace d'administration</h1>
+    <p class="subtitle">Gérez vos modules, créez des quiz et consultez les évaluations des étudiants.</p>
+  
+    <h2>📚 Liste des Modules</h2>
+  
+    <div *ngIf="modules && modules.length > 0; else noModules">
       <div class="module-card" *ngFor="let module of modules">
-          <div class="module-header">
-              <h3>📖 {{ module.major }}</h3>
-              <p>{{ module.description }}</p>
-          </div>
-          <div class="button-group">
-              <button class="btn btn-primary" (click)="showstudenteval(module.id, module.major)">
-                  📊 Évaluations
-              </button>
-              <button class="btn btn-secondary" (click)="showquizz(module.description, module.id)">
-                  📝 Voir Quizz
-              </button>
-              <button class="btn btn-success" (click)="creerunquizz(module.description, module.id)">
-                  ➕ Créer Quizz
-              </button>
-              <button class="btn btn-warning" (click)="gotoskill(module.id)">
-                  🏅 Compétences
-              </button>
-              <button class="btn btn-info" (click)="gotoressource(module.id)">
-                  📂 Ressources
-              </button>
-          </div>
+        <div class="module-header">
+          <h3>📖 {{ module.major }}</h3>
+          <p>{{ module.description }}</p>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" (click)="showstudenteval(module.id, module.major)">
+            📊 Évaluations
+          </button>
+          <button class="btn btn-secondary" (click)="showquizz(module.description, module.id)">
+            📝 Voir Quizz
+          </button>
+          <button class="btn btn-success" (click)="creerunquizz(module.description, module.id)">
+            ➕ Créer Quizz
+          </button>
+          <button class="btn btn-warning" (click)="gotoskill(module.id)">
+            🏅 Compétences
+          </button>
+          <button class="btn btn-info" (click)="gotoressource(module.id)">
+            📂 Ressources
+          </button>
+        </div>
       </div>
-  </div>
-
-  <!-- Message si aucun module n'est disponible -->
-  <ng-template #noModules>
+    </div>
+  
+    <!-- Message if no modules are available -->
+    <ng-template #noModules>
       <p class="no-data">🚨 Aucun module disponible pour le moment.</p>
-  </ng-template>
-</div>
+    </ng-template>
+  </div>
+  
