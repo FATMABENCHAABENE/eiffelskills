@@ -1,23 +1,18 @@
-
 <div class="form-container">
 
   <div class="text-and-buttons">
-
     <p class="text_devise">Les compétences d’aujourd’hui,<br><br>les opportunités de demain.</p>
-    <p class="text text_Id">Recruteur - Entrez l'ID du candidat</p>
-  
+    <p class="text text_Id">🔍 Recruteur - Entrez l'ID du candidat</p>
+
     <!-- Zone de texte pour entrer l'ID du candidat -->
     <div class="rectangle rectangle1">
-      <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" />
+      <input type="number" [(ngModel)]="candidateId" placeholder="Entrez l'ID" class="input-field" />
     </div>
-  
-    <button class="button button_etudiant" (click)="selogin(1)" >Connexion Étudiant</button>
-    <button class="button button_professeur" (click)="selogin(2)" >Connexion Professeur</button>
-    <button class="button button_connexion" (click)="loadevalrecrut()">Envoyer</button>
 
-    
+    <button class="button button_etudiant" (click)="selogin(1)">🎓 Connexion Étudiant</button>
+    <button class="button button_professeur" (click)="selogin(2)">📚 Connexion Professeur</button>
+    <button class="button button_connexion" (click)="loadevalrecrut()">📩 Envoyer</button>
   </div>
-        
 
   <div class="image-container">
     <div class="logo">
@@ -29,17 +24,14 @@
 
   <!-- Bouton "?" en haut à droite -->
   <div class="help-container">
-    <button class="help-button" (click)="toggleHelpMenu()">?</button>
+    <button class="help-button" (click)="toggleHelpMenu()">❓</button>
     <ul class="help-menu" *ngIf="isHelpMenuVisible">
       <li class="help-menu-item">
-        <a routerLink="/contact" routerLinkActive="active" class="help-link">Contact</a>
+        <a routerLink="/contact" routerLinkActive="active" class="help-link">📞 Contact</a>
       </li>
       <li class="help-menu-item">
-        <a (click)="selogin(3)" class="help-link">Connexion Administrateur</a>
+        <a (click)="selogin(3)" class="help-link">🔐 Connexion Administrateur</a>
       </li>
     </ul>
   </div>
-  
-  
 </div>
-  
