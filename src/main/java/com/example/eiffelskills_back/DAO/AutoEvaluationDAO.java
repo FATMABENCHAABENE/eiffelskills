@@ -48,8 +48,12 @@ public interface AutoEvaluationDAO extends JpaRepository<AutoEvaluations, Long> 
     @Query(nativeQuery = true, value = "UPDATE autoevaluations SET quizz_eval=:quizzEval WHERE id_skill=:idSkill and id_student=:idStudent")
     public void updateQuizzEvalBySkillAndStudent(String quizzEval, Long idSkill, Long idStudent);
 
-    /*
+    /**
+     * Method findBySkillAndStudent
+     * @param idSkill Long ID of the skill we search the entry
+     * @param idStudent Long ID of the student we search the entry
+     * @return The AutoEvaluation entry in function of idSkill and isStudent
+     */
     @Query(nativeQuery = true, value = "SELECT * FROM autoevaluations WHERE id_skill=:idSkill and id_student=:idStudent")
     public Optional<AutoEvaluations> findBySkillAndStudent(Long idSkill, Long idStudent);
-    */
 }
