@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Class AutoEvaluations
+ * Class AutoEvaluations
  */
 @Entity
 @Getter

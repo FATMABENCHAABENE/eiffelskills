@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 /**
- * @Class Mcq
+ * Class Mcq
  */
 @Entity
 @Getter

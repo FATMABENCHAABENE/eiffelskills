@@ -4,6 +4,9 @@ import com.example.eiffelskills_back.models.Questions;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+/**
+ * Interface QuestionDAO
+ */
 public interface QuestionDAO extends JpaRepository<Questions, Long> {
 
 }

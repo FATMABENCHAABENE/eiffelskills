@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Class McqController
+ * Class McqController
  * MCQ are inserted by teacher and managed through this controller
  */
 @CrossOrigin

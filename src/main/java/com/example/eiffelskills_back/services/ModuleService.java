@@ -8,21 +8,38 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * Class ModuleService
+ */
 @Service
 @RequiredArgsConstructor
 public class ModuleService {
     private final ModuleDAO moduleDAO;
 
+    /**
+     * Method getAllModules
+     * @return All Modules entries
+     */
     @Transactional
     public List<Modules> getAllModules() {
         return moduleDAO.findAll();
     }
 
+    /**
+     * Method getModuleById
+     * @param id Long ID of the searched entry
+     * @return The Modules entry in function of the given ID
+     */
     @Transactional
     public Optional<Modules> getModuleById(Long id) {
         return moduleDAO.findById(id);
     }
 
+    /**
+     * Method getModulesByMajor
+     * @param major String Major we are searching all modules
+     * @return All Modules entries in function of the major
+     */
     @Transactional
     public List<Modules> getModulesByMajor(String major) {
         List<Modules> all = moduleDAO.findAll();
@@ -35,6 +52,11 @@ public class ModuleService {
         return modules;
     }
 
+    /**
+     * Method getModuleByIdTeacher
+     * @param teacherId ID of the teacher we are searching entries
+     * @return All Modules entries in function of the given idTeacher
+     */
     @Transactional
     public List<Modules> getModuleByIdTeacher(Long teacherId) {
         List<Modules> all = moduleDAO.findAll();
@@ -47,11 +69,22 @@ public class ModuleService {
         return modules;
     }
 
+    /**
+     * Method saveModule
+     * @param module Modules Object to save in entries
+     * Save the given object in Modules entries
+     */
     @Transactional
     public void saveModule(Modules module) {
         moduleDAO.save(module);
     }
 
+    /**
+     * Method updateModule
+     * @param module Object with attributes to change in entries
+     * @param id ID of the entry to change attributes
+     * Update Modules entry in function of the given ID with attributes of the given object
+     */
     @Transactional
     public void updateModule(Modules module, Long id) {
         if (moduleDAO.findById(id).isEmpty()) {
@@ -61,6 +94,11 @@ public class ModuleService {
         }
     }
 
+    /**
+     * Method deleteModuleById
+     * @param id Long ID of the entry to delete
+     * Delete the Modules entry in function of the given ID
+     */
     @Transactional
     public void deleteModuleById(Long id) {
         moduleDAO.deleteById(id);

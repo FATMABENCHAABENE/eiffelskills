@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @Class ResourceController
+ * Class ResourceController
  * Resources given by teachers are managed through this controller
  */
 @CrossOrigin

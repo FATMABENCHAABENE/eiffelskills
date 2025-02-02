@@ -10,12 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class AnswerService
+ * Make link betwwen controller and DAO
+ */
 @Service
 @RequiredArgsConstructor
 public class AnswerService {
     private final AnswerDAO answerDAO;
     private final QuestionService questionService;
 
+    /**
+     * Method addByList
+     * @param stringAwnsers List(String) List of Answer's description to add in entries
+     * @param idQuestion Long ID of question all answers are refered to
+     * @return All added Answers objects
+     */
     @Transactional
     public List<Answers> addByList(List<String> stringAwnsers, Long idQuestion) {
         List<Answers> addedAwnsers = new ArrayList<>();
@@ -25,19 +35,33 @@ public class AnswerService {
         return addedAwnsers;
     }
 
+    /**
+     * Method updateGoodAwnser
+     * @param idAwnser ID of the entry to make good
+     * Make the attribute isGood to true in function of the entry ID
+     */
     @Transactional
-    public void updateGoodAwnser(Long idAwnser) {
+    public void updateGoodAnswer(Long idAwnser) {
         answerDAO.updateGoodAwnser(idAwnser);
     }
 
+    /**
+     * Method getAllAwnsers
+     * @return All Answers entries
+     */
     @Transactional
-    public List<Answers> getAllAwnsers() {
+    public List<Answers> getAllAnswers() {
         return answerDAO.findAll();
     }
 
+    /**
+     * Method getAwnsersByIdQuestion
+     * @param idQuestion Long ID of the question we are searching all Answers entries
+     * @return All Answers entries in function of the idQuestion
+     */
     @Transactional
-    public List<Answers> getAwnsersByIdQuestion(Long idQuestion) {
-        List<Answers> allAwnsers = getAllAwnsers();
+    public List<Answers> getAnswersByIdQuestion(Long idQuestion) {
+        List<Answers> allAwnsers = getAllAnswers();
         List<Answers> awnsers = new ArrayList<>();
         for (Answers awnser : allAwnsers) {
             if (awnser.getIdQuestion().equals(idQuestion)) {
@@ -48,14 +72,25 @@ public class AnswerService {
         return awnsers;
     }
 
+    /**
+     * Method checkAnswer
+     * @param idAwnser ID of the entry to check if it's good
+     * @return True only if the Answerw entry's attribut isGood
+     */
     @Transactional
-    public Boolean checkAwnser(Long idAwnser) {
+    public Boolean checkAnswer(Long idAwnser) {
         Optional<Answers> awnsers = answerDAO.findById(idAwnser);
         return awnsers.get().isGood();
     }
 
+    /**
+     * Method checkListAnswer
+     * @param allIdAwnsers List(Long) ID of all entries to check
+     * @param idStudent Long ID of the student who answered question
+     * Use questionService to update evaluation in function of given answers
+     */
     @Transactional
-    public void checkListAwnser(List<Long> allIdAwnsers, Long idStudent) {
+    public void checkListAnswer(List<Long> allIdAwnsers, Long idStudent) {
         for (Long id : allIdAwnsers) {
             if (id!=null) {
                 Answers awnser = answerDAO.findById(id).get();

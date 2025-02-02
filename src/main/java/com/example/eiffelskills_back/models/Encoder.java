@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 /**
- * @Class Encoder
+ * Class Encoder
  * Used to encrypt user's password
  */
 public class Encoder {

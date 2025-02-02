@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @Class AwnserController
+ * Class AwnserController
  * Questions are inserted by teachers and managed through this controller. It is also used to check answers validity.
  */
 @CrossOrigin
@@ -36,7 +36,7 @@ public class AnswerController {
      */
     @PostMapping("/updateGood")
     public void updateGoodAnswer(@RequestBody Long id) {
-        answerService.updateGoodAwnser(id);
+        answerService.updateGoodAnswer(id);
     }
 
     /**
@@ -45,7 +45,7 @@ public class AnswerController {
      */
     @GetMapping("")
     public List<Answers> getAllAnswers() {
-        return answerService.getAllAwnsers();
+        return answerService.getAllAnswers();
     }
 
     /**
@@ -56,7 +56,7 @@ public class AnswerController {
     @GetMapping("/question/{idQuestion}")
     public List<Answers> getAnswerByIdQuestion(@PathVariable Long idQuestion) {
         System.out.println("je suis dans le back");
-        return answerService.getAwnsersByIdQuestion(idQuestion);
+        return answerService.getAnswersByIdQuestion(idQuestion);
     }
 
     /**
@@ -66,7 +66,7 @@ public class AnswerController {
      */
     @GetMapping("/check/{id}")
     public Boolean checkAnswerById(@PathVariable Long id) {
-        return answerService.checkAwnser(id);
+        return answerService.checkAnswer(id);
     }
 
     /**
@@ -77,6 +77,6 @@ public class AnswerController {
      */
     @PostMapping("/globalcheck/{idStudent}")
     public void checkGlobalAnswer(@PathVariable Long idStudent, @RequestBody List<Long> idList) {
-        answerService.checkListAwnser(idList, idStudent);
+        answerService.checkListAnswer(idList, idStudent);
     }
 }

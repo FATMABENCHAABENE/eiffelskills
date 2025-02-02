@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @Class Questions
+ * Class Questions
  */
 @Entity
 @Getter

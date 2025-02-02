@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Class RestExceptionHandler
+ * Class RestExceptionHandler
  * Manage API exceptions
  */
 @ControllerAdvice

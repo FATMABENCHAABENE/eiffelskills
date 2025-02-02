@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.util.List;
 
 /**
- * @Class UserController
+ * Class UserController
  * All the user management is made with this Controller
  */
 @CrossOrigin

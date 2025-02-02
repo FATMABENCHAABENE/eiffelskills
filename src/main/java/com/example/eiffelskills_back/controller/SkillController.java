@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Class SkillController
+ * Class SkillController
  * Skill are managed trough this controller.
  */
 @CrossOrigin

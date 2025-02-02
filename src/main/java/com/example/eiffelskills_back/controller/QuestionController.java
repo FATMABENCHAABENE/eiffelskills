@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Class QuestionController
+ * Class QuestionController
  * All question are inserted by teacher and managed through this controller
  */
 @RestController

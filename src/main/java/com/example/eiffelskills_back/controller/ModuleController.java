@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Class ModuleController
+ * Class ModuleController
  * Modules are inserted by the admin and managed through this controller
  */
 @CrossOrigin

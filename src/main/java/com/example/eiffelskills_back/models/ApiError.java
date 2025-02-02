@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Class ApiError
+ * Class ApiError
  */
 @Getter
 @Setter

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 /**
- * @Class ContactMessage
+ * Class ContactMessage
  */
 @Entity
 @Getter
