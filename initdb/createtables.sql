@@ -64,10 +64,10 @@ create table
                                    (
                                        eval = any (
                                            array[
-                                               'acquired'::text,
-                                               'acquiring'::text,
-                                               'no acquired'::text,
-                                               'no evaluated'::text
+                                               'acquis'::text,
+                                               'en cours d acquisition'::text,
+                                               'non acquis'::text,
+                                               'non évalué'::text
                                                ]
                                            )
                                        )
@@ -76,10 +76,10 @@ create table
                                    (
                                        eval = any (
                                            array[
-                                               'no evaluated'::text,
-                                               'no acquired'::text,
-                                               'acquiring'::text,
-                                               'acquired'::text
+                                               'acquis'::text,
+                                               'en cours d acquisition'::text,
+                                               'non acquis'::text,
+                                               'non évalué'::text
                                                ]
                                            )
                                        )

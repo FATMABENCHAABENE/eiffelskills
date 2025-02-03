@@ -105,10 +105,10 @@ public class AutoEvaluationService {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
                 switch (autoEvaluation.getQuizzEval()) {
-                    case("acquired"): newEval = "acquiring"; break;
-                    case("acquiring"): newEval = "no acquired"; break;
-                    case("no acquired"): newEval = "no acquired"; break;
-                    default: newEval = "no acquired"; break;
+                    case("acquis"): newEval = "en cours d acquisition"; break;
+                    case("en cours d acquisition"): newEval = "non acquis"; break;
+                    case("non acquis"): newEval = "non acquis"; break;
+                    default: newEval = "non acquis"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
                 this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
@@ -132,10 +132,10 @@ public class AutoEvaluationService {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
                 switch (autoEvaluation.getQuizzEval()) {
-                    case("acquired"): newEval = "acquired"; break;
-                    case("acquiring"): newEval = "acquired"; break;
-                    case("no acquired"): newEval = "acquiring"; break;
-                    default: newEval = "acquired"; break;
+                    case("acquis"): newEval = "acquis"; break;
+                    case("en cours d acquisition"): newEval = "acquis"; break;
+                    case("non acquis"): newEval = "en cours d acquisition"; break;
+                    default: newEval = "acquis"; break;
                 }
                 autoEvaluation.setQuizzEval(newEval);
                 this.updateQuizzBySkillAndStudent(studentId, skillId, autoEvaluation);
@@ -246,10 +246,10 @@ public class AutoEvaluationService {
         List<Float> allScores = new ArrayList<>();
         for (AutoEvaluations autoEvaluation : autoEvaluations) {
             switch (autoEvaluation.getQuizzEval()) {
-                case ("acquired"): allScores.add(20F); break;
-                case ("acquiring"): allScores.add(10F); break;
-                case ("no acquired"): allScores.add(1F); break;
-                case ("no evaluated"): allScores.add(0F); break;
+                case ("acquis"): allScores.add(20F); break;
+                case ("en cours d acquisition"): allScores.add(10F); break;
+                case ("non acquis"): allScores.add(1F); break;
+                case ("non évalué"): allScores.add(0F); break;
             }
         }
         Float score = 0F;
