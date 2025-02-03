@@ -54,7 +54,7 @@ export class AutoevalComponent implements OnInit{
       idSkill: this.id_skill, 
       idStudent: this.id,
       eval: value_skill,
-      quizzEval: "no evaluated",
+      quizzEval: "non évalué",
     };  
     console.log("Évaluation créée :", evaluation);
 

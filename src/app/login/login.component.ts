@@ -57,12 +57,14 @@ export class LoginComponent implements OnInit {
           alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
             'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("SIC");
+          this.service.setRole('student');
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         } else if(this.responseMessage.role == "student_BDA"){
           alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
             'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("BDA");
+          this.service.setRole('student');
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         }else if(this.responseMessage.role == "student_SE")
@@ -70,16 +72,19 @@ export class LoginComponent implements OnInit {
           alert('En continuant la navigation, vous consentez à ce que vos résultat de quizz ainsi que votre mail soit visibles par des recruteurs.\n'+
             'Dans le cas contraire, nous vous invitons à envoyer un message dans la section contact pour demander la suppression de votre compte.');
           this.service.setMajor("SE");
+          this.service.setRole('student');
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/modulestudent']);
         }else if(this.responseMessage.role == "teacher")
         {
           console.log("je suis un professeur");
           alert('En continuant la navigation, vous consentez à ce que les quizzes, compétences et ressources que vous créez soit utilisez par les étudiants');
+          this.service.setRole('teacher');
           this.service.setId(this.responseMessage.id);
           this.router.navigate(['/moduleteacher']);
         }else if(this.responseMessage.role == "admin") {
           console.log("je suis admin");
+          this.service.setRole('admin');
           this.service.setId(this.responseMessage.id)
           this.router.navigate(['/moduleadmin'])
         }

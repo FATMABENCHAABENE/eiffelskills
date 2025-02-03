@@ -15,7 +15,8 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Resource } from 'mo
   private major: string = '';
   private module: number = 0; 
   private idMcQ: number = 0;
-  private idquestion: number = 0;   
+  private idquestion: number = 0;
+  private role: string = '';   
 
   constructor(private http: HttpClient) { }
 
@@ -33,6 +34,14 @@ import { Eval, Modules, Qcm, Question, Users, Contact, Comp, Resource } from 'mo
 
   getMajor(): string {
     return this.major; 
+  }
+
+  setRole(role: string) {
+    this.role = role;
+  }
+
+  getRole(): string {
+    return this.role;
   }
 
   setId(value : number): void {
