@@ -1,5 +1,6 @@
 /* Styles généraux */
 body {
+  
     font-family: Arial, sans-serif;
     background: linear-gradient(45deg, #eae4d2, #9cc9c0);
     margin: 0;
@@ -13,6 +14,7 @@ body {
   
   /* Conteneur principal */
   .container {
+    display: flex;
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -21,6 +23,9 @@ body {
     width: 100%;
     position: relative;
     z-index: 10;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #168b75 #f0f0f0; /* Subtle green scrollbar */
   }
   
   /* Label principal */
