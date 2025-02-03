@@ -62,6 +62,18 @@ INSERT INTO public.modules (description, major, id_teacher) VALUES ('Bases de la
     -- Skills
 INSERT INTO public.skills (description, id_module) VALUES ('Les fonctions de Fusion 360', 5);
 INSERT INTO public.skills (description, id_module) VALUES ('Bases de Fusion 360', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Principe de la modélisation paramétrique', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Compréhension des solides et des surfaces', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Contraintes géométriques', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Contraintes dimensionnelles', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Méthodes de création d''esquisses.', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Extrusion, révolution, balayage, loft', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Fonction de symétrie et miroir', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Normes de dessins techniques', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Préparation des fichiers pour l''impression 3D', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Formats d''exportation', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Utilisation de l''interface de Fusion 360', 5);
+INSERT INTO public.skills (description, id_module) VALUES ('Gestion de timelines', 5);
 
 INSERT INTO public.skills (description, id_module) VALUES ('Fondements de la modélisation 3D', 6);
 INSERT INTO public.skills (description, id_module) VALUES ('Usages de la modélisation 3D', 6);

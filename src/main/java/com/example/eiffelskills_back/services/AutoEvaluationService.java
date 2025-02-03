@@ -100,7 +100,7 @@ public class AutoEvaluationService {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
         //System.out.println("Current Eval : "+all);
         if (all.isEmpty()) {
-            this.save(new AutoEvaluations(skillId,studentId,"no evaluated","no acquired"));
+            this.save(new AutoEvaluations(skillId,studentId,"non évalué","non acquis"));
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
@@ -127,7 +127,7 @@ public class AutoEvaluationService {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
         //System.out.println("Current Eval : "+all.get(0).getQuizzEval());
         if (all.isEmpty()) {
-            this.save(new AutoEvaluations(skillId,studentId,"no evaluated","acquired"));
+            this.save(new AutoEvaluations(skillId,studentId,"non évalué","acquis"));
         } else {
             for (AutoEvaluations autoEvaluation : all) {
                 String newEval = "";
