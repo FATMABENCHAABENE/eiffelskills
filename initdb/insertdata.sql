@@ -4,6 +4,8 @@ insert into public.users(name,mail,password,role) values('admin','admin@es.fr','
 insert into public.users(name,surname,mail,password,role) values('Elliot','Handersen','ehandersen@es.fr','studentsic','student_SIC');
 insert into public.users(name, surname, mail, password, role) VALUES ('Aelita','Stones','astones@es.fr','studentbda','student_BDA');
 insert into public.users (name, surname, mail, password, role) values ('Henry','Case','hcase@es.fr','studentse','student_SE');
+insert into public.users(name, surname, mail, password, role) VALUES ('Ulrich', 'Stern', 'ustern@es.fr', 'studentse', 'student_SE');
+insert into public.users(name, surname, mail, password, role) VALUES ('Odd', 'Delarobia', 'odelarobia@es.fr', 'studentse', 'student_SE');
 -- insert teacher users
 insert into public.users(name,surname,mail,password,role) values('Remy','Muller','rmuller@es.fr','teachersic','teacher');
 insert into public.users(name,surname,mail,password,role) values ('Franz','Hopper','fhopper@es.fr','teacherbda','teacher');
@@ -57,8 +59,8 @@ insert into public.resources(content, id_module, name) VALUES ('nmap.org',1,'Sit
     -- User
 insert into public.users(name, surname, mail, password, role) values ('Antoine','The Finn','athefinn@es.fr','teacherse','teacher');
     -- Modules
-insert into public.modules(description, major, id_teacher) VALUES ('Modélisation 3D & Fusion 360', 'SE',8);
-INSERT INTO public.modules (description, major, id_teacher) VALUES ('Bases de la modélisation 3D', 'SE', 8);
+insert into public.modules(description, major, id_teacher) VALUES ('Modélisation 3D & Fusion 360', 'SE',10);
+INSERT INTO public.modules (description, major, id_teacher) VALUES ('Bases de la modélisation 3D', 'SE', 10);
     -- Skills
 INSERT INTO public.skills (description, id_module) VALUES ('Les fonctions de Fusion 360', 5);
 INSERT INTO public.skills (description, id_module) VALUES ('Bases de Fusion 360', 5);
