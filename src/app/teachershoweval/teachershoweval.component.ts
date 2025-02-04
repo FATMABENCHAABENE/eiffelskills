@@ -54,15 +54,17 @@ export class TeachershowevalComponent implements OnInit {
       const target = event.target as HTMLSelectElement;
       if (target) {
         const selectedSkill = Number(target.value);
-    
+        this.idSkill=[];
+        this.idSkill.push(selectedSkill);
         // Vérifier si la compétence est déjà dans la liste
-        if (!this.idSkill.includes(selectedSkill)) {
+        /*if (!this.idSkill.includes(selectedSkill)) {
           // Ajouter la compétence au tableau si elle n'y est pas encore
+          this.idSkill=[];
           this.idSkill.push(selectedSkill);
         } else {
           // Sinon, retirer la compétence du tableau
           this.idSkill = this.idSkill.filter(skill => skill !== selectedSkill);
-        }
+        }*/
       } else {
         console.error('Impossible de récupérer la sélection.');
       }
@@ -90,6 +92,7 @@ export class TeachershowevalComponent implements OnInit {
     this.service.postid(idStudent, this.idSkill).subscribe(
       (res: Eval[]) => { 
         console.log('Réponse reçue du serveur :', res);
+        this.res=[];
         this.res.push(...res); 
       },
       (error: any) => {
