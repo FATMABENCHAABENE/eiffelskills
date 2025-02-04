@@ -35,4 +35,22 @@ export class NavbarComponent {
         break;
     }
   }
+
+  redirectaccueil() {
+    switch (this.service.getRole()) {
+      case "student":
+        this.router.navigate(['/']);
+        break;
+      case "teacher":
+        this.router.navigate(['/']);
+        break;
+      case "admin":
+        this.router.navigate(['/']);
+        break;
+      default:
+        this.router.navigate(['/'])
+        break;
+    }
+  }
 }
+

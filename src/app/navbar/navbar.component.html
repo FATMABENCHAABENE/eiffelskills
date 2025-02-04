@@ -1,4 +1,3 @@
-
 <nav *ngIf="showNavbar">
   <div>
     <img src="assets/logo.png" routerLink="" />
@@ -9,7 +8,9 @@
       <a mat-list-item routerLink="/contact" routerLinkActive="active">
         <span>Contact</span>
       </a>
-      
+      <a mat-list-item (click)="redirectaccueil()" routerLinkActive="active">
+        <span>Se Déconnecter</span>
+      </a>
     </mat-nav-list>
   </div>
 </nav>

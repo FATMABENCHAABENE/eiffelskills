@@ -64,8 +64,8 @@
     color: black; /* Texte noir */
     position: absolute; /* Permet de positionner librement */
     transform: translate(-50%, -50%); /* Déplace l'élément pour que son centre soit exactement à 50% de la page */
-    font-family: 'Montserrat', sans-serif; /* Choisissez ici la police que vous souhaitez */
-    font-size: 16px; /* Taille de police par défaut */
+    font-family: 'Open Sans'; /* Choisissez ici la police que vous souhaitez */
+    font-size: 20px; /* Taille de police par défaut */
     text-align: center; /* Centre le texte horizontalement */
     text-decoration: none; /* Supprime la décoration par défaut */
     display: inline-block; /* Permet de rendre le bouton un élément en ligne */
@@ -114,6 +114,7 @@
 /* Style pour le texte */
 .text {
     position: absolute; 
+    font-family: 'Open Sans'; /* Choisissez ici la police que vous souhaitez */
     font-size: 24px;
     color: #168b75;
     font-weight: bold;

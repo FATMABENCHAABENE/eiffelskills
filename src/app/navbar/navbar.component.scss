@@ -28,7 +28,7 @@ mat-nav-list {
   display: flex;
   flex-direction: row;
   overflow: visible;
-  width: 300px;
+  width: 600px;
   gap: 20px; 
   border-radius: 50px; 
 
@@ -40,6 +40,7 @@ mat-nav-list {
     transition: 0.5s;
     white-space: nowrap; 
     border-radius: 50px; 
+  
 
     &:hover {
       background-color: #9cc9c0;
@@ -54,6 +55,8 @@ mat-nav-list {
     }
   }
 }
+
+
 
 
 
