@@ -37,7 +37,8 @@ export class NavbarComponent {
   }
 
   redirectaccueil() {
-    switch (this.service.getRole()) {
+    this.router.navigate(['/']);
+    /*switch (this.service.getRole()) {
       case "student":
         this.router.navigate(['/']);
         break;
@@ -50,7 +51,7 @@ export class NavbarComponent {
       default:
         this.router.navigate(['/'])
         break;
-    }
+    }*/
   }
 }
 
