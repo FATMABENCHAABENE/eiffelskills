@@ -79,6 +79,9 @@ INSERT INTO public.skills (description, id_module) VALUES ('Gestion de timelines
 
 INSERT INTO public.skills (description, id_module) VALUES ('Fondements de la modélisation 3D', 6);
 INSERT INTO public.skills (description, id_module) VALUES ('Usages de la modélisation 3D', 6);
+
+    -- AutoEval
+insert into public.autoevaluations(id_skill, id_student, eval) VALUES (19, 4, 'non acquis');
     -- MCQ
 INSERT INTO public.mcq (description, id_module) VALUES ('Modélisation 3D & Fusion 360', 5);
 
