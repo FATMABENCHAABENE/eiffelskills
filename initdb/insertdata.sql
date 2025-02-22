@@ -240,7 +240,3 @@ INSERT INTO public.awnsers (description, is_good, id_question) VALUES ('Elle est
 INSERT INTO public.awnsers (description, is_good, id_question) VALUES ('Elle ne nécessite aucune compétence en modélisation 3D', false, 33);
 INSERT INTO public.awnsers (description, is_good, id_question) VALUES ('Elle ne peut être utilisée que pour des objets en plastique', false, 33);
 INSERT INTO public.awnsers (description, is_good, id_question) VALUES ('Elle permet de créer des objets complexes avec moins de matière', true, 33);
-
--- insert eval
---insert into public.autoevaluations(id_skill, id_student, eval) VALUES (1,2,'acquiring');
---insert into public.autoevaluations(id_skill, id_student, eval) VALUES (2,2,'acquired');

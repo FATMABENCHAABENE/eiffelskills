@@ -18,11 +18,6 @@ public class UserService {
     private final UserDao userDao;
     private Encoder encoder = new Encoder();
 
-    /*
-    public void displayAllUsers() {
-        userDao.findAll().forEach(user -> System.out.println(user));
-    }*/
-
     /**
      * Method checkUser
      * @param user User Object we want to check if exists in the database

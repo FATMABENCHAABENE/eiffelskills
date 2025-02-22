@@ -12,14 +12,6 @@ import java.util.List;
  * Interface UserDao
  */
 public interface UserDao extends JpaRepository<User, Long> {
-    /*
-    @Query(nativeQuery = true, value = "SELECT * FROM users WHERE mail=?1 and password=?2 and role=:role")
-    User findByEmailAndPassword(String mail, String password, String role);
-
-    @Query(nativeQuery = true, value = "SELECT * FROM users WHERE mail=?1")
-    User findByMail(String mail);
-    */
-
     /**
      * Method updateUser
      * @param name String New name for the entry

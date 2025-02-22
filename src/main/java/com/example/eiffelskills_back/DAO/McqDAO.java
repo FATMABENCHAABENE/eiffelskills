@@ -9,12 +9,6 @@ import org.springframework.data.jpa.repository.Query;
  * Interface McqDAO
  */
 public interface McqDAO extends JpaRepository<Mcq, Long> {
-    /*
-    @Modifying
-    @Query(nativeQuery = true, value = "UPDATE mcq SET description=:description where id_module=:idModule")
-    public Mcq updateByIdModule(String description, Long idModule);
-    */
-
     /**
      * Method deleteByIdModule
      * @param idModule Long ID of the module we want to delete entry

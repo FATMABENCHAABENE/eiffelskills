@@ -98,7 +98,6 @@ public class AutoEvaluationService {
     @Transactional
     public void downGradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
-        //System.out.println("Current Eval : "+all);
         if (all.isEmpty()) {
             this.save(new AutoEvaluations(skillId,studentId,"non évalué","non acquis"));
         } else {
@@ -125,7 +124,6 @@ public class AutoEvaluationService {
     @Transactional
     public void upgradeAutoEval(Long studentId, Long skillId) {
         List<AutoEvaluations> all = this.getAutoEvalByStudentAndSkills(studentId, skillId);
-        //System.out.println("Current Eval : "+all.get(0).getQuizzEval());
         if (all.isEmpty()) {
             this.save(new AutoEvaluations(skillId,studentId,"non évalué","acquis"));
         } else {
@@ -190,7 +188,6 @@ public class AutoEvaluationService {
             System.out.println("add : "+autoEvaluations.toString());
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
             autoEvaluationDAO.updateAutoEvalBySkillAndStudent(autoEvaluations.getEval(), idSkill,idStudent);
         }
     }
@@ -207,7 +204,6 @@ public class AutoEvaluationService {
         if (autoEvaluationDAO.findBySkillAndStudent(idSkill,idStudent).isEmpty()) {
             autoEvaluationDAO.save(autoEvaluations);
         } else {
-            //System.out.println("Updated auto eval :\n"+autoEvaluations.getIdSkill()+" "+autoEvaluations.getIdStudent()+" "+autoEvaluations.getEval());
             autoEvaluationDAO.updateQuizzEvalBySkillAndStudent(autoEvaluations.getQuizzEval(), idSkill,idStudent);
         }
     }
@@ -237,12 +233,10 @@ public class AutoEvaluationService {
      */
     @Transactional
     public Float makeScore(Long studentId, List<Long> skillIds) {
-        //System.out.println("Skills : "+skillIds+"\n studentId : "+studentId);
         List<AutoEvaluations> autoEvaluations = new ArrayList<>();
         for (Long skillId : skillIds) {
             autoEvaluations.addAll(this.getAutoEvalByStudentAndSkills(studentId, skillId));
         }
-        //System.out.println("All eval : "+autoEvaluations);
         List<Float> allScores = new ArrayList<>();
         for (AutoEvaluations autoEvaluation : autoEvaluations) {
             switch (autoEvaluation.getQuizzEval()) {
@@ -256,7 +250,6 @@ public class AutoEvaluationService {
         for (Float allScore : allScores) {
             score += allScore;
         }
-        //System.out.println("scores = "+allScores);
         return score/allScores.size();
     }
 }

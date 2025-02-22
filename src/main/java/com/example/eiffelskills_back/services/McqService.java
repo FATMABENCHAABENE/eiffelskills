@@ -67,16 +67,6 @@ public class McqService {
         return mcqs;
     }
 
-    /*
-    @Transactional
-    public Mcq updateMcqByIdModule(Mcq mcq) {
-        if (this.getMcqByIdModule(mcq.getIdModule()).isEmpty()) {
-            return saveMcq(mcq);
-        } else {
-            return mcqDAO.updateByIdModule(mcq.getDescription(),mcq.getIdModule());
-        }
-    }*/
-
     /**
      * Method deleteMcqById
      * @param id Long ID of the entry to delete
