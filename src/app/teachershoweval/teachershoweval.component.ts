@@ -56,15 +56,6 @@ export class TeachershowevalComponent implements OnInit {
         const selectedSkill = Number(target.value);
         this.idSkill=[];
         this.idSkill.push(selectedSkill);
-        // Vérifier si la compétence est déjà dans la liste
-        /*if (!this.idSkill.includes(selectedSkill)) {
-          // Ajouter la compétence au tableau si elle n'y est pas encore
-          this.idSkill=[];
-          this.idSkill.push(selectedSkill);
-        } else {
-          // Sinon, retirer la compétence du tableau
-          this.idSkill = this.idSkill.filter(skill => skill !== selectedSkill);
-        }*/
       } else {
         console.error('Impossible de récupérer la sélection.');
       }

@@ -87,10 +87,6 @@ export class RepondrequizzComponent implements OnInit {
   onAnswerSelected(questionId: number, answerId: number) {
     // Vérifie si la réponse a déjà été sélectionnée pour cette question
     const existingAnswerIndex = this.selectedAnswers.indexOf(answerId);
-    /*if (existingAnswerIndex === -1) {
-      // Ajoute l'ID de la réponse à la liste si elle n'est pas déjà sélectionnée
-      this.selectedAnswers.push(answerId);
-    }*/
    this.selectedAnswers[questionId]=answerId;
     console.log("Réponses sélectionnées :", this.selectedAnswers);
   }

@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
       role: this.role,
       major: ''
     };
-    
-    //console.log('Utilisateur connecté:', user);
 
     this.service.login(user).subscribe(
       (data: any) => {
